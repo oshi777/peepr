@@ -149,6 +149,7 @@
             cursor: pointer;
             border: none;
             font-family: 'Inter', sans-serif;
+            white-space: nowrap;
         }
 
         .btn-primary {
@@ -868,6 +869,14 @@
             .hero-cta {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 14px 20px;
+                font-size: 1rem;
             }
             
             .feature-card {
@@ -904,6 +913,79 @@
                 height: 50px;
                 font-size: 1.5rem;
             }
+            
+            /* Mobile navigation buttons */
+            .nav-buttons .btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            /* Logo adjustments */
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 480px) {
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .nav-buttons .btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                line-height: 1.1;
+            }
+            
+            .subheading {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-cta .btn {
+                padding: 12px 16px;
+                font-size: 0.95rem;
+            }
+            
+            .mascot-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .treasure-chest {
+                width: 140px;
+                height: 105px;
+            }
+            
+            .treasure-item {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .treasure-items {
+                width: 200px;
+                gap: 10px;
+            }
+            
+            .bounty-card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -923,7 +1005,7 @@
                 </div>
                 <div class="nav-buttons">
                     <a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" class="btn btn-primary" target="_blank">Invite Bot</a>
-                    <a href="https://discord.gg/XDhcM4dgnY" class="btn btn-secondary" target="_blank">Support Server</a>
+                    <a href="https://discord.gg/XDhcM4dgnY" class="btn btn-secondary" target="_blank">Support</a>
                 </div>
             </nav>
         </div>
@@ -1176,7 +1258,6 @@
                     <ul class="footer-links">
                         <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
                         <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
-                        <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
                         <li><a href="#premium"><i class="fas fa-crown"></i> Premium</a></li>
                     </ul>
                 </div>
