@@ -1621,15 +1621,8 @@
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
                     
-                    // Exclude specific links from smooth scrolling to allow default anchor behavior
-                    if (targetId === '#privacy-policy' || targetId === '#terms-of-service') {
-                        // Let the browser handle the jump, which respects scroll-margin-top
-                        return;
-                    }
-                    
-                    // For all other hash links, we handle the scroll
+                    // For all hash links, we handle the scroll to make it smooth
                     e.preventDefault();
-                    
                     const targetElement = document.querySelector(targetId);
                     
                     // If target doesn't exist or is just '#', scroll to top
