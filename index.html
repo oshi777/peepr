@@ -371,6 +371,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 25px;
+            align-content: start;
         }
         
         .command-card {
@@ -1404,14 +1405,16 @@
                 delay: 0.3
             });
             
-            // Command section animation
-            gsap.from('.commands-section', {
-                duration: 1,
-                y: 50,
+            // Command section animation - Animate elements individually to prevent grid rendering glitches.
+            gsap.from('.commands-section .section-title, .commands-section .container > p, .commands-section .tabs, .command-card', {
+                duration: 0.8,
+                y: 40,
                 opacity: 0,
+                stagger: 0.05,
                 scrollTrigger: {
                     trigger: '.commands-section',
-                    start: 'top 80%'
+                    start: 'top 80%',
+                    once: true // Ensures animation runs only once
                 }
             });
             
@@ -1506,13 +1509,8 @@
             const economyContainer = document.getElementById('economy-commands');
             const gamesContainer = document.getElementById('games-commands');
             
-            economyCommands.forEach(cmd => {
-                economyContainer.innerHTML += createCommandCard(cmd);
-            });
-            
-            gameCommands.forEach(cmd => {
-                gamesContainer.innerHTML += createCommandCard(cmd);
-            });
+            economyContainer.innerHTML = economyCommands.map(createCommandCard).join('');
+            gamesContainer.innerHTML = gameCommands.map(createCommandCard).join('');
         }
 
         // Tab functionality
