@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Peeper Bot</title>
+    <meta name="description" content="Terms of Service for Peeper, the ultimate Discord economy and gaming bot.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Basic Styles & Variables from index.html */
+        :root {
+            --header-offset: 100px;
+            --base-dark: #18230F;
+            --secondary-dark: #27391C;
+            --forest-green: #255F38;
+            --emerald-green: #1F7D53;
+            --light-green: #2ecc71;
+            --text-light: #F0F7F4;
+            --text-gray: #A3B18A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--base-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(31, 125, 83, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 85% 30%, rgba(37, 95, 56, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            background: rgba(24, 35, 15, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--emerald-green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Replaced with mascot image */
+            background-image: url('https://i.imgur.com/kZ1bCYe.png');
+            background-size: cover;
+            background-position: center;
+            text-indent: -9999px; /* Hide any text content */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--emerald-green);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--emerald-green);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--emerald-green);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Legal Section Styles */
+        .legal-section {
+            padding: 120px 0 80px; /* More top padding to account for fixed header */
+        }
+        
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .legal-container h2 {
+            color: var(--emerald-green);
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        .legal-container h3 {
+            color: var(--light-green);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .legal-container p, .legal-container li {
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+        
+        .legal-container ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--secondary-dark);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            min-width: 250px;
+            flex: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--emerald-green);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--emerald-green);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .legal-container { padding: 25px; }
+            .footer-grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Peeper</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html#commands">Commands</a>
+                    <a href="index.html#premium">Premium</a>
+                    <a href="index.html#bug-bounty">Bug Bounty</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div class="nav-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" class="btn btn-primary" target="_blank">Invite Bot</a>
+                    <a href="https://discord.gg/XDhcM4dgnY" class="btn btn-secondary" target="_blank">Support</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Legal Section -->
+    <main class="legal-section">
+        <div class="container">
+            <div class="legal-container">
+                <h2>Terms of Service</h2>
+                <p>By using Peeper Bot, you agree to comply with these Terms of Service.</p>
+                
+                <h3>Acceptable Use</h3>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Use the bot for illegal activities</li>
+                    <li>Exploit bugs or vulnerabilities for personal gain</li>
+                    <li>Attempt to disrupt or overload our services</li>
+                    <li>Use the bot to harass other users</li>
+                    <li>Create multiple accounts to abuse economy systems</li>
+                </ul>
+                
+                <h3>User Responsibilities</h3>
+                <p>You are responsible for:</p>
+                <ul>
+                    <li>Your use of the bot and its commands</li>
+                    <li>Compliance with Discord's Terms of Service</li>
+                    <li>Any consequences resulting from violation of these terms</li>
+                </ul>
+                
+                <h3>Service Availability</h3>
+                <p>We strive to maintain 24/7 availability but do not guarantee uninterrupted service. We may perform maintenance or updates without prior notice.</p>
+                
+                <h3>Termination</h3>
+                <p>We reserve the right to terminate access to Peeper Bot for users who violate these terms, at our sole discretion.</p>
+                
+                <h3>Changes to Terms</h3>
+                <p>We may update these Terms of Service periodically. Continued use of Peeper Bot constitutes acceptance of any changes.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Peeper Bot</h3>
+                    <p>The ultimate economy and gaming Discord bot. Build your empire, play games, and dominate the leaderboards.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
+                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
+                        <li><a href="index.html#commands"><i class="fas fa-terminal"></i> Commands</a></li>
+                        <li><a href="index.html#premium"><i class="fas fa-crown"></i> Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Developer Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:aihamaliibrahim989@gmail.com"><i class="fas fa-envelope"></i> aihamaliibrahim989@gmail.com</a></li>
+                        <li><a href="#" onclick="copyToClipboard('aiham.exe', event)"><i class="fab fa-discord"></i> <span>aiham.exe</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Peeper Bot. All rights reserved. Not affiliated with Discord Inc.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to copy text to clipboard with feedback
+        function copyToClipboard(textToCopy, event) {
+            if (event) {
+                event.preventDefault(); // Prevent default link behavior
+            }
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                let clickedElement = event ? event.currentTarget : null;
+                let textElement = clickedElement ? clickedElement.querySelector('span') || clickedElement : null;
+
+                if (textElement) {
+                    const originalText = textElement.textContent;
+                    textElement.textContent = 'Copied!';
+                    setTimeout(() => { textElement.textContent = originalText; }, 1500);
+                } else { alert('Copied: ' + textToCopy); }
+            }).catch(err => { console.error('Failed to copy: ', err); alert('Failed to copy. Please copy manually: ' + textToCopy); });
+        }
+    </script>
+</body>
+</html>
