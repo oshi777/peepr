@@ -789,6 +789,8 @@
         .legal-section {
             padding: 80px 0;
             background: var(--base-dark);
+            /* Fixed: Add scroll margin to account for fixed header */
+            scroll-margin-top: 100px;
         }
         
         .legal-container {
@@ -811,6 +813,8 @@
             color: var(--light-green);
             margin: 25px 0 15px;
             font-size: 1.5rem;
+            /* Fixed: Add scroll margin for h3 elements */
+            scroll-margin-top: 100px;
         }
         
         .legal-section p {
@@ -1605,6 +1609,31 @@
             });
         }
 
+        // Enhanced smooth scrolling for anchor links
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Get the header height
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        
+                        // Calculate the target position with offset
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', () => {
             createCoins();
@@ -1612,19 +1641,10 @@
             initAnimations();
             renderCommands();
             setupTabs();
+            setupSmoothScrolling();
             
             // Add scroll event for header
             window.addEventListener('scroll', handleHeaderScroll);
-            
-            // Add smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
             
             // Auto-open treasure chest after 3 seconds
             setTimeout(() => {
