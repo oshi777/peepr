@@ -328,6 +328,100 @@
             }
         }
 
+        /* Commands Section */
+        .commands-section {
+            padding: 80px 0;
+            background: rgba(24, 35, 15, 0.8);
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: var(--secondary-dark);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: var(--emerald-green);
+            box-shadow: 0 0 15px rgba(31, 125, 83, 0.5);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: rgba(31, 125, 83, 0.3);
+        }
+        
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .command-card {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            border: 1px solid rgba(31, 125, 83, 0.2);
+        }
+        
+        .command-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(31, 125, 83, 0.5);
+        }
+        
+        .command-icon {
+            font-size: 1.8rem;
+            min-width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(31, 125, 83, 0.1);
+            border-radius: 12px;
+            color: var(--emerald-green);
+        }
+        
+        .command-info {
+            flex: 1;
+        }
+        
+        .command-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .command-aliases {
+            color: var(--light-green);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .command-description {
+            color: var(--text-gray);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
         /* Features Section - Fixed spacing */
         .features {
             padding: 40px 0 20px;
@@ -859,6 +953,10 @@
                 flex-direction: column;
                 gap: 30px;
             }
+            
+            .commands-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
@@ -930,6 +1028,15 @@
                 height: 35px;
                 font-size: 0.9rem;
             }
+            
+            .commands-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
         }
 
         /* Mobile-specific adjustments */
@@ -999,6 +1106,7 @@
                     <span>Peeper</span>
                 </a>
                 <div class="nav-links">
+                    <a href="#commands">Commands</a>
                     <a href="#premium">Premium</a>
                     <a href="#bug-bounty">Bug Bounty</a>
                     <a href="#legal">Legal</a>
@@ -1032,6 +1140,34 @@
             </div>
         </div>
         
+    </section>
+
+    <!-- Commands Section -->
+    <section class="commands-section" id="commands">
+        <div class="container">
+            <h2 class="section-title">Bot Commands</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--text-gray);">
+                Explore all the powerful economy and gaming commands available with Peeper. 
+                Build your empire, play games, and dominate the leaderboards!
+            </p>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="economy">Economy Commands</button>
+                <button class="tab-btn" data-tab="games">Game Commands</button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Economy Commands -->
+                <div class="commands-grid" id="economy-commands">
+                    <!-- Economy commands will be populated by JS -->
+                </div>
+                
+                <!-- Game Commands -->
+                <div class="commands-grid" id="games-commands" style="display: none;">
+                    <!-- Game commands will be populated by JS -->
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Premium Section -->
@@ -1258,6 +1394,7 @@
                     <ul class="footer-links">
                         <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
                         <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
+                        <li><a href="#commands"><i class="fas fa-terminal"></i> Commands</a></li>
                         <li><a href="#premium"><i class="fas fa-crown"></i> Premium</a></li>
                     </ul>
                 </div>
@@ -1320,6 +1457,17 @@
                 delay: 0.3
             });
             
+            // Command section animation
+            gsap.from('.commands-section', {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: '.commands-section',
+                    start: 'top 80%'
+                }
+            });
+            
             // Feature cards animation
             gsap.from('.feature-card', {
                 duration: 1,
@@ -1367,11 +1515,103 @@
             });
         }
         
+        // Command data with fixed icons and exclamation prefixes
+        const economyCommands = [
+            { icon: "fas fa-wallet", name: "balance [@user]", aliases: ["bal", "b"], description: "Check wallet & bank balance" },
+            { icon: "fas fa-calendar-day", name: "daily", aliases: ["d"], description: "Claim daily reward" },
+            { icon: "fas fa-briefcase", name: "work", aliases: ["w"], description: "Earn money through work" },
+            { icon: "fas fa-money-bill-transfer", name: "pay @user amount", aliases: ["p"], description: "Transfer money to another user" },
+            { icon: "fas fa-mask", name: "rob @user", aliases: ["r"], description: "Attempt to steal from another user" },
+            { icon: "fas fa-store", name: "shop", aliases: ["s"], description: "Browse available items" },
+            { icon: "fas fa-shopping-cart", name: "buy item [quantity]", aliases: ["by"], description: "Purchase shop items" },
+            { icon: "fas fa-box-open", name: "inventory [@user]", aliases: ["inv", "i"], description: "View collected items" },
+            { icon: "fas fa-trophy", name: "leaderboard", aliases: ["lb", "l"], description: "View wealth rankings" },
+            { icon: "fas fa-medal", name: "inventorylb", aliases: ["ilb", "il"], description: "View top collectors" },
+            { icon: "fas fa-piggy-bank", name: "deposit [amount|all]", aliases: ["dep"], description: "Secure money in bank" },
+            { icon: "fas fa-money-check", name: "withdraw [amount|all]", aliases: ["with"], description: "Access bank funds" },
+            { icon: "fas fa-hand-pointer", name: "use item [quantity]", aliases: ["u"], description: "Activate items" },
+            { icon: "fas fa-fish", name: "fishing", aliases: ["fish"], description: "Catch collectibles (requires rod)" },
+            { icon: "fas fa-satellite", name: "detect", aliases: [], description: "Find hidden items (requires detector)" },
+            { icon: "fas fa-hammer", name: "mining", aliases: ["mine"], description: "Mine minerals (requires pickaxe)" },
+            { icon: "fas fa-cash-register", name: "sell item [quantity]", aliases: [], description: "Sell items for cash" },
+            { icon: "fas fa-gem", name: "premium", aliases: ["prem"], description: "View premium benefits and status" },
+            { icon: "fas fa-diamond", name: "premium_daily", aliases: ["pd"], description: "Premium users: enhanced daily rewards" },
+            { icon: "fas fa-ticket", name: "redeem <code>", aliases: ["redeemcode"], description: "Activate premium with a code" }
+        ];
+
+        const gameCommands = [
+            { icon: "fas fa-times-circle", name: "tictactoe [@user] [bet]", aliases: ["ttt"], description: "Classic Tic Tac Toe" },
+            { icon: "fas fa-hand-rock", name: "rockpaperscissors [@user] [bet]", aliases: ["rps"], description: "Rock Paper Scissors" },
+            { icon: "fas fa-question-circle", name: "guess [bet]", aliases: ["gtn"], description: "Guess the Number" },
+            { icon: "fas fa-crown", name: "blackjack [bet]", aliases: ["bj"], description: "Blackjack card game" },
+            { icon: "fas fa-gamepad", name: "connect4 [@user] [bet]", aliases: ["c4"], description: "Connect Four" },
+            { icon: "fas fa-skull", name: "hangman [bet]", aliases: ["hang"], description: "Word guessing game" },
+            { icon: "fas fa-bug", name: "bug", aliases: [], description: "Report a Bug" }
+        ];
+
+        // Function to create command card
+        function createCommandCard(command) {
+            return `
+                <div class="command-card glass">
+                    <div class="command-icon">
+                        <i class="${command.icon}"></i>
+                    </div>
+                    <div class="command-info">
+                        <div class="command-name">!${command.name}</div>
+                        <div class="command-aliases">Aliases: ${command.aliases.join(', ') || 'None'}</div>
+                        <div class="command-description">${command.description}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to render commands
+        function renderCommands() {
+            const economyContainer = document.getElementById('economy-commands');
+            const gamesContainer = document.getElementById('games-commands');
+            
+            economyCommands.forEach(cmd => {
+                economyContainer.innerHTML += createCommandCard(cmd);
+            });
+            
+            gameCommands.forEach(cmd => {
+                gamesContainer.innerHTML += createCommandCard(cmd);
+            });
+        }
+
+        // Tab functionality
+        function setupTabs() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show the corresponding content
+                    const tabName = tab.getAttribute('data-tab');
+                    
+                    if (tabName === 'economy') {
+                        document.getElementById('economy-commands').style.display = 'grid';
+                        document.getElementById('games-commands').style.display = 'none';
+                    } else {
+                        document.getElementById('economy-commands').style.display = 'none';
+                        document.getElementById('games-commands').style.display = 'grid';
+                    }
+                });
+            });
+        }
+
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', () => {
             createCoins();
             handleHeaderScroll();
             initAnimations();
+            renderCommands();
+            setupTabs();
             
             // Add scroll event for header
             window.addEventListener('scroll', handleHeaderScroll);
