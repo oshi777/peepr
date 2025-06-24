@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <style>
         :root {
+            --header-offset: 100px;
             --base-dark: #18230F;
             --secondary-dark: #27391C;
             --forest-green: #255F38;
@@ -808,13 +809,15 @@
             text-align: center;
             font-size: 2.2rem;
         }
+
+        #privacy-policy, #terms-of-service {
+            scroll-margin-top: var(--header-offset);
+        }
         
         .legal-section h3 {
             color: var(--light-green);
             margin: 25px 0 15px;
             font-size: 1.5rem;
-            /* Fixed: Add scroll margin for h3 elements */
-            scroll-margin-top: 100px;
         }
         
         .legal-section p {
@@ -1508,15 +1511,18 @@
             });
             
             // Legal section animation
-            gsap.from('.legal-container', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                scrollTrigger: {
-                    trigger: '.legal-section',
-                    start: 'top 80%'
-                }
-            });
+            // Only animate if not directly linking to the legal section
+            if (!['#legal', '#privacy-policy', '#terms-of-service'].includes(window.location.hash)) {
+                gsap.from('.legal-container', {
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    scrollTrigger: {
+                        trigger: '.legal-section',
+                        start: 'top 80%'
+                    }
+                });
+            }
         }
         
         // Command data with fixed icons and exclamation prefixes
@@ -1613,23 +1619,39 @@
         function setupSmoothScrolling() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    // Exclude specific links from smooth scrolling to allow default anchor behavior
+                    if (targetId === '#privacy-policy' || targetId === '#terms-of-service') {
+                        // Let the browser handle the jump, which respects scroll-margin-top
+                        return;
+                    }
+                    
+                    // For all other hash links, we handle the scroll
                     e.preventDefault();
                     
-                    const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     
-                    if (targetElement) {
-                        // Get the header height
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        
-                        // Calculate the target position with offset
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-                        
+                    // If target doesn't exist or is just '#', scroll to top
+                    if (!targetElement) {
                         window.scrollTo({
-                            top: targetPosition,
+                            top: 0,
                             behavior: 'smooth'
                         });
+                        return;
                     }
+                    
+                    // Read the offset from the CSS variable for consistency
+                    const rootStyles = getComputedStyle(document.documentElement);
+                    const scrollOffset = parseInt(rootStyles.getPropertyValue('--header-offset'), 10) || 100;
+                    
+                    // Calculate the target position with offset
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - scrollOffset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 });
             });
         }
