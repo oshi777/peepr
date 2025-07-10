@@ -814,6 +814,30 @@
             }
         }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--base-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--emerald-green);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--light-green);
+        }
+
+        /* Firefox scrollbar */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--emerald-green) var(--base-dark);
+        }
+
         /* Scroll to top button */
         .scroll-top {
             position: fixed;
@@ -857,13 +881,12 @@
                     <span>Peeper</span>
                 </a>
                 <div class="nav-links">
-                    <a href="index.html#commands">Commands</a>
-                    <a href="guide.html">Guide</a>
-                    <a href="index.html#premium">Premium</a>
-                    <a href="index.html#vote">Vote</a>
-                    <a href="index.html#bug-bounty">Bug Bounty</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="#commands">Commands</a>
+                    <a href="#farming">Farming</a>
+                    <a href="#items">Items</a>
+                    <a href="#premium">Premium</a>
+                    <a href="#games">Games</a>
+                    <a href="#leaderboards">Leaderboards</a>
                 </div>
                 <div class="nav-buttons">
                     <a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" class="btn btn-primary" target="_blank">Invite Bot</a>
@@ -887,7 +910,7 @@
                 <p class="subheading">Master the economy, dominate the leaderboards, and become the wealthiest player</p>
                 <div class="hero-cta">
                     <a href="#getting-started" class="btn btn-primary">Start Learning</a>
-                    <a href="index.html#commands" class="btn btn-secondary">View Commands</a>
+                    <a href="#commands" class="btn btn-secondary">View Commands</a>
                 </div>
             </div>
         </div>
@@ -902,8 +925,8 @@
                 <div class="tip-card">
                     <h3><i class="fas fa-running"></i> First Steps</h3>
                     <p>You begin with <span class="highlight">100 cash</span>. Use these commands immediately:</p>
-                    <p><span class="command">/daily</span> - Claim <span class="highlight">15,000 coins</span> every 24h</p>
-                    <p><span class="command">/work</span> - Earn <span class="highlight">5,000 coins</span> every 4h</p>
+                    <p><span class="command">/daily</span> - Claim <span class="highlight">15,000 coins</span> every 24h (16.8h premium)</p>
+                    <p><span class="command">/work</span> - Earn <span class="highlight">5,000 coins</span> every 4h (2.8h premium)</p>
                     <p><span class="command">/vote</span> - Get <span class="highlight">50,000 coins</span> every 12h</p>
                 </div>
                 <div class="tip-card">
@@ -1033,7 +1056,6 @@
                     <p><span class="highlight">20% faster growth</span> - 1hr wheat becomes 48min</p>
                     <p><span class="highlight">10% more yield</span> - 3k wheat becomes 3.3k</p>
                     <p><span class="highlight">10 plots vs 5</span> - double farming capacity</p>
-                    <p><span class="highlight">Auto notifications</span> when crops ready</p>
                     <p><span class="highlight-green">Maximum efficiency:</span> Premium users can earn 3x more from farming with optimal plot usage and timing</p>
                 </div>
                 <div class="tip-card">
@@ -1122,6 +1144,131 @@
             </div>
         </div>
 
+        <!-- Commands Section -->
+        <div class="section" id="commands">
+            <h2><i class="fas fa-terminal"></i> Command Reference</h2>
+            
+            <h3 style="margin: 20px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-clock"></i> Commands with Cooldowns</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Cooldown</th>
+                            <th>Premium Cooldown</th>
+                            <th>Reward</th>
+                            <th>XP</th>
+                            <th>Special Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command">/daily</span></td>
+                            <td>24 hours</td>
+                            <td><span class="highlight">16.8 hours</span></td>
+                            <td>15,000 cash (+25% with Lucky Charm)</td>
+                            <td>15 XP (+50% with XP boost, +20% premium)</td>
+                            <td>Premium users get gold embeds</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/work</span></td>
+                            <td>4 hours</td>
+                            <td><span class="highlight">2.8 hours</span></td>
+                            <td>5,000 cash (+25% with Lucky Charm)</td>
+                            <td>10 XP (+50% with XP boost, +20% premium)</td>
+                            <td>Premium users get gold embeds</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/rob</span></td>
+                            <td>12 hours</td>
+                            <td><span class="highlight">8.4 hours</span></td>
+                            <td>10% of victim's wallet</td>
+                            <td>8 XP (success), 4 XP (fail), 2 XP (broke)</td>
+                            <td>50% base success, 75% with Safe Cracker, 80% with Robbery Potion, 90% with both</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/fishing</span></td>
+                            <td>2 hours</td>
+                            <td><span class="highlight">1.4 hours</span></td>
+                            <td>gold_bar (35%), ruby (25%), pearl (20%), ancient_coin (15%), crystal_ball (5%)</td>
+                            <td>7 XP (+50% with XP boost, +20% premium)</td>
+                            <td>Requires fishing rod in inventory</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/mining</span></td>
+                            <td>3 hours</td>
+                            <td><span class="highlight">2.1 hours</span></td>
+                            <td>gold_bar (35%), ruby (25%), sapphire (15%), emerald (10%), diamond (10%), crystal_ball (5%)</td>
+                            <td>7 XP per item (+50% with XP boost, +20% premium)</td>
+                            <td>Requires pickaxe in inventory. 1-3 items (70%/20%/10% chance)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/detect</span></td>
+                            <td>3 hours</td>
+                            <td><span class="highlight">2.1 hours</span></td>
+                            <td>ruby (30%), pearl (30%), ancient_coin (20%), diamond (15%), crystal_ball (5%)</td>
+                            <td>7 XP per item (+50% with XP boost, +20% premium)</td>
+                            <td>Requires detector in inventory. 1-3 items per use</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/premium_daily</span></td>
+                            <td>24 hours</td>
+                            <td>24 hours</td>
+                            <td>22,500 cash + random premium item (diamond/gold_bar/crystal_ball/time_turner)</td>
+                            <td>25 XP (+50% with XP boost, +20% premium)</td>
+                            <td><span class="highlight-red">Premium membership required</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-magic"></i> Boost Effects</h3>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-star"></i> Lucky Charm</h3>
+                    <p>Effect: <span class="highlight">+25% cash rewards</span> on daily/work</p>
+                    <p>Duration: Varies by item</p>
+                    <p>Stacks: Yes</p>
+                    <p>Best use: Before claiming daily/work rewards</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-chart-line"></i> XP Boost</h3>
+                    <p>Effect: <span class="highlight">+50% XP</span> on all commands</p>
+                    <p>Premium bonus: Additional +20% XP</p>
+                    <p>Total with premium: <span class="highlight">+70% XP</span></p>
+                    <p>Best use: During active gaming sessions</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-mask"></i> Robbery Potion</h3>
+                    <p>Effect: <span class="highlight">80% robbery success rate</span></p>
+                    <p>Duration: 5 hours</p>
+                    <p>Combines with Safe Cracker for <span class="highlight">90% success</span></p>
+                    <p>Best use: When targeting high-value players</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-tools"></i> Safe Cracker</h3>
+                    <p>Effect: <span class="highlight">+25% robbery success rate</span></p>
+                    <p>Duration: 12 hours</p>
+                    <p>Base 50% becomes 75%</p>
+                    <p>Combines with Robbery Potion for maximum effect</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-shield"></i> Protection Potion</h3>
+                    <p>Effect: <span class="highlight">Complete immunity</span> from robberies</p>
+                    <p>Duration: 4 hours</p>
+                    <p>Stackable: Yes</p>
+                    <p>Best use: When carrying large amounts of cash</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-hourglass-half"></i> Cooldown Reset Items</h3>
+                    <p><span class="highlight">Stamina Potion:</span> Resets daily and work cooldowns</p>
+                    <p><span class="highlight">Time Turner:</span> Resets ALL command cooldowns</p>
+                    <p>Strategic use: Save for maximum efficiency periods</p>
+                    <p>Value: Time Turner is extremely valuable</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Items Section -->
         <div class="section" id="items">
             <h2><i class="fas fa-gem"></i> Item Collection & Usage</h2>
@@ -1131,23 +1278,26 @@
                 <div class="tip-card">
                     <h3><i class="fas fa-fishing-rod"></i> Fishing Rod</h3>
                     <p>Cost: <span class="highlight">15,000 coins</span></p>
-                    <p>Use: <span class="command">/fish</span></p>
-                    <p>Rewards: Fish, treasure, rare items</p>
-                    <p>Cooldown: 30 minutes</p>
+                    <p>Use: <span class="command">/fishing</span></p>
+                    <p>Rewards: gold_bar (35%), ruby (25%), pearl (20%), ancient_coin (15%), crystal_ball (5%)</p>
+                    <p>Cooldown: 2 hours (1.4h premium)</p>
+                    <p>XP: 7 XP (+50% with XP boost, +20% premium)</p>
                 </div>
                 <div class="tip-card">
                     <h3><i class="fas fa-hammer"></i> Pickaxe</h3>
                     <p>Cost: <span class="highlight">20,000 coins</span></p>
-                    <p>Use: <span class="command">/mine</span></p>
-                    <p>Rewards: Ores, gems, minerals</p>
-                    <p>Cooldown: 45 minutes</p>
+                    <p>Use: <span class="command">/mining</span></p>
+                    <p>Rewards: gold_bar (35%), ruby (25%), sapphire (15%), emerald (10%), diamond (10%), crystal_ball (5%)</p>
+                    <p>Cooldown: 3 hours (2.1h premium)</p>
+                    <p>XP: 7 XP per item (+50% with XP boost, +20% premium)</p>
                 </div>
                 <div class="tip-card">
                     <h3><i class="fas fa-search"></i> Metal Detector</h3>
                     <p>Cost: <span class="highlight">25,000 coins</span></p>
                     <p>Use: <span class="command">/detect</span></p>
-                    <p>Rewards: Coins, jewelry, artifacts</p>
-                    <p>Cooldown: 1 hour</p>
+                    <p>Rewards: ruby (30%), pearl (30%), ancient_coin (20%), diamond (15%), crystal_ball (5%)</p>
+                    <p>Cooldown: 3 hours (2.1h premium)</p>
+                    <p>XP: 7 XP per item (+50% with XP boost, +20% premium)</p>
                 </div>
                 <div class="tip-card">
                     <h3><i class="fas fa-shopping-cart"></i> Shop Access</h3>
@@ -1468,7 +1618,12 @@
                         <tr>
                             <td class="feature">Daily Reward</td>
                             <td>15,000 coins</td>
-                            <td><span class="highlight">22,500 coins + item</span></td>
+                            <td><span class="highlight">15,000 coins (same base)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Premium Daily</td>
+                            <td>Not available</td>
+                            <td><span class="highlight">22,500 coins + bonus item</span></td>
                         </tr>
                         <tr>
                             <td class="feature">Farming Plots</td>
@@ -1476,9 +1631,9 @@
                             <td><span class="highlight">10</span></td>
                         </tr>
                         <tr>
-                            <td class="feature">Cooldowns</td>
+                            <td class="feature">All Cooldowns</td>
                             <td>Normal</td>
-                            <td><span class="highlight">30% faster</span></td>
+                            <td><span class="highlight">30% reduced</span></td>
                         </tr>
                         <tr>
                             <td class="feature">XP Gain</td>
@@ -1494,6 +1649,16 @@
                             <td class="feature">Crop Yield</td>
                             <td>Normal</td>
                             <td><span class="highlight">+10% more</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Item Sell Value</td>
+                            <td>50%</td>
+                            <td><span class="highlight">100%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Embed Colors</td>
+                            <td>Green</td>
+                            <td><span class="highlight">Gold</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1524,16 +1689,18 @@
                 </div>
                 <div class="tip-card">
                     <h3><i class="fas fa-bell"></i> Quality of Life</h3>
-                    <p>Crop harvest notifications</p>
-                    <p>Command cooldown tracking</p>
-                    <p>Priority support</p>
-                    <p>Exclusive voting rewards</p>
+                    <p>Gold-colored embeds instead of green</p>
+                    <p>Premium badge on profile</p>
+                    <p>Access to premium_daily command</p>
+                    <p>Faster customer support response</p>
+                    <p>Priority in feature requests</p>
                 </div>
                 <div class="tip-card">
                     <h3><i class="fas fa-coins"></i> Economic Advantages</h3>
-                    <p><span class="highlight">Enhanced daily:</span> 22,500 coins + bonus item</p>
-                    <p><span class="highlight">Faster earnings:</span> 30% reduced cooldowns</p>
-                    <p><span class="highlight">Better selling:</span> Items sell for full value</p>
+                    <p><span class="highlight">Premium daily:</span> 22,500 coins + bonus item (separate from regular daily)</p>
+                    <p><span class="highlight">Faster earnings:</span> 30% reduced cooldowns on ALL commands</p>
+                    <p><span class="highlight">Better selling:</span> Items sell for 100% value instead of 50%</p>
+                    <p><span class="highlight">Double farming:</span> 10 plots vs 5 regular plots</p>
                     <p><span class="highlight-green">Result:</span> 2-3x faster wealth accumulation</p>
                 </div>
                 <div class="tip-card">
