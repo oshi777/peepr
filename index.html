@@ -54,6 +54,32 @@
                 radial-gradient(circle at 85% 30%, rgba(37, 95, 56, 0.1) 0%, transparent 20%);
         }
 
+        /* Green Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-dark);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--emerald-green);
+            border-radius: 6px;
+            border: 2px solid var(--secondary-dark);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--light-green);
+        }
+
+        /* Firefox Scrollbar */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--emerald-green) var(--secondary-dark);
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
