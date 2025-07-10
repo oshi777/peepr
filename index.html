@@ -7,6 +7,9 @@
     <title>Peeper - Ultimate Discord Economy & Gaming Experience</title>
     <meta name="description" content="Earn, trade, play games, and build your empire with Peeper - the ultimate Discord economy and gaming bot.">
     <link rel="icon" href="https://i.imgur.com/kZ1bCYe.png" type="image/png">
+    <link rel="shortcut icon" href="https://i.imgur.com/kZ1bCYe.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/kZ1bCYe.png">
+    <meta name="msapplication-TileImage" content="https://i.imgur.com/kZ1bCYe.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -821,21 +824,22 @@
         .footer-grid {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 40px;
             margin-bottom: 40px;
         }
 
         .footer-column {
-            min-width: 250px;
+            min-width: 200px;
             flex: 1;
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .footer-column h3::after {
@@ -843,17 +847,20 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 3px;
+            width: 30px;
+            height: 2px;
             background: var(--emerald-green);
         }
 
         .footer-links {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 0;
         }
 
         .footer-links a {
@@ -862,12 +869,12 @@
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-size: 0.9rem;
         }
 
         .footer-links a:hover {
             color: var(--emerald-green);
-            padding-left: 5px;
         }
 
         .copyright {
@@ -876,6 +883,38 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-gray);
             font-size: 0.9rem;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--emerald-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top.visible {
+            opacity: 0.2;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: var(--light-green);
         }
 
         /* Responsive Design */
@@ -1059,6 +1098,11 @@
     </style>
 </head>
 <body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- Header -->
     <header id="header">
         <div class="container">
@@ -1069,6 +1113,7 @@
                 </a>
                 <div class="nav-links">
                     <a href="#commands">Commands</a>
+                    <a href="guide.html">Guide</a>
                     <a href="#premium">Premium</a>
                     <a href="#vote">Vote</a>
                     <a href="#bug-bounty">Bug Bounty</a>
@@ -1353,10 +1398,6 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h3>Peeper Bot</h3>
-                    <p>The ultimate economy and gaming Discord bot. Build your empire, play games, and dominate the leaderboards.</p>
-                </div>
-                <div class="footer-column">
                     <h3>Legal</h3>
                     <ul class="footer-links">
                         <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
@@ -1364,10 +1405,16 @@
                     </ul>
                 </div>
                 <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="guide.html"><i class="fas fa-book"></i> Guide</a></li>
+                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
                         <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
-                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
                         <li><a href="#commands"><i class="fas fa-terminal"></i> Commands</a></li>
                         <li><a href="#premium"><i class="fas fa-crown"></i> Premium</a></li>
                         <li><a href="#vote"><i class="fas fa-thumbs-up"></i> Vote</a></li>
@@ -1376,13 +1423,13 @@
                 <div class="footer-column">
                     <h3>Developer Contact</h3>
                     <ul class="footer-links">
-                        <li><a href="mailto:aihamaliibrahim989@gmail.com"><i class="fas fa-envelope"></i> aihamaliibrahim989@gmail.com</a></li>
+                        <li><a href="mailto:aihamaliibrahim989@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
                         <li><a href="#" onclick="copyToClipboard('aiham.exe', event)"><i class="fab fa-discord"></i> <span>aiham.exe</span></a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 Peeper Bot. All rights reserved.
+                &copy; 2025 Peeper. All rights reserved.
             </div>
         </div>
     </footer>
@@ -1392,38 +1439,43 @@
         let economyCommands = [
             { icon: "fas fa-question-circle", name: "help", description: "Get help and information about Peeper commands" },
             { icon: "fas fa-user", name: "profile [@user]", description: "View your profile or another user's profile" },
+            { icon: "fas fa-wallet", name: "balance [@user]", description: "Check wallet & bank balance" },
+            { icon: "fas fa-seedling", name: "plant &lt;type&gt;", description: "Plant crops for passive income" },
+            { icon: "fas fa-cut", name: "harvest [plot_id]", description: "Harvest ready crops" },
+            { icon: "fas fa-leaf", name: "crops", description: "View your growing crops" },
             { icon: "fas fa-calendar-day", name: "daily", description: "Claim your daily money reward<br><strong>Reward:</strong> 15,000 coins (with potential boosts)" },
-            { icon: "fas fa-thumbs-up", name: "vote", description: "Vote for the bot to get rewards (see Vote section for details)" },
             { icon: "fas fa-briefcase", name: "work", description: "Earn money through work<br><strong>Reward:</strong> 5,000 coins (with potential boosts)" },
+            { icon: "fas fa-piggy-bank", name: "deposit [amount|all]", description: "Secure money in bank<br><strong>Usage:</strong> /deposit amount: 1000 or /deposit amount: all<br><strong>Example:</strong> /deposit amount: 5000" },
+            { icon: "fas fa-money-check", name: "withdraw [amount|all]", description: "Access bank funds<br><strong>Usage:</strong> /withdraw amount: 1000 or /withdraw amount: all<br><strong>Example:</strong> /withdraw amount: 3000" },
+            { icon: "fas fa-trophy", name: "leaderboard", description: "View wealth rankings<br><strong>Usage:</strong> /leaderboard" },
+            { icon: "fas fa-medal", name: "inventorylb", description: "View top collectors<br><strong>Usage:</strong> /inventorylb" },
+            { icon: "fas fa-seedling", name: "farmlb", description: "View farming profit leaderboard" },
+            { icon: "fas fa-store", name: "shop", description: "Browse available items<br><strong>Usage:</strong> /shop" },
             { icon: "fas fa-money-bill-transfer", name: "pay @user amount", description: "Transfer money to another user<br><strong>Usage:</strong> /pay user: @User amount: 1000<br><strong>Example:</strong> /pay user: @JohnDoe amount: 5000" },
+            { icon: "fas fa-shopping-cart", name: "buy item [quantity]", description: "Purchase shop items<br><strong>Usage:</strong> /buy quantity: [number] (default: 1)<br>Then select an item from dropdown<br><strong>Example:</strong> /buy quantity: 2 → Select \"Diamond\"" },
+            { icon: "fas fa-cash-register", name: "sell item [quantity]", description: "Sell items for cash<br><strong>Usage:</strong> /sell quantity: [number] (default: 1)<br>Then select item to sell<br>Sells for 50% value (100% if Premium)<br><strong>Example:</strong> /sell quantity: 3 → Select \"Gold Bar\"" },
+            { icon: "fas fa-box-open", name: "inventory [@user]", description: "View collected items<br><strong>Usage:</strong> /inventory user: @User (optional)<br><strong>Example:</strong> /inventory user: @JohnDoe" },
+            { icon: "fas fa-hand-pointer", name: "use item [quantity]", description: "Activate items<br><strong>Usage:</strong> /use quantity: [number] (default: 1)<br>Then select usable item from inventory<br><strong>Example:</strong> /use quantity: 1 → Select \"XP Boost\"" },
+            { icon: "fas fa-gift", name: "give @user item [quantity]", description: "Give an item to another user<br><strong>Usage:</strong> /give user: @Member quantity: [number]<br>Then select item from your inventory<br><strong>Example:</strong> /give user: @JohnDoe quantity: 1 → Select \"Ruby\"" },
             { icon: "fas fa-mask", name: "rob @user", description: "Attempt to steal from another user<br><strong>Usage:</strong> /rob user: @User<br><strong>Example:</strong> /rob user: @JohnDoe" },
-            { icon: "fas fa-store", name: "shop", description: "Browse available items in the shop<br><strong>Usage:</strong> /shop" },
-            { icon: "fas fa-shopping-cart", name: "buy [quantity]", description: "Purchase items from the shop using dropdown<br><strong>Usage:</strong> /buy quantity: [number] (default: 1)<br>Then select an item from dropdown<br><strong>Example:</strong> /buy quantity: 2 → Select \"Diamond\"" },
-            { icon: "fas fa-box-open", name: "inventory [@user]", description: "View your or another user's inventory<br><strong>Usage:</strong> /inventory user: @User (optional)<br><strong>Example:</strong> /inventory user: @JohnDoe" },
-            { icon: "fas fa-trophy", name: "leaderboard", description: "View the top richest players<br><strong>Usage:</strong> /leaderboard" },
-            { icon: "fas fa-medal", name: "inventory_leaderboard", description: "View the leaderboard for inventory value<br><strong>Usage:</strong> /inventory_leaderboard" },
-            { icon: "fas fa-piggy-bank", name: "deposit [amount|all]", description: "Deposit money into your bank<br><strong>Usage:</strong> /deposit amount: 1000 or /deposit amount: all<br><strong>Example:</strong> /deposit amount: 5000" },
-            { icon: "fas fa-money-check", name: "withdraw [amount|all]", description: "Withdraw money from your bank<br><strong>Usage:</strong> /withdraw amount: 1000 or /withdraw amount: all<br><strong>Example:</strong> /withdraw amount: 3000" },
-            { icon: "fas fa-fish", name: "fishing", description: "Go fishing to catch aquatic collectibles<br><strong>Usage:</strong> /fishing" },
-            { icon: "fas fa-satellite", name: "detect", description: "Use a detector to find hidden collectibles<br><strong>Usage:</strong> /detect" },
-            { icon: "fas fa-hammer", name: "mining", description: "Mine rare minerals<br><strong>Usage:</strong> /mining" },
-            { icon: "fas fa-cash-register", name: "sell [quantity]", description: "Sell items for cash via dropdown<br><strong>Usage:</strong> /sell quantity: [number] (default: 1)<br>Then select item to sell<br>Sells for 50% value (100% if Premium)<br><strong>Example:</strong> /sell quantity: 3 → Select \"Gold Bar\"" },
+            { icon: "fas fa-fish", name: "fishing", description: "Catch collectibles (requires rod)<br><strong>Usage:</strong> /fishing" },
+            { icon: "fas fa-hammer", name: "mining", description: "Mine minerals (requires pickaxe)<br><strong>Usage:</strong> /mining" },
+            { icon: "fas fa-satellite", name: "detect", description: "Find hidden items (requires detector)<br><strong>Usage:</strong> /detect" },
+            { icon: "fas fa-thumbs-up", name: "vote", description: "Vote for the bot to get rewards (see Vote section for details)" },
             { icon: "fas fa-crown", name: "premium", description: "View premium benefits and status<br><strong>Usage:</strong> /premium" },
-            { icon: "fas fa-diamond", name: "premium_daily", description: "Premium users: claim enhanced daily rewards<br><strong>Usage:</strong> /premium_daily" },
+            { icon: "fas fa-diamond", name: "premium_daily", description: "Premium users: enhanced daily rewards<br><strong>Usage:</strong> /premium_daily" },
             { icon: "fas fa-ticket", name: "redeem &lt;code&gt;", description: "Activate premium with a code<br><strong>Usage:</strong> /redeem code: XXXX-XXXX-XXXX-XXXX<br><strong>Example:</strong> /redeem code: ABCD-1234-EFGH-5678" },
-            { icon: "fas fa-hand-pointer", name: "use [quantity]", description: "Use consumable items via dropdown<br><strong>Usage:</strong> /use quantity: [number] (default: 1)<br>Then select usable item from inventory<br><strong>Example:</strong> /use quantity: 1 → Select \"XP Boost\"" },
-            { icon: "fas fa-gift", name: "give @user [quantity]", description: "Gift items to another user via dropdown<br><strong>Usage:</strong> /give user: @Member quantity: [number]<br>Then select item from your inventory<br><strong>Example:</strong> /give user: @JohnDoe quantity: 1 → Select \"Ruby\"" },
-            { icon: "fas fa-bug", name: "bug", description: "Report a bug to help improve the bot" },
-            { icon: "fas fa-shield-alt", name: "badges", description: "Show how to earn special badges in Peeper" }
+            { icon: "fas fa-shield-alt", name: "badges", description: "Show how to earn badges" },
+            { icon: "fas fa-bug", name: "bug", description: "Report a Bug" }
         ];
 
         let gameCommands = [
-            { icon: "fas fa-hand-rock", name: "rockpaperscissors [@user] [bet]", description: "Play Rock Paper Scissors<br><strong>Usage:</strong> /rockpaperscissors opponent: @user (optional) bet: number (optional)" },
-            { icon: "fas fa-times-circle", name: "tictactoe [@user] [bet]", description: "Play Tic Tac Toe<br><strong>Usage:</strong> /tictactoe opponent: @user (optional) bet: number (optional)" },
-            { icon: "fas fa-gamepad", name: "connect4 [@user] [bet]", description: "Play Connect 4<br><strong>Usage:</strong> /connect4 opponent: @user (optional) bet: number (optional)" },
-            { icon: "fas fa-question-circle", name: "guess_game [bet]", description: "Guess the Number (1-100)<br><strong>Usage:</strong> /guess_game bet: number (optional)<br>7 attempts to guess correctly" },
-            { icon: "fas fa-skull", name: "hangman [bet]", description: "Play Hangman<br><strong>Usage:</strong> /hangman bet: number (optional)<br>Random word guessing game" },
-            { icon: "fas fa-crown", name: "blackjack [bet]", description: "Play Blackjack<br><strong>Usage:</strong> /blackjack bet: number (optional)" }
+            { icon: "fas fa-hand-rock", name: "rockpaperscissors [@user] [bet]", description: "Rock Paper Scissors<br><strong>Usage:</strong> /rockpaperscissors opponent: @user (optional) bet: number (optional)" },
+            { icon: "fas fa-crown", name: "blackjack [bet]", description: "Blackjack card game<br><strong>Usage:</strong> /blackjack bet: number (optional)" },
+            { icon: "fas fa-times-circle", name: "tictactoe [@user] [bet]", description: "Classic Tic Tac Toe<br><strong>Usage:</strong> /tictactoe opponent: @user (optional) bet: number (optional)" },
+            { icon: "fas fa-gamepad", name: "connect4 [@user] [bet]", description: "Connect Four<br><strong>Usage:</strong> /connect4 opponent: @user (optional) bet: number (optional)" },
+            { icon: "fas fa-question-circle", name: "guess_game [bet]", description: "Guess the Number<br><strong>Usage:</strong> /guess_game bet: number (optional)<br>7 attempts to guess correctly" },
+            { icon: "fas fa-skull", name: "hangman [bet]", description: "Word guessing game<br><strong>Usage:</strong> /hangman bet: number (optional)<br>Random word guessing game" }
         ];
 
         // Sort commands by description length, keeping 'help' at the top
@@ -1624,6 +1676,28 @@
             }).catch(err => { console.error('Failed to copy: ', err); alert('Failed to copy. Please copy manually: ' + textToCopy); });
         }
 
+        // Scroll to top functionality
+        const scrollTop = document.getElementById('scrollTop');
+        
+        function handleScrollTop() {
+            if (scrollTop) {
+                if (window.pageYOffset > 300) {
+                    scrollTop.classList.add('visible');
+                } else {
+                    scrollTop.classList.remove('visible');
+                }
+            }
+        }
+        
+        if (scrollTop) {
+            scrollTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', () => {
             handleHeaderScroll();
@@ -1632,8 +1706,11 @@
             setupTabs();
             setupSmoothScrolling();
             
-            // Add scroll event for header
-            window.addEventListener('scroll', handleHeaderScroll);
+            // Add scroll event for header and scroll to top
+            window.addEventListener('scroll', () => {
+                handleHeaderScroll();
+                handleScrollTop();
+            });
             
             // Auto-open treasure chest after 3 seconds
             setTimeout(() => {
