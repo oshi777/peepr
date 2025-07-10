@@ -58,7 +58,9 @@
         .glass {
             background: var(--glass);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -73,6 +75,9 @@
             z-index: 1000;
             padding: 15px 0;
             transition: all 0.3s ease;
+        }
+
+        header.scrolled {
             background: rgba(24, 35, 15, 0.95);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
@@ -233,6 +238,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            scroll-margin-top: var(--header-offset);
         }
 
         .section::before {
@@ -536,6 +542,73 @@
             color: white;
         }
 
+        /* Tier indicators */
+        .tier {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .tier-s {
+            background: var(--gold);
+            box-shadow: 0 0 5px var(--gold);
+        }
+
+        .tier-a {
+            background: var(--ruby-red);
+            box-shadow: 0 0 5px var(--ruby-red);
+        }
+
+        .tier-b {
+            background: var(--diamond-blue);
+            box-shadow: 0 0 5px var(--diamond-blue);
+        }
+
+        .tier-c {
+            background: var(--emerald-green);
+            box-shadow: 0 0 5px var(--emerald-green);
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid rgba(31, 125, 83, 0.3);
+        }
+
+        .comparison-table th {
+            background: rgba(31, 125, 83, 0.2);
+            color: var(--text-light);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(31, 125, 83, 0.05);
+        }
+
+        .comparison-table .feature {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .checkmark {
+            color: var(--light-green);
+            font-weight: bold;
+        }
+
+        .xmark {
+            color: var(--ruby-red);
+            font-weight: bold;
+        }
+
         /* Footer */
         footer {
             background: var(--secondary-dark);
@@ -545,7 +618,7 @@
         .footer-grid {
             display: flex;
             justify-content: space-between;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             gap: 40px;
             margin-bottom: 40px;
         }
@@ -619,17 +692,10 @@
             .tip-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1001;
+            
+            .footer-grid {
+                gap: 30px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -652,6 +718,13 @@
             
             .mobile-menu-btn {
                 display: block;
+                background: none;
+                border: none;
+                color: var(--text-light);
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 10px;
+                z-index: 1001;
             }
             
             .section {
@@ -674,6 +747,20 @@
             .logo-icon {
                 width: 35px;
                 height: 35px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                padding-top: 100px;
+                min-height: 40vh;
+            }
+            
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
             }
         }
 
@@ -698,6 +785,33 @@
             .tip-card {
                 padding: 15px;
             }
+            
+            .nav-buttons .btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 1.3rem;
+                padding: 8px;
+            }
         }
 
         /* Scroll to top button */
@@ -712,7 +826,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: rgb(255, 255, 255);
             font-size: 1.2rem;
             cursor: pointer;
             opacity: 0;
@@ -730,73 +844,6 @@
         .scroll-top:hover {
             transform: translateY(-5px);
             background: var(--light-green);
-        }
-
-        /* Tier indicators */
-        .tier {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-
-        .tier-s {
-            background: var(--gold);
-            box-shadow: 0 0 5px var(--gold);
-        }
-
-        .tier-a {
-            background: var(--ruby-red);
-            box-shadow: 0 0 5px var(--ruby-red);
-        }
-
-        .tier-b {
-            background: var(--diamond-blue);
-            box-shadow: 0 0 5px var(--diamond-blue);
-        }
-
-        .tier-c {
-            background: var(--emerald-green);
-            box-shadow: 0 0 5px var(--emerald-green);
-        }
-
-        /* Comparison table */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        .comparison-table th, 
-        .comparison-table td {
-            padding: 12px 15px;
-            text-align: center;
-            border: 1px solid rgba(31, 125, 83, 0.3);
-        }
-
-        .comparison-table th {
-            background: rgba(31, 125, 83, 0.2);
-            color: var(--text-light);
-        }
-
-        .comparison-table tr:nth-child(even) {
-            background: rgba(31, 125, 83, 0.05);
-        }
-
-        .comparison-table .feature {
-            text-align: left;
-            font-weight: 500;
-        }
-
-        .checkmark {
-            color: var(--light-green);
-            font-weight: bold;
-        }
-
-        .xmark {
-            color: var(--ruby-red);
-            font-weight: bold;
         }
     </style>
 </head>
@@ -822,9 +869,7 @@
                     <a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" class="btn btn-primary" target="_blank">Invite Bot</a>
                     <a href="https://discord.gg/XDhcM4dgnY" class="btn btn-secondary" target="_blank">Support</a>
                 </div>
-                <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
-                    <i class="fas fa-bars"></i>
-                </button>
+                
             </nav>
         </div>
     </header>
@@ -840,6 +885,10 @@
             <div class="hero-content">
                 <h1>Peeper Ultimate Guide</h1>
                 <p class="subheading">Master the economy, dominate the leaderboards, and become the wealthiest player</p>
+                <div class="hero-cta">
+                    <a href="#getting-started" class="btn btn-primary">Start Learning</a>
+                    <a href="index.html#commands" class="btn btn-secondary">View Commands</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1909,12 +1958,27 @@
                 });
             }
         }
+        
+        // Handle header scroll effect
+        function handleHeaderScroll() {
+            const header = document.querySelector('header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+        }
 
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', () => {
             initAnimations();
             initMobileMenu();
             initTableSorting();
+            
+            // Add scroll event for header
+            window.addEventListener('scroll', handleHeaderScroll);
         });
     </script>
 </body>
