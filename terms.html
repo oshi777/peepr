@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Peeper Bot</title>
+    <title>Terms of Service - Peeper</title>
     <meta name="description" content="Terms of Service for Peeper, the ultimate Discord economy and gaming bot.">
     <link rel="icon" href="https://i.imgur.com/kZ1bCYe.png" type="image/png">
+    <link rel="shortcut icon" href="https://i.imgur.com/kZ1bCYe.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/kZ1bCYe.png">
+    <meta name="msapplication-TileImage" content="https://i.imgur.com/kZ1bCYe.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -104,8 +107,19 @@
             transition: all 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--emerald-green);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--emerald-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-buttons {
@@ -188,21 +202,22 @@
         .footer-grid {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 40px;
             margin-bottom: 40px;
         }
 
         .footer-column {
-            min-width: 250px;
+            min-width: 200px;
             flex: 1;
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .footer-column h3::after {
@@ -210,17 +225,20 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 3px;
+            width: 30px;
+            height: 2px;
             background: var(--emerald-green);
         }
 
         .footer-links {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 0;
         }
 
         .footer-links a {
@@ -229,12 +247,12 @@
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-size: 0.9rem;
         }
 
         .footer-links a:hover {
             color: var(--emerald-green);
-            padding-left: 5px;
         }
 
         .copyright {
@@ -243,6 +261,38 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-gray);
             font-size: 0.9rem;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--emerald-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top.visible {
+            opacity: 0.2;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: var(--light-green);
         }
 
         @media (max-width: 768px) {
@@ -266,6 +316,11 @@
     </style>
 </head>
 <body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -276,6 +331,7 @@
                 </a>
                 <div class="nav-links">
                     <a href="index.html#commands">Commands</a>
+                    <a href="guide.html">Guide</a>
                     <a href="index.html#premium">Premium</a>
                     <a href="index.html#vote">Vote</a>
                     <a href="index.html#bug-bounty">Bug Bounty</a>
@@ -295,7 +351,7 @@
         <div class="container">
             <div class="legal-container">
                 <h2>Terms of Service</h2>
-                <p>By using Peeper Bot, you agree to comply with these Terms of Service.</p>
+                <p>By using Peeper, you agree to comply with these Terms of Service.</p>
                 
                 <h3>Acceptable Use</h3>
                 <p>You agree not to:</p>
@@ -319,10 +375,10 @@
                 <p>We strive to maintain 24/7 availability but do not guarantee uninterrupted service. We may perform maintenance or updates without prior notice.</p>
                 
                 <h3>Termination</h3>
-                <p>We reserve the right to terminate access to Peeper Bot for users who violate these terms, at our sole discretion.</p>
+                <p>We reserve the right to terminate access to Peeper for users who violate these terms, at our sole discretion.</p>
                 
                 <h3>Changes to Terms</h3>
-                <p>We may update these Terms of Service periodically. Continued use of Peeper Bot constitutes acceptance of any changes.</p>
+                <p>We may update these Terms of Service periodically. Continued use of Peeper constitutes acceptance of any changes.</p>
             </div>
         </div>
     </main>
@@ -332,10 +388,6 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h3>Peeper Bot</h3>
-                    <p>The ultimate economy and gaming Discord bot. Build your empire, play games, and dominate the leaderboards.</p>
-                </div>
-                <div class="footer-column">
                     <h3>Legal</h3>
                     <ul class="footer-links">
                         <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
@@ -343,24 +395,31 @@
                     </ul>
                 </div>
                 <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="guide.html"><i class="fas fa-book"></i> Guide</a></li>
+                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
                         <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
-                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
                         <li><a href="index.html#commands"><i class="fas fa-terminal"></i> Commands</a></li>
                         <li><a href="index.html#premium"><i class="fas fa-crown"></i> Premium</a></li>
+                        <li><a href="index.html#vote"><i class="fas fa-thumbs-up"></i> Vote</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Developer Contact</h3>
                     <ul class="footer-links">
-                        <li><a href="mailto:aihamaliibrahim989@gmail.com"><i class="fas fa-envelope"></i> aihamaliibrahim989@gmail.com</a></li>
+                        <li><a href="mailto:aihamaliibrahim989@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
                         <li><a href="#" onclick="copyToClipboard('aiham.exe', event)"><i class="fab fa-discord"></i> <span>aiham.exe</span></a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 Peeper Bot. All rights reserved.
+                &copy; 2025 Peeper. All rights reserved.
             </div>
         </div>
     </footer>
@@ -383,6 +442,28 @@
                 } else { alert('Copied: ' + textToCopy); }
             }).catch(err => { console.error('Failed to copy: ', err); alert('Failed to copy. Please copy manually: ' + textToCopy); });
         }
+
+        // Scroll to top functionality
+        const scrollTop = document.getElementById('scrollTop');
+        
+        function handleScroll() {
+            if (scrollTop) {
+                if (window.pageYOffset > 300) {
+                    scrollTop.classList.add('visible');
+                } else {
+                    scrollTop.classList.remove('visible');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
