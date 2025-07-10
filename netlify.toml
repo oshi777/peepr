@@ -2,3 +2,9 @@
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "all"
