@@ -538,18 +538,23 @@
         }
 
         .benefit-list li {
-            padding: 12px 0;
+            padding: 6px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            letter-spacing: 0.3px;
+            word-spacing: 1px;
+            font-weight: 400;
         }
 
         .benefit-list li::before {
             content: '✓';
             color: var(--primary-blue);
             font-weight: bold;
-            margin-right: 10px;
-            font-size: 1.2rem;
+            margin-right: 8px;
+            font-size: 1rem;
         }
         
         /* FIXED: Enhanced Starter Pack */
@@ -828,10 +833,8 @@
         }
         
         .legal-section .highlight {
-            background: rgba(0, 119, 182, 0.2);
-            padding: 2px 6px;
-            border-radius: 4px;
             color: var(--light-blue);
+            font-weight: 600;
         }
         
         .back-to-top {
@@ -1182,6 +1185,26 @@
         
     </section>
 
+    <!-- Stats Counter Section -->
+    <section class="stats-counter" style="padding: 40px 0; background: rgba(26, 31, 58, 0.3);">
+        <div class="container">
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center;">
+                <div class="counter-item" style="flex: 1; min-width: 200px;">
+                    <div class="counter-number" style="font-size: 2.8rem; font-weight: 700; color: var(--primary-blue);" data-target="150">0</div>
+                    <div class="counter-label" style="font-size: 1.1rem; color: var(--text-gray);">Servers</div>
+                </div>
+                <div class="counter-item" style="flex: 1; min-width: 200px;">
+                    <div class="counter-number" style="font-size: 2.8rem; font-weight: 700; color: var(--primary-blue);" data-target="1500">0</div>
+                    <div class="counter-label" style="font-size: 1.1rem; color: var(--text-gray);">Users</div>
+                </div>
+                <div class="counter-item" style="flex: 1; min-width: 200px;">
+                    <div class="counter-number" style="font-size: 2.8rem; font-weight: 700; color: var(--primary-blue);" data-target="7200">0</div>
+                    <div class="counter-label" style="font-size: 1.1rem; color: var(--text-gray);">Commands Run</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Commands Section -->
     <section class="commands-section" id="commands">
         <div class="container">
@@ -1216,23 +1239,30 @@
         <h2 class="section-title">Premium Perks</h2>
         <div class="premium-grid">
             <!-- Benefits Column - No Button -->
-            <div class="premium-benefits glass" style="height: 780px;">
-                <h3>Unlock Exclusive Benefits</h3>
+            <div class="premium-benefits glass" style="height: 850px;">
+                <h3 style="margin-bottom: 15px;">Unlock Exclusive Benefits</h3>
                 <ul class="benefit-list">
-                    <li>20% more XP from all commands (Increased XP Gain)</li>
-                    <li>30% reduced cooldowns on all activities (All commands like /daily, /work, /rob)</li>
-                    <li>Sell items for 100% value (vs normal 50%) (Better Sell Prices)</li>
-                    <li>Exclusive commands like /premium_daily with better rewards</li>
+                    <li>20% more XP from all commands</li>
+                    <li>30% reduced cooldowns on all activities</li>
+                    <li>Sell items for 100% value (vs normal 50%)</li>
+                    <li>Exclusive commands like /premium_daily</li>
                     <li>Special gold-colored economy embeds</li>
-                    <li>Special premium crown badge on your profile</li>
-                    <li>Massive Starter Pack when activating (25,000 cash, potions, tools, gems)</li>
+                    <li>Premium crown badge on your profile</li>
+                    <li>Massive Starter Pack when activating</li>
                     <li>10 farm plots instead of standard 5</li>
-                    <li>Crops grow 20% faster and yield 10% more</li>
+                    <li>20% faster crop growth and 10% more yield</li>
+                    <li>15% more PeepCoins from mining</li>
+                    <li>15% discount on PeepMine upgrades</li>
+                    <li>Higher miner cap (150 vs 100)</li>
+                    <li>Better prestige boost (25% vs 20%)</li>
+                    <li>Prestige at level 90 (vs level 100)</li>
+                    <li>Keep 2 miners after prestiging (vs 1)</li>
+                    <li>Higher storage capacity (2M vs 1M)</li>
                 </ul>
             </div>
 
             <!-- Starter Pack Column - With Button -->
-            <div class="starter-pack glass" style="height: 780px; display: flex; flex-direction: column;">
+            <div class="starter-pack glass" style="height: 850px; display: flex; flex-direction: column;">
                 <div style="flex-grow: 1;">
                     <div class="treasure-chest-container">
                         <div class="treasure-chest">
@@ -1252,15 +1282,15 @@
                                 </div>
                                 <div class="treasure-item">
                                     🔑
-                                    <span class="treasure-item-name">Golden Key</span>
+                                    <span class="treasure-item-name">Vault Key</span>
                                 </div>
                                 <div class="treasure-item">
                                     💰
-                                    <span class="treasure-item-name">Coin Bag</span>
+                                    <span class="treasure-item-name">25,000 Cash</span>
                                 </div>
                                 <div class="treasure-item">
                                     ⚡
-                                    <span class="treasure-item-name">Energy Boost</span>
+                                    <span class="treasure-item-name">XP Boost</span>
                                 </div>
                                 <div class="treasure-item">
                                     🎣
@@ -1268,31 +1298,31 @@
                                 </div>
                                 <div class="treasure-item">
                                     ⏳
-                                    <span class="treasure-item-name">Time Warper</span>
+                                    <span class="treasure-item-name">Time Turner</span>
                                 </div>
                                 <div class="treasure-item">
                                     🔍
-                                    <span class="treasure-item-name">Magnifying Glass</span>
+                                    <span class="treasure-item-name">Detector</span>
                                 </div>
                                 <div class="treasure-item">
                                     ⛏️
-                                    <span class="treasure-item-name">Mining Pick</span>
+                                    <span class="treasure-item-name">Pickaxe</span>
                                 </div>
                                 <div class="treasure-item">
                                     🧪
-                                    <span class="treasure-item-name">Potion</span>
+                                    <span class="treasure-item-name">Stamina Potion</span>
                                 </div>
                                 <div class="treasure-item">
-                                    🧿
-                                    <span class="treasure-item-name">Lucky Charm</span>
+                                    🔒
+                                    <span class="treasure-item-name">Safe Cracker</span>
                                 </div>
                                 <div class="treasure-item">
-                                    🏆
-                                    <span class="treasure-item-name">Trophy</span>
+                                    ❤️
+                                    <span class="treasure-item-name">Ruby</span>
                                 </div>
                                 <div class="treasure-item">
-                                    📜
-                                    <span class="treasure-item-name">Scroll</span>
+                                    💚
+                                    <span class="treasure-item-name">Emerald</span>
                                 </div>
                             </div>
                         </div>
@@ -1475,19 +1505,20 @@
     <script>
         // Define command arrays
         let economyCommands = [
-            { icon: "fas fa-question-circle", name: "help", description: "Get help and information about Peeper commands" },
+            { icon: "fas fa-question-circle", name: "help", description: "Shows all available commands" },
             { icon: "fas fa-user", name: "profile [@user]", description: "View your profile or another user's profile" },
             { icon: "fas fa-wallet", name: "balance [@user]", description: "Check wallet & bank balance" },
             { icon: "fas fa-seedling", name: "plant &lt;type&gt;", description: "Plant crops for passive income" },
             { icon: "fas fa-cut", name: "harvest [plot_id]", description: "Harvest ready crops" },
             { icon: "fas fa-leaf", name: "crops", description: "View your growing crops" },
+            { icon: "fas fa-bolt", name: "boosts [@user]", description: "View active boosts and remaining time" },
             { icon: "fas fa-calendar-day", name: "daily", description: "Claim your daily money reward<br><strong>Reward:</strong> 15,000 coins (with potential boosts)" },
             { icon: "fas fa-briefcase", name: "work", description: "Earn money through work<br><strong>Reward:</strong> 5,000 coins (with potential boosts)" },
             { icon: "fas fa-piggy-bank", name: "deposit [amount|all]", description: "Secure money in bank<br><strong>Usage:</strong> /deposit amount: 1000 or /deposit amount: all<br><strong>Example:</strong> /deposit amount: 5000" },
             { icon: "fas fa-money-check", name: "withdraw [amount|all]", description: "Access bank funds<br><strong>Usage:</strong> /withdraw amount: 1000 or /withdraw amount: all<br><strong>Example:</strong> /withdraw amount: 3000" },
             { icon: "fas fa-trophy", name: "leaderboard", description: "View wealth rankings<br><strong>Usage:</strong> /leaderboard" },
             { icon: "fas fa-medal", name: "inventorylb", description: "View top collectors<br><strong>Usage:</strong> /inventorylb" },
-            { icon: "fas fa-seedling", name: "farmlb", description: "View farming profit leaderboard" },
+            { icon: "fas fa-seedling", name: "farmlb", description: "View farming profit leaderboard<br><strong>Usage:</strong> /farmlb" },
             { icon: "fas fa-store", name: "shop", description: "Browse available items<br><strong>Usage:</strong> /shop" },
             { icon: "fas fa-money-bill-transfer", name: "pay @user amount", description: "Transfer money to another user<br><strong>Usage:</strong> /pay user: @User amount: 1000<br><strong>Example:</strong> /pay user: @JohnDoe amount: 5000" },
             { icon: "fas fa-shopping-cart", name: "buy item [quantity]", description: "Purchase shop items<br><strong>Usage:</strong> /buy quantity: [number] (default: 1)<br>Then select an item from dropdown<br><strong>Example:</strong> /buy quantity: 2 → Select \"Diamond\"" },
@@ -1499,12 +1530,15 @@
             { icon: "fas fa-fish", name: "fishing", description: "Catch collectibles (requires rod)<br><strong>Usage:</strong> /fishing" },
             { icon: "fas fa-hammer", name: "mining", description: "Mine minerals (requires pickaxe)<br><strong>Usage:</strong> /mining" },
             { icon: "fas fa-satellite", name: "detect", description: "Find hidden items (requires detector)<br><strong>Usage:</strong> /detect" },
-            { icon: "fas fa-thumbs-up", name: "vote", description: "Vote for the bot to get rewards (see Vote section for details)" },
+            { icon: "fas fa-thumbs-up", name: "vote", description: "Vote for the bot to get rewards (see Vote section for details)<br><strong>Usage:</strong> /vote" },
             { icon: "fas fa-crown", name: "premium", description: "View premium benefits and status<br><strong>Usage:</strong> /premium" },
-            { icon: "fas fa-diamond", name: "premium_daily", description: "Premium users: enhanced daily rewards<br><strong>Usage:</strong> /premium_daily" },
-            { icon: "fas fa-ticket", name: "redeem &lt;code&gt;", description: "Activate premium with a code<br><strong>Usage:</strong> /redeem code: XXXX-XXXX-XXXX-XXXX<br><strong>Example:</strong> /redeem code: ABCD-1234-EFGH-5678" },
-            { icon: "fas fa-shield-alt", name: "badges", description: "Show how to earn badges" },
-            { icon: "fas fa-bug", name: "bug", description: "Report a Bug" }
+            { icon: "fas fa-gem", name: "premium_daily", description: "Premium users: enhanced daily rewards<br><strong>Usage:</strong> /premium_daily" },
+            { icon: "fas fa-ticket", name: "redeem &lt;code&gt;", description: "Activate premium with a code<br><strong>Usage:</strong> /redeem code: XXXX-XXXX-XXXX-XXXX-XXXX-XXXX<br><strong>Example:</strong> /redeem code: ABCD-1234-EFGH-5678-IJKL-9012" },
+            { icon: "fas fa-shield-alt", name: "badges", description: "Show how to earn badges<br><strong>Usage:</strong> /badges" },
+            { icon: "fas fa-bug", name: "bug", description: "Report a Bug<br><strong>Usage:</strong> /bug" },
+            { icon: "fas fa-bullhorn", name: "announcement", description: "Read the latest announcement<br><strong>Usage:</strong> /announcement" },
+            { icon: "fas fa-hammer", name: "peepmine", description: "Manage your PeepMine and earn peepcoins<br><strong>Usage:</strong> /peepmine" },
+            { icon: "fas fa-hammer", name: "peepminelb", description: "View the top PeepMine leaderboard<br><strong>Usage:</strong> /peepminelb" }
         ];
 
         let gameCommands = [
@@ -1516,18 +1550,42 @@
             { icon: "fas fa-skull", name: "hangman [bet]", description: "Word guessing game<br><strong>Usage:</strong> /hangman bet: number (optional)<br>Random word guessing game" }
         ];
 
-        // Sort commands by description length, keeping 'help' at the top
+        // Sort commands by description length: help at top, small at top, medium in middle, large at bottom
         function sortCommandsByDescriptionLength(commands) {
-            return commands.sort((a, b) => {
-                if (a.name === 'help') return -1;
-                if (b.name === 'help') return 1;
-
+            // First, find and extract the help command if it exists
+            const helpCommandIndex = commands.findIndex(cmd => cmd.name === 'help');
+            let helpCommand = null;
+            if (helpCommandIndex !== -1) {
+                helpCommand = commands.splice(helpCommandIndex, 1)[0];
+            }
+            
+            // Sort the remaining commands by size
+            const sortedCommands = commands.sort((a, b) => {
                 // Strip HTML tags for accurate length calculation
                 const stripHtml = html => html.replace(/<[^>]+>/g, '');
                 const aLen = stripHtml(a.description).length;
                 const bLen = stripHtml(b.description).length;
+                
+                // Define size categories
+                const isSmall = len => len < 60;
+                const isLarge = len => len > 120;
+                
+                // If they're in different size categories
+                if (isSmall(aLen) && !isSmall(bLen)) return -1;
+                if (!isSmall(aLen) && isSmall(bLen)) return 1;
+                if (isLarge(aLen) && !isLarge(bLen)) return 1;
+                if (!isLarge(aLen) && isLarge(bLen)) return -1;
+                
+                // Within the same category, sort by length
                 return aLen - bLen;
             });
+            
+            // Add help command back at the beginning if it existed
+            if (helpCommand) {
+                sortedCommands.unshift(helpCommand);
+            }
+            
+            return sortedCommands;
         }
 
         // Sort the commands
@@ -1736,6 +1794,30 @@
             });
         }
 
+        // Counter animation function
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter-number');
+            const speed = 200; // The lower the faster
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / speed;
+                let count = 0;
+                
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count) + '+';
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + '+';
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+        
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', () => {
             handleHeaderScroll();
@@ -1743,6 +1825,7 @@
             renderCommands();
             setupTabs();
             setupSmoothScrolling();
+            animateCounters(); // Start counter animations
             
             // Add scroll event for header and scroll to top
             window.addEventListener('scroll', () => {
