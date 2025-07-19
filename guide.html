@@ -309,15 +309,11 @@
         }
 
         .highlight {
-            background: rgba(255, 215, 0, 0.2);
             color: var(--gold);
-            padding: 2px 6px;
-            border-radius: 4px;
             font-weight: 600;
         }
 
         .highlight-green {
-            background: rgba(0, 119, 182, 0.3);
             color: var(--light-blue);
             padding: 2px 6px;
             border-radius: 4px;
@@ -325,18 +321,12 @@
         }
 
         .highlight-blue {
-            background: rgba(0, 180, 216, 0.3);
             color: var(--diamond-blue);
-            padding: 2px 6px;
-            border-radius: 4px;
             font-weight: 600;
         }
 
         .highlight-red {
-            background: rgba(224, 17, 95, 0.3);
             color: var(--ruby-red);
-            padding: 2px 6px;
-            border-radius: 4px;
             font-weight: 600;
         }
 
@@ -931,6 +921,8 @@
                         <li><span class="highlight">20% more XP</span> from every action</li>
                         <li><span class="highlight">Double farming plots</span> (10 vs 5)</li>
                         <li><span class="highlight">Premium daily</span> (22.5k + bonus item)</li>
+                        <li><span class="highlight">PeepMine benefits</span> (15% more coins, higher caps)</li>
+                        <li><span class="highlight">Sell items for 100%</span> value (vs normal 50%)</li>
                     </ul>
                 </div>
                 <div class="tip-card">
@@ -1012,12 +1004,12 @@
                         </tr>
                         <tr>
                             <td><span class="highlight">Rare Flower</span></td>
-                            <td>50000</td>
-                            <td>182000</td>
-                            <td>132000</td>
-                            <td>264</td>
+                            <td>40000</td>
+                            <td>115200</td>
+                            <td>75200</td>
+                            <td>188</td>
                             <td>24</td>
-                            <td>5500</td>
+                            <td>4800</td>
                             <td><span class="tier tier-s"></span>S</td>
                         </tr>
                     </tbody>
@@ -1067,7 +1059,7 @@
                 </div>
                 <div class="tip-card">
                     <h3><i class="fas fa-chart-bar"></i> Profit Optimization</h3>
-                    <p><strong>Best profit/hour:</strong> Rare Flower (5.5k/hr)</p>
+                    <p><strong>Best profit/hour:</strong> Rare Flower (4.8k/hr)</p>
                     <p><strong>Best short-term:</strong> Carrot (4.2k/hr)</p>
                     <p><strong>Most consistent:</strong> Corn (3.5k/hr)</p>
                     <p><span class="highlight-blue">Strategy:</span> Mix crops based on your schedule</p>
@@ -1087,7 +1079,7 @@
                     <p><strong>1 hour active:</strong> Wheat = 2k/hr</p>
                     <p><strong>2 hours active:</strong> Corn = 3.5k/hr</p>
                     <p><strong>8 hours away:</strong> Pumpkin = 3.2k/hr</p>
-                    <p><strong>24 hours away:</strong> Rare Flower = 5.5k/hr</p>
+                    <p><strong>24 hours away:</strong> Rare Flower = 4.8k/hr</p>
                 </div>
                 <div class="tip-card">
                     <h3><i class="fas fa-crown"></i> Premium vs Regular</h3>
@@ -1105,8 +1097,8 @@
                 <div class="tip-card">
                     <h3><i class="fas fa-money-bill-wave"></i> Capital Requirements</h3>
                     <p><strong>Starter (5k):</strong> 5x Wheat or 1x Carrot</p>
-                    <p><strong>Mid-game (50k):</strong> 10x Carrot or 1x Rare Flower</p>
-                    <p><strong>End-game (500k):</strong> 10x Rare Flower</p>
+                    <p><strong>Mid-game (40k):</strong> 10x Carrot or 1x Rare Flower</p>
+                    <p><strong>End-game (400k):</strong> 10x Rare Flower</p>
                     <p><span class="highlight-green">Tip:</span> Always reinvest profits for compound growth</p>
                 </div>
                 <div class="tip-card">
@@ -1188,7 +1180,7 @@
                         <tr>
                             <td><span class="command">/premium_daily</span></td>
                             <td>24 hours</td>
-                            <td>24 hours</td>
+                            <td><span class="highlight">16.8 hours</span></td>
                             <td>22,500 cash + random premium item (diamond/gold_bar/crystal_ball/time_turner)</td>
                             <td>25 XP (+50% with XP boost, +20% premium)</td>
                             <td><span class="highlight-red">Premium membership required</span></td>
@@ -1343,7 +1335,7 @@
                 </div>
             </div>
             
-            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-chess"></i> Robbery Strategy</h3>
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-chess"></i> Robbery Success Rates</h3>
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="stat-number">50%</span>
@@ -1360,31 +1352,6 @@
                 <div class="stat-item">
                     <span class="stat-number">90%</span>
                     <span class="stat-label">Potion + Safe Cracker</span>
-                </div>
-            </div>
-            <div class="tip-grid" style="margin-top: 20px;">
-                <div class="tip-card">
-                    <h3><i class="fas fa-user-clock"></i> Target Selection</h3>
-                    <p><strong>Prime targets:</strong> Users who just claimed daily/work rewards (they have fresh cash)</p>
-                    <p><strong>Timing matters:</strong> Rob within 10-15 minutes of their activity</p>
-                    <p><strong>Avoid these users:</strong> High level players (better defense), users with under 5k cash, premium users (often have protection)</p>
-                    <p><strong>Research first:</strong> Use <span class="command">/profile @user</span> to check their wealth and level</p>
-                    <p><span class="highlight-blue">Pro tip:</span> Target users in different timezones when they're offline</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-shield-alt"></i> Defense Tactics</h3>
-                    <p><strong>Primary defense:</strong> Keep 90%+ of wealth in bank (100% robbery-proof)</p>
-                    <p><strong>Cash management:</strong> Never carry more than 10k cash unless actively spending</p>
-                    <p><strong>Level advantage:</strong> Higher levels have better robbery defense rates</p>
-                    <p><strong>Protection items:</strong> Use protection potions when carrying large amounts</p>
-                    <p><span class="highlight-green">Golden rule:</span> Deposit immediately after earning from any source</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-user-secret"></i> Advanced Robbery</h3>
-                    <p><strong>Timing:</strong> Target users after they claim rewards</p>
-                    <p><strong>Research:</strong> Use <span class="command">/profile @user</span> to scout</p>
-                    <p><strong>Tools:</strong> Robbery potion + safe cracker combo</p>
-                    <p><span class="highlight-red">Risk:</span> Failed attempts give 1-hour cooldown</p>
                 </div>
             </div>
         </div>
@@ -1414,6 +1381,12 @@
                     <p><strong>Key:</strong> Consistency is king</p>
                 </div>
                 <div class="tip-card">
+                    <h3><i class="fas fa-hammer"></i> PeepMine LB</h3>
+                    <p><strong>Focus:</strong> Total peepcoins earned</p>
+                    <p><strong>Strategy:</strong> Optimize mining rate and miners</p>
+                    <p><strong>Key:</strong> Prestige as soon as possible</p>
+                </div>
+                <div class="tip-card">
                     <h3><i class="fas fa-gamepad"></i> Games LB</h3>
                     <p><strong>Focus:</strong> Games won</p>
                     <p><strong>Strategy:</strong> Play skill-based games</p>
@@ -1423,13 +1396,7 @@
                     <h3><i class="fas fa-level-up-alt"></i> Level LB</h3>
                     <p><strong>Focus:</strong> Total XP earned</p>
                     <p><strong>Strategy:</strong> Complete all daily activities</p>
-                    <p><strong>Key:</strong> Use XP boosts during active sessions(coming soon)</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-mask"></i> Crime LB</h3>
-                    <p><strong>Focus:</strong> Successful crimes committed</p>
-                    <p><strong>Strategy:</strong> Use robbery potions wisely</p>
-                    <p><strong>Key:</strong> Target selection and timing(coming soon)</p>
+                    <p><strong>Key:</strong> Use XP boosts during active sessions</p>
                 </div>
             </div>
             
@@ -1575,6 +1542,107 @@
             </div>
         </div>
 
+        <!-- PeepMine Section -->
+        <div class="section" id="peepmine">
+            <h2><i class="fas fa-hammer"></i> PeepMine System</h2>
+            
+            <h3 style="margin: 20px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-cogs"></i> How It Works</h3>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-info-circle"></i> Core Mechanics</h3>
+                    <p>PeepMine is a passive income system that generates peepcoins over time</p>
+                    <p><strong>Mine Level:</strong> Determines base mining rate (starts at level 1)</p>
+                    <p><strong>Miners:</strong> Workers who collect peepcoins (starts with 1)</p>
+                    <p><strong>Mining Rate:</strong> Peepcoins generated per second per miner</p>
+                    <p><span class="highlight-blue">Formula:</span> mining_rate × miners = peepcoins per second</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-coins"></i> Collection & Storage</h3>
+                    <p>Use the "Collect Peepcoins" button to transfer stored coins to inventory</p>
+                    <p><strong>Regular storage:</strong> 1,000,000 peepcoins</p>
+                    <p><strong>Premium storage:</strong> 2,000,000 peepcoins</p>
+                    <p><span class="highlight-green">Tip:</span> Collect regularly to avoid hitting storage cap</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-level-up-alt"></i> Mine Upgrades</h3>
+                    <p>Increase mine level to boost your mining rate</p>
+                    <p><strong>Cost:</strong> current_level × 5,000 peepcoins</p>
+                    <p><strong>Benefit:</strong> +0.05 mining rate per upgrade</p>
+                    <p><strong>Max level:</strong> 100</p>
+                    <p><span class="highlight">Premium:</span> 15% discount on upgrades</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-users"></i> Hiring Miners</h3>
+                    <p>Add miners to multiply your income</p>
+                    <p><strong>Cost:</strong> current_miners × 5,000 peepcoins</p>
+                    <p><strong>Regular limit:</strong> 100 miners</p>
+                    <p><strong>Premium limit:</strong> 150 miners</p>
+                    <p><span class="highlight">Premium:</span> 15% discount on hiring</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-sync"></i> Prestige System</h3>
+                    <p>Reset progress for permanent boosts</p>
+                    <p><strong>Regular requirement:</strong> Mine level 100</p>
+                    <p><strong>Premium requirement:</strong> Mine level 90</p>
+                    <p><strong>Regular boost:</strong> +20% per level (max 5 levels = 100%)</p>
+                    <p><strong>Premium boost:</strong> +25% per level (max 7 levels = 175%)</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-terminal"></i> Commands</h3>
+                    <p><span class="command">/peepmine</span> - Open your PeepMine interface</p>
+                    <p><span class="command">/peepminelb</span> - View the top PeepMine leaderboard</p>
+                    <p><span class="highlight-blue">Note:</span> Leaderboard ranks by total peepcoins earned all-time</p>
+                </div>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-lightbulb"></i> Strategy Tips</h3>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-baby"></i> Early Game Strategy</h3>
+                    <p><strong>Priority:</strong> Upgrade mine level first</p>
+                    <p><strong>Goal:</strong> Reach mining rate of 0.5-1.0 before adding miners</p>
+                    <p><strong>Collection:</strong> Set reminders to collect before hitting cap</p>
+                    <p><span class="highlight-blue">Tip:</span> Each mine level upgrade gives better ROI than miners early on</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-balance-scale"></i> Mid Game Balance</h3>
+                    <p><strong>Approach:</strong> Alternate between mine upgrades and miners</p>
+                    <p><strong>Ratio guide:</strong> 1 mine level for every 2-3 miners</p>
+                    <p><strong>Reinvestment:</strong> Put 70-80% of earnings back into mine</p>
+                    <p><span class="highlight-green">Optimal:</span> Keep miners × mining rate balanced for steady growth</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-chess"></i> Prestige Planning</h3>
+                    <p><strong>When to prestige:</strong> As soon as you meet requirements</p>
+                    <p><strong>Exception:</strong> Delay if close to affording many miners</p>
+                    <p><strong>Premium advantage:</strong> Prestige at level 90 instead of 100</p>
+                    <p><span class="highlight-blue">Strategy:</span> Focus on reaching prestige thresholds quickly</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-calculator"></i> ROI Calculations</h3>
+                    <p><strong>Mine upgrade ROI:</strong> New rate × miners × seconds to break even</p>
+                    <p><strong>Miner ROI:</strong> Mining rate × seconds to break even</p>
+                    <p><strong>Prestige ROI:</strong> Immediate 20-25% boost to all future earnings</p>
+                    <p><span class="highlight-green">Best value:</span> Prestige as soon as possible for compounding benefits</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-crown"></i> Premium Advantages</h3>
+                    <p><strong>Higher base rate:</strong> 0.15 vs 0.10 (50% more)</p>
+                    <p><strong>Better prestige:</strong> Level 90 requirement vs 100</p>
+                    <p><strong>More miners kept:</strong> 2 vs 1 after prestige</p>
+                    <p><strong>Collection bonus:</strong> 15% more peepcoins when collecting</p>
+                    <p><span class="highlight">Overall:</span> ~2x faster progression than regular users</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-clock"></i> Time Management</h3>
+                    <p><strong>Collection schedule:</strong> Every 8-12 hours for optimal efficiency</p>
+                    <p><strong>Upgrade timing:</strong> Save large upgrades for when you can monitor</p>
+                    <p><strong>AFK strategy:</strong> Focus on storage capacity for longer absences</p>
+                    <p><span class="highlight-blue">Remember:</span> PeepMine works even when you're offline</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Premium Section -->
         <div class="section" id="premium">
             <h2><i class="fas fa-crown"></i> Premium Mastery</h2>
@@ -1631,6 +1699,31 @@
                             <td><span class="highlight">100%</span></td>
                         </tr>
                         <tr>
+                            <td class="feature">PeepMine Collection</td>
+                            <td>Normal</td>
+                            <td><span class="highlight">+15% more</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">PeepMine Upgrades</td>
+                            <td>Normal</td>
+                            <td><span class="highlight">15% discount</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">PeepMine Miner Cap</td>
+                            <td>100</td>
+                            <td><span class="highlight">150</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">PeepMine Prestige</td>
+                            <td>Level 100</td>
+                            <td><span class="highlight">Level 90</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">PeepMine Storage</td>
+                            <td>1M</td>
+                            <td><span class="highlight">2M</span></td>
+                        </tr>
+                        <tr>
                             <td class="feature">Embed Colors</td>
                             <td>Green</td>
                             <td><span class="highlight">Gold</span></td>
@@ -1644,9 +1737,12 @@
                 <div class="tip-card">
                     <h3><i class="fas fa-gift"></i> Starter Pack</h3>
                     <p><span class="highlight">25,000 coins</span> immediate bonus</p>
-                    <p>Full set of tools (fishing, mining, detecting)</p>
-                    <p>5 rare items to kickstart your economy</p>
-                    <p>7-day premium trial</p>
+                    <p><strong>Tools:</strong> Fishing Rod, Pickaxe, Detector</p>
+                    <p><strong>Boosts:</strong> 10x XP Boost, 10x Stamina Potion</p>
+                    <p><strong>Security:</strong> 5x Safe Cracker, 3x Vault Key</p>
+                    <p><strong>Gems:</strong> 10x Ruby, 10x Emerald</p>
+                    <p><strong>Special:</strong> 1x Time Turner</p>
+                    <p><span class="highlight-green">Total value:</span> Over 2,000,000 coins!</p>
                 </div>
                 <div class="tip-card">
                     <h3><i class="fas fa-code"></i> Premium Codes</h3>
@@ -1676,6 +1772,7 @@
                     <p><span class="highlight">Faster earnings:</span> 30% reduced cooldowns on ALL commands</p>
                     <p><span class="highlight">Better selling:</span> Items sell for 100% value instead of 50%</p>
                     <p><span class="highlight">Double farming:</span> 10 plots vs 5 regular plots</p>
+                    <p><span class="highlight">PeepMine boost:</span> 15% more collection, 15% cheaper upgrades</p>
                     <p><span class="highlight-green">Result:</span> 2-3x faster wealth accumulation</p>
                 </div>
                 <div class="tip-card">
@@ -1683,6 +1780,7 @@
                     <p><strong>Leaderboards:</strong> Premium users dominate rankings</p>
                     <p><strong>XP gain:</strong> 20% bonus accelerates leveling</p>
                     <p><strong>Farming:</strong> Double plots = double profits</p>
+                    <p><strong>PeepMine:</strong> Higher base rate and prestige benefits</p>
                     <p><span class="highlight-blue">Advantage:</span> Stay ahead of regular users</p>
                 </div>
             </div>
@@ -1702,121 +1800,13 @@
                     <span class="stat-label">Faster Progress</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">20%</span>
-                    <span class="stat-label">More XP</span>
+                    <span class="stat-number">2x</span>
+                    <span class="stat-label">PeepMine Earnings</span>
                 </div>
             </div>
         </div>
 
-        <!-- Pro Strategies Section -->
-        <div class="section">
-            <h2><i class="fas fa-star"></i> Pro Strategies</h2>
-            
-            <h3 style="margin: 20px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-calendar-day"></i> Daily Routine</h3>
-            <div class="tip-grid">
-                <div class="tip-card">
-                    <h3><i class="fas fa-sun"></i> Morning</h3>
-                    <ol style="margin-left: 20px; color: var(--text-gray);">
-                        <li>Claim daily rewards</li>
-                        <li>Vote on both platforms</li>
-                        <li>Harvest overnight crops</li>
-                        <li>Plant 1-2 hour crops</li>
-                        <li>Complete work command</li>
-                    </ol>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-cloud-sun"></i> Afternoon</h3>
-                    <ol style="margin-left: 20px; color: var(--text-gray);">
-                        <li>Harvest morning crops</li>
-                        <li>Plant 2-4 hour crops</li>
-                        <li>Complete activities (fish/mine/detect)</li>
-                        <li>Check market for deals</li>
-                    </ol>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-moon"></i> Evening</h3>
-                    <ol style="margin-left: 20px; color: var(--text-gray);">
-                        <li>Harvest afternoon crops</li>
-                        <li>Plant 4-8 hour crops</li>
-                        <li>Play skill games</li>
-                        <li>Deposit excess cash</li>
-                    </ol>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-bed"></i> Night</h3>
-                    <ol style="margin-left: 20px; color: var(--text-gray);">
-                        <li>Harvest evening crops</li>
-                        <li>Plant 8-24 hour crops</li>
-                        <li>Use remaining commands</li>
-                        <li>Plan next day strategy</li>
-                    </ol>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-calendar-check"></i> Weekly Goals</h3>
-                    <p><strong>Monday:</strong> Set weekly profit targets</p>
-                    <p><strong>Wednesday:</strong> Review progress and adjust</p>
-                    <p><strong>Friday:</strong> Focus on leaderboard climbing</p>
-                    <p><strong>Sunday:</strong> Plan next week's strategy</p>
-                    <p><span class="highlight-green">Track:</span> Weekly earnings vs goals</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-stopwatch"></i> Efficiency Tips</h3>
-                    <p><strong>Batch commands:</strong> Do all activities at once</p>
-                    <p><strong>Set reminders:</strong> Phone alarms for harvests</p>
-                    <p><strong>Quick check:</strong> 2-minute status updates</p>
-                    <p><strong>Optimize timing:</strong> Align with your schedule</p>
-                    <p><span class="highlight-blue">Goal:</span> Maximum profit, minimum time</p>
-                </div>
-            </div>
-            
-            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-chess-knight"></i> Advanced Tactics</h3>
-            <div class="tip-grid">
-                <div class="tip-card">
-                    <h3><i class="fas fa-user-ninja"></i> Economic Warfare</h3>
-                    <p><strong>Rob timing:</strong> Target after daily/work claims</p>
-                    <p><strong>Market manipulation:</strong> Buy low, sell high</p>
-                    <p><strong>Defense:</strong> Keep minimal cash on hand</p>
-                    <p><strong>Intel:</strong> Scout competitors regularly</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-clock"></i> Cooldown Management</h3>
-                    <p><strong>Premium:</strong> 30% reduction on ALL cooldowns</p>
-                    <p><strong>Items:</strong> Use Time Turner strategically</p>
-                    <p><strong>Schedule:</strong> Align with natural breaks</p>
-                    <p><strong>Priority:</strong> Focus on high-value commands</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-seedling"></i> Long-term Wealth</h3>
-                    <p><strong>Invest:</strong> High-tier crops and rare items</p>
-                    <p><strong>Compound:</strong> Reinvest profits</p>
-                    <p><strong>Diversify:</strong> Multiple income streams</p>
-                    <p><strong>Patience:</strong> Slow and steady wins</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-users"></i> Community Power</h3>
-                    <p><strong>Alliances:</strong> Trade with trusted players</p>
-                    <p><strong>Intel sharing:</strong> Learn from top players</p>
-                    <p><strong>Events:</strong> Participate for rare rewards</p>
-                    <p><strong>Support:</strong> Help others to build reputation</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-brain"></i> Psychology Warfare</h3>
-                    <p><strong>Intimidation:</strong> High wealth deters robbers</p>
-                    <p><strong>Deception:</strong> Keep real wealth hidden in bank</p>
-                    <p><strong>Timing:</strong> Rob when targets are offline</p>
-                    <p><strong>Reputation:</strong> Establish yourself as a skilled player</p>
-                    <p><span class="highlight-red">Warning:</span> Use ethically and responsibly</p>
-                </div>
-                <div class="tip-card">
-                    <h3><i class="fas fa-chart-network"></i> Market Mastery</h3>
-                    <p><strong>Price tracking:</strong> Monitor item value trends</p>
-                    <p><strong>Bulk buying:</strong> Purchase during low demand</p>
-                    <p><strong>Strategic selling:</strong> Time sales for maximum profit</p>
-                    <p><strong>Arbitrage:</strong> Exploit price differences</p>
-                    <p><span class="highlight-green">Advanced:</span> Predict market movements</p>
-                </div>
-            </div>
-        </div>
+
     </div>
     </main>
 
