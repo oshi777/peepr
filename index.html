@@ -1800,23 +1800,38 @@
             const counters = document.querySelectorAll('.counter-number');
             const speed = 200; // The lower the faster
             
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const increment = target / speed;
-                let count = 0;
-                
-                const updateCount = () => {
-                    count += increment;
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count) + '+';
-                        setTimeout(updateCount, 1);
-                    } else {
-                        counter.innerText = target + '+';
+            // Create an observer for the stats section
+            const statsSection = document.querySelector('.stats-counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Start animation when section is visible
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const increment = target / speed;
+                            let count = 0;
+                            
+                            const updateCount = () => {
+                                count += increment;
+                                if (count < target) {
+                                    counter.innerText = Math.ceil(count) + '+';
+                                    setTimeout(updateCount, 1);
+                                } else {
+                                    counter.innerText = target + '+';
+                                }
+                            };
+                            
+                            updateCount();
+                        });
+                        
+                        // Disconnect observer after animation starts
+                        observer.disconnect();
                     }
-                };
-                
-                updateCount();
-            });
+                });
+            }, { threshold: 0.3 }); // Trigger when 30% of the section is visible
+            
+            // Start observing the stats section
+            observer.observe(statsSection);
         }
         
         // Initialize everything when page loads
@@ -1826,7 +1841,7 @@
             renderCommands();
             setupTabs();
             setupSmoothScrolling();
-            animateCounters(); // Start counter animations
+            animateCounters(); // Setup counter animations with scroll trigger
             
             // Add scroll event for header and scroll to top
             window.addEventListener('scroll', () => {
