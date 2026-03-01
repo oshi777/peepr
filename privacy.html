@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Peeper</title>
+    <meta name="description" content="Privacy Policy for Peeper, the ultimate Discord economy and gaming bot.">
+    <link rel="icon" href="https://i.imgur.com/gFgWwPn.png" type="image/png">
+    <link rel="shortcut icon" href="https://i.imgur.com/gFgWwPn.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/gFgWwPn.png">
+    <meta name="msapplication-TileImage" content="https://i.imgur.com/gFgWwPn.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Basic Styles & Variables from index.html */
+        :root {
+            --header-offset: 100px;
+            --base-dark: #0a0e27;
+            --secondary-dark: #1a1f3a;
+            --primary-blue: #2563eb;
+            --accent-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --text-light: #f8fafc;
+            --text-gray: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--base-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #090088;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Replaced with mascot image */
+            background-image: url('https://i.imgur.com/gFgWwPn.png');
+            background-size: cover;
+            background-position: center;
+            text-indent: -9999px; /* Hide any text content */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Legal Section Styles */
+        .legal-section {
+            padding: 120px 0 80px; /* More top padding to account for fixed header */
+        }
+        
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .legal-container h2 {
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        .legal-container h3 {
+            color: var(--light-blue);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .legal-container p, .legal-container li {
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+        
+        .legal-container ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--secondary-dark);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            min-width: 200px;
+            flex: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links li {
+            margin-bottom: 0;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top.visible {
+            opacity: 0.2;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: var(--accent-blue);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .legal-container { padding: 25px; }
+            .footer-grid { flex-direction: column; }
+            
+            /* Mobile navigation buttons */
+            .nav-buttons .btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-buttons .btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Firefox/Mobile Scrollbar */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-blue) var(--secondary-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Peeper</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html#commands">Commands</a>
+                    <a href="guide.html">Guide</a>
+                    <a href="index.html">Premium</a>
+                    <a href="index.html">Vote</a>
+                    <a href="index.html">Bug Bounty</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div class="nav-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" class="btn btn-primary" target="_blank">Invite Bot</a>
+                    <a href="https://discord.gg/XDhcM4dgnY" class="btn btn-secondary" target="_blank">Support</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Legal Section -->
+    <main class="legal-section">
+        <div class="container">
+            <div class="legal-container">
+                <h2>Privacy Policy</h2>
+                <p>At Peeper, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information.</p>
+                
+                <h3>Information We Collect</h3>
+                <p>When you use Peeper, we may collect:</p>
+                <ul>
+                    <li>Discord user ID and username</li>
+                    <li>Server IDs where the bot is used</li>
+                    <li>Economy and game-related data (coins, items, levels)</li>
+                    <li>Command usage statistics</li>
+                </ul>
+                
+                <h3>How We Use Information</h3>
+                <p>We use collected information to:</p>
+                <ul>
+                    <li>Provide and improve our services</li>
+                    <li>Maintain economy and game functionality</li>
+                    <li>Analyze usage patterns to enhance user experience</li>
+                    <li>Prevent abuse and ensure fair play</li>
+                </ul>
+                
+                <h3>Data Security</h3>
+                <p>We implement security measures to protect your data, including encryption and secure servers. However, no method of transmission over the internet is 100% secure.</p>
+                
+                <h3>Third-Party Services</h3>
+                <p>We do not sell your data to third parties. Data may be shared with service providers who assist in operating our services, under strict confidentiality agreements.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="guide.html"><i class="fas fa-book"></i> Guide</a></li>
+                        <li><a href="index.html#commands"><i class="fas fa-terminal"></i> Commands</a></li>
+                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
+                        <li><a href="referral.html"><i class="fas fa-users"></i> Referral Program</a></li>
+                        <li><a href="index.html#premium"><i class="fas fa-crown"></i> Premium</a></li>
+                        <li><a href="index.html#vote"><i class="fas fa-thumbs-up"></i> Vote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Developer Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="copyToClipboard('peeper.bot.team@gmail.com', event)"><i class="fas fa-envelope"></i> <span>peeper.bot.team@gmail.com</span></a></li>
+                        <li><a href="#" onclick="copyToClipboard('aiham.exe', event)"><i class="fab fa-discord"></i> <span>aiham.exe</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Peeper. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to copy text to clipboard with feedback
+        function copyToClipboard(textToCopy, event) {
+            if (event) {
+                event.preventDefault(); // Prevent default link behavior
+            }
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                let clickedElement = event ? event.currentTarget : null;
+                let textElement = clickedElement ? clickedElement.querySelector('span') || clickedElement : null;
+
+                if (textElement) {
+                    const originalText = textElement.textContent;
+                    textElement.textContent = 'Copied!';
+                    setTimeout(() => { textElement.textContent = originalText; }, 1500);
+                } else { alert('Copied: ' + textToCopy); }
+            }).catch(err => { console.error('Failed to copy: ', err); alert('Failed to copy. Please copy manually: ' + textToCopy); });
+        }
+
+        // Scroll to top functionality
+        const scrollTop = document.getElementById('scrollTop');
+        
+        function handleScroll() {
+            if (scrollTop) {
+                if (window.pageYOffset > 300) {
+                    scrollTop.classList.add('visible');
+                } else {
+                    scrollTop.classList.remove('visible');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
