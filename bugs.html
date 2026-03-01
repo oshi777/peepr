@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0077b6">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Report - Peeper Bot</title>
+    <meta name="description" content="Report bugs and issues with Peeper - the ultimate Discord economy and gaming bot.">
+    <link rel="canonical" href="https://peepr.netlify.app/bugs.html" />
+    <link rel="icon" href="https://i.imgur.com/gFgWwPn.png" type="image/png">
+    <link rel="shortcut icon" href="https://i.imgur.com/gFgWwPn.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/gFgWwPn.png">
+    <meta name="msapplication-TileImage" content="https://i.imgur.com/gFgWwPn.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --header-offset: 100px;
+            --base-dark: #0a0e27;
+            --secondary-dark: #1a1f3a;
+            --primary-blue: #2563eb;
+            --accent-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --cyan-blue: #0ea5e9;
+            --light-cyan: #38bdf8;
+            --pale-cyan: #7dd3fc;
+            --very-pale-cyan: #bae6fd;
+            --glass: rgba(26, 31, 58, 0.8);
+            --text-light: #f8fafc;
+            --text-gray: #cbd5e1;
+            --pixel-size: 2px;
+            --gold: #fbbf24;
+            --error-red: #ef4444;
+            --success-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--base-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Green Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-dark);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 6px;
+            border: 2px solid var(--secondary-dark);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Firefox Scrollbar */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-blue) var(--secondary-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Glassmorphism effect */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #090088;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Replaced with mascot image */
+            background-image: url('https://i.imgur.com/gFgWwPn.png');
+            background-size: cover;
+            background-position: center;
+            text-indent: -9999px; /* Hide any text content */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn:hover:not(.btn-disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover:not(.btn-disabled) {
+            background: var(--accent-blue);
+        }
+
+        .btn-secondary:hover:not(.btn-disabled) {
+            background: rgba(0, 119, 182, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--text-light), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .subheading {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Bug Report Form */
+        .bug-report-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            height: 150px;
+            resize: none;
+            padding: 15px;
+        }
+
+        .form-hint {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-col {
+            flex: 1;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .form-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-blue);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--success-green);
+            color: var(--success-green);
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid var(--error-red);
+            color: var(--error-red);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            min-width: 200px;
+            flex: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links li {
+            margin-bottom: 0;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top.visible {
+            opacity: 0.2;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: var(--accent-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .premium-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .starter-pack {
+                height: 300px;
+            }
+            
+            .bounty-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subheading {
+                font-size: 1.2rem;
+            }
+            
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .commands-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subheading {
+                font-size: 1rem;
+            }
+            
+            .bug-report-form {
+                padding: 20px;
+            }
+            
+            /* Mobile navigation buttons */
+            .nav-buttons .btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            /* Logo adjustments */
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 480px) {
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .nav-buttons .btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                line-height: 1.1;
+            }
+            
+            .subheading {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Peeper</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html#commands">Commands</a>
+                    <a href="guide.html">Guide</a>
+                    <a href="index.html" id="premiumLink">Premium</a>
+                    <a href="index.html#vote">Vote</a>
+                    <a href="index.html#bug-bounty">Bug Bounty</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div class="nav-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" class="btn btn-primary" target="_blank">Invite Bot</a>
+                    <a href="https://discord.gg/XDhcM4dgnY" class="btn btn-secondary" target="_blank">Support</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1>Report a Bug</h1>
+            <p class="subheading">Found an issue with Peeper? Help us improve by submitting a detailed bug report. Our team will investigate and fix it as soon as possible.</p>
+            
+            <div class="alert alert-success" id="success-alert">
+                Thank you for your bug report! Our team will investigate the issue.
+            </div>
+            
+            <div class="alert alert-error" id="error-alert">
+                There was a problem submitting your report. Please try again.
+            </div>
+            
+
+            
+            <div class="glass bug-report-form">
+                <form id="bugReportForm" action="https://formspree.io/f/mpwlagja" method="POST">
+                    <!-- Formspree success page redirect -->
+                    <input type="hidden" name="_next" value="https://peepr.netlify.app/bugs.html?success=true">
+                    <div class="form-group">
+                        <label for="discordUsername">Discord Username</label>
+                        <input type="text" id="discordUsername" name="discordUsername" class="form-control" placeholder="Your Discord username" required maxlength="50">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bugTitle">Bug Title</label>
+                        <input type="text" id="bugTitle" name="bugTitle" class="form-control" placeholder="Brief description of the issue" required maxlength="50">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bugDescription">Bug Description</label>
+                        <textarea id="bugDescription" name="bugDescription" class="form-control" placeholder="Please provide a detailed description of the bug..." required maxlength="500"></textarea>
+                        <div class="form-hint">Include what you were doing when the bug occurred, and what actually happened</div>
+                    </div>
+                    
+
+                    
+                    <div class="form-group">
+                        <label>Bug Category (select at least one)</label>
+                        <div class="form-check">
+                            <input type="checkbox" id="categoryCommands" name="bugCategory[]" value="commands">
+                            <label for="categoryCommands">Commands</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="categoryEconomy" name="bugCategory[]" value="economy">
+                            <label for="categoryEconomy">Economy System</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="categoryGames" name="bugCategory[]" value="games">
+                            <label for="categoryGames">Games</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="categoryUI" name="bugCategory[]" value="ui">
+                            <label for="categoryUI">User Interface</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="categoryOther" name="bugCategory[]" value="other">
+                            <label for="categoryOther">Other</label>
+                        </div>
+                        <div id="otherCategoryField" style="display: none; margin-top: 10px;">
+                            <input type="text" id="otherCategoryText" name="otherCategory" class="form-control" placeholder="Please specify">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="screenshotLinks">Screenshot Links</label>
+                        <input type="text" id="screenshotLinks" name="screenshotLinks" class="form-control" placeholder="Paste links to screenshots (e.g., Discord, Imgur)">
+                        <div class="form-hint">Please upload your screenshots to Discord or Imgur and paste the links here</div>
+                    </div>
+                    
+
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Bug Report</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="guide.html"><i class="fas fa-book"></i> Guide</a></li>
+                        <li><a href="index.html#commands"><i class="fas fa-terminal"></i> Commands</a></li>
+                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
+                        <li><a href="referral.html"><i class="fas fa-users"></i> Referral Program</a></li>
+                        <li><a href="index.html" id="premiumLinkFooter"><i class="fas fa-crown"></i> Premium</a></li>
+                        <li><a href="index.html#vote"><i class="fas fa-thumbs-up"></i> Vote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Developer Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="copyToClipboard('team.peeper@gmail.com', event)"><i class="fas fa-envelope"></i> <span>team.peeper@gmail.com</span></a></li>
+                        <li><a href="#" onclick="copyToClipboard('aiham.exe', event)"><i class="fab fa-discord"></i> <span>aiham.exe</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Peeper. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form validation before submission
+        document.getElementById('bugReportForm').addEventListener('submit', function(e) {
+            // Check if at least one checkbox is selected
+            const checkboxes = document.querySelectorAll('input[name="bugCategory[]"]');
+            let atLeastOneChecked = false;
+            let selectedCategories = [];
+            
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    atLeastOneChecked = true;
+                    selectedCategories.push(checkbox.value);
+                }
+            });
+            
+            if (!atLeastOneChecked) {
+                e.preventDefault();
+                alert('Please select at least one bug category');
+                return false;
+            }
+            
+            // Check if Other is selected but no text is provided
+            const otherCheckbox = document.getElementById('categoryOther');
+            const otherCategoryText = document.getElementById('otherCategoryText');
+            
+            if (otherCheckbox.checked && otherCategoryText.value.trim() === '') {
+                e.preventDefault();
+                alert('Please specify the "Other" category');
+                otherCategoryText.focus();
+                return false;
+            }
+            
+            // Create a hidden field for categories
+            const categoriesField = document.createElement('input');
+            categoriesField.type = 'hidden';
+            categoriesField.name = 'categories';
+            categoriesField.value = selectedCategories.join(', ');
+            this.appendChild(categoriesField);
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Submitting...';
+            
+            // Let the form submit naturally to Formspree
+            return true;
+        });
+        
+        // Header scroll effect
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+        
+        // Function to copy text to clipboard with feedback
+        function copyToClipboard(textToCopy, event) {
+            if (event) {
+                event.preventDefault(); // Prevent default link behavior
+            }
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                let clickedElement = event ? event.currentTarget : null;
+                let textElement = clickedElement ? clickedElement.querySelector('span') || clickedElement : null;
+
+                if (textElement) {
+                    const originalText = textElement.textContent;
+                    textElement.textContent = 'Copied!';
+                    setTimeout(() => { textElement.textContent = originalText; }, 1500);
+                } else { alert('Copied: ' + textToCopy); }
+            }).catch(err => { console.error('Failed to copy: ', err); alert('Failed to copy. Please copy manually: ' + textToCopy); });
+        }
+        
+        // Scroll to top functionality
+        const scrollTop = document.getElementById('scrollTop');
+        
+        function handleScrollTop() {
+            if (scrollTop) {
+                if (window.pageYOffset > 300) {
+                    scrollTop.classList.add('visible');
+                } else {
+                    scrollTop.classList.remove('visible');
+                }
+            }
+        }
+        
+        if (scrollTop) {
+            scrollTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check for success parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                document.getElementById('success-alert').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('success-alert').style.display = 'none';
+                }, 5000);
+                // Remove the success parameter from URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            handleHeaderScroll();
+            
+            // Add scroll event for header and scroll to top
+            window.addEventListener('scroll', () => {
+                handleHeaderScroll();
+                handleScrollTop();
+            });
+            
+            // Set up premium links to first go to main page, then to premium section on second click
+            const premiumLink = document.getElementById('premiumLink');
+            const premiumLinkFooter = document.getElementById('premiumLinkFooter');
+            
+            // Check if we're coming from bugs.html and need to scroll to premium
+            if (sessionStorage.getItem('goToPremium') === 'true') {
+                sessionStorage.removeItem('goToPremium');
+                setTimeout(() => {
+                    const premiumSection = document.getElementById('premium');
+                    if (premiumSection) {
+                        const targetPosition = premiumSection.getBoundingClientRect().top + window.pageYOffset - 150;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 300);
+            }
+            
+            // Set up click handlers for premium links
+            if (premiumLink) {
+                premiumLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    sessionStorage.setItem('goToPremium', 'true');
+                    window.location.href = 'index.html';
+                });
+            }
+            
+            if (premiumLinkFooter) {
+                premiumLinkFooter.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    sessionStorage.setItem('goToPremium', 'true');
+                    window.location.href = 'index.html';
+                });
+            }
+            
+            // Show/hide the "Other" category text field
+            const otherCheckbox = document.getElementById('categoryOther');
+            const otherCategoryField = document.getElementById('otherCategoryField');
+            
+            otherCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    otherCategoryField.style.display = 'block';
+                } else {
+                    otherCategoryField.style.display = 'none';
+                }
+            });
+            
+            // No word count tracking needed - using maxlength attribute instead
+            
+            // No need for multiple attachment functionality
+        });
+    </script>
+</body>
+</html>

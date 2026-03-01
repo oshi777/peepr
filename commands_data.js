@@ -1,0 +1,53 @@
+// Economy Commands with aliases
+const economyCommands = [
+    { icon: "fas fa-question-circle", name: "help", aliases: "!h, !cmd, !cmds", description: "Shows all available commands" },
+    { icon: "fas fa-user", name: "profile [@user]", aliases: "!prof", description: "View your profile or another user's profile" },
+    { icon: "fas fa-wallet", name: "balance [@user]", aliases: "!bal, !b", description: "Check wallet & bank balance" },
+    { icon: "fas fa-seedling", name: "plant <type>", aliases: "!pl", description: "Plant crops for passive income" },
+    { icon: "fas fa-cut", name: "harvest [plot_id]", aliases: "!hv", description: "Harvest ready crops" },
+    { icon: "fas fa-leaf", name: "crops", aliases: "!mycrops", description: "View your growing crops" },
+    { icon: "fas fa-bolt", name: "boosts [@user]", aliases: "!boost", description: "View active boosts and remaining time" },
+    { icon: "fas fa-calendar-day", name: "daily", aliases: "!d", description: "Claim your daily money reward<br><strong>Reward:</strong> 5,000 coins (with potential boosts)<br><strong>Cooldown:</strong> 24 hours (30% reduced for Premium)" },
+    { icon: "fas fa-briefcase", name: "work", aliases: "!w", description: "Earn money through work<br><strong>Reward:</strong> 2,000 coins (with potential boosts)<br><strong>Cooldown:</strong> 6 hours (30% reduced for Premium)" },
+    { icon: "fas fa-piggy-bank", name: "deposit [amount|all]", aliases: "!dep", description: "Secure money in bank<br><strong>Usage:</strong> /deposit amount: 1000 or /deposit amount: all<br><strong>Example:</strong> /deposit amount: 5000" },
+    { icon: "fas fa-money-check", name: "withdraw [amount|all]", aliases: "!with", description: "Access bank funds<br><strong>Usage:</strong> /withdraw amount: 1000 or /withdraw amount: all<br><strong>Example:</strong> /withdraw amount: 3000" },
+    { icon: "fas fa-trophy", name: "leaderboard", aliases: "!lb, !l", description: "View wealth rankings<br><strong>Usage:</strong> /leaderboard" },
+    { icon: "fas fa-medal", name: "inventorylb", aliases: "!ilb, !il", description: "View top collectors<br><strong>Usage:</strong> /inventorylb" },
+    { icon: "fas fa-seedling", name: "farmlb", aliases: "!flb, !fl", description: "View farming profit leaderboard<br><strong>Usage:</strong> /farmlb" },
+    { icon: "fas fa-trophy", name: "levellb", aliases: "!llb, !lvllb", description: "View top players by level<br><strong>Usage:</strong> /levellb" },
+    { icon: "fas fa-store", name: "shop", aliases: "!s", description: "Browse available items<br><strong>Usage:</strong> /shop" },
+    { icon: "fas fa-money-bill-transfer", name: "pay @user amount", aliases: "!p", description: "Transfer money to another user<br><strong>Usage:</strong> /pay user: @User amount: 1000<br><strong>Example:</strong> /pay user: @JohnDoe amount: 5000" },
+    { icon: "fas fa-shopping-cart", name: "buy item [quantity]", aliases: "!by", description: "Purchase shop items<br><strong>Usage:</strong> /buy quantity: [number] (default: 1)<br>Then select an item from dropdown<br><strong>Example:</strong> /buy quantity: 2 → Select \"Diamond\"" },
+    { icon: "fas fa-cash-register", name: "sell item [quantity]", aliases: "!sl", description: "Sell items for cash<br><strong>Usage:</strong> /sell quantity: [number] (default: 1)<br>Then select item to sell<br>Sells for 50% value (100% if Premium)<br><strong>Example:</strong> /sell quantity: 3 → Select \"Gold Bar\"" },
+    { icon: "fas fa-box-open", name: "inventory [@user]", aliases: "!inv, !i", description: "View collected items<br><strong>Usage:</strong> /inventory user: @User (optional)<br><strong>Example:</strong> /inventory user: @JohnDoe" },
+    { icon: "fas fa-hand-pointer", name: "use item [quantity]", aliases: "!u", description: "Activate items<br><strong>Usage:</strong> /use quantity: [number] (default: 1)<br>Then select usable item from inventory<br><strong>Example:</strong> /use quantity: 1 → Select \"XP Boost\"" },
+    { icon: "fas fa-gift", name: "give @user item [quantity]", aliases: "!g", description: "Give an item to another user<br><strong>Usage:</strong> /give user: @Member quantity: [number]<br>Then select item from your inventory<br><strong>Example:</strong> /give user: @JohnDoe quantity: 1 → Select \"Ruby\"" },
+    { icon: "fas fa-mask", name: "rob @user", aliases: "!r", description: "Attempt to steal from another user<br><strong>Usage:</strong> /rob user: @User<br><strong>Cooldown:</strong> 18 hours (30% reduced for Premium)<br><strong>Example:</strong> /rob user: @JohnDoe" },
+    { icon: "fas fa-fish", name: "fishing", aliases: "!fish", description: "Catch collectibles (requires rod)<br><strong>Cooldown:</strong> 4 hours (30% reduced for Premium)<br><strong>Usage:</strong> /fishing" },
+    { icon: "fas fa-hammer", name: "mining", aliases: "!mine", description: "Mine minerals (requires pickaxe)<br><strong>Cooldown:</strong> 5 hours (30% reduced for Premium)<br><strong>Usage:</strong> /mining" },
+    { icon: "fas fa-satellite", name: "detect", aliases: "!det", description: "Find hidden items (requires detector)<br><strong>Cooldown:</strong> 5 hours (30% reduced for Premium)<br><strong>Usage:</strong> /detect" },
+    { icon: "fas fa-thumbs-up", name: "vote", aliases: "!v", description: "Vote for the bot to get rewards (12h cooldown per platform)<br><strong>Usage:</strong> /vote" },,
+    { icon: "fas fa-crown", name: "premium", aliases: "!prem", description: "View premium benefits and status<br><strong>Usage:</strong> /premium" },
+    { icon: "fas fa-gem", name: "premium_daily", aliases: "!pd", description: "Premium users: enhanced daily rewards<br><strong>Usage:</strong> /premium_daily" },
+    { icon: "fas fa-ticket", name: "redeem <code>", aliases: "!redeemcode", description: "Activate premium with a code<br><strong>Usage:</strong> /redeem code: XXXX-XXXX-XXXX-XXXX-XXXX-XXXX<br><strong>Example:</strong> /redeem code: ABCD-1234-EFGH-5678-IJKL-9012" },
+    { icon: "fas fa-shield-alt", name: "badges", aliases: "!badge", description: "Show how to earn badges<br><strong>Usage:</strong> /badges" },
+    { icon: "fas fa-bug", name: "bug", aliases: "!report", description: "Report a Bug<br><strong>Usage:</strong> /bug" },
+    { icon: "fas fa-bullhorn", name: "announcement", aliases: "!ann", description: "Read the latest announcement<br><strong>Usage:</strong> /announcement" },
+    { icon: "fas fa-hammer", name: "peepmine", aliases: "!pm", description: "Manage your PeepMine and earn peepcoins<br><strong>Usage:</strong> /peepmine" },
+    { icon: "fas fa-hammer", name: "peepminelb", aliases: "!pmlb, !minelb", description: "View the top PeepMine leaderboard<br><strong>Usage:</strong> /peepminelb" },
+    { icon: "fas fa-users", name: "referral", aliases: "!ref", description: "View your referral code and stats<br><strong>Usage:</strong> /referral" },
+    { icon: "fas fa-gift", name: "referral_rewards", aliases: "!refrewards", description: "View referral rewards<br><strong>Usage:</strong> /referral_rewards" },
+    { icon: "fas fa-sign-in-alt", name: "join <code>", aliases: "!j", description: "Join using a referral code<br><strong>Usage:</strong> /join code: XXXX-XXXX" },
+    { icon: "fas fa-hand-holding-usd", name: "claim_referral", aliases: "!claimref", description: "Claim your referral rewards<br><strong>Usage:</strong> /claim_referral" }
+];
+
+// Game Commands with aliases
+const gameCommands = [
+    { icon: "fas fa-hand-rock", name: "rockpaperscissors [@user] [bet]", aliases: "!rps", description: "Rock Paper Scissors<br><strong>Cooldown:</strong> 15 seconds<br><strong>Usage:</strong> /rockpaperscissors opponent: @user (optional) bet: number (optional)" },
+    { icon: "fas fa-crown", name: "blackjack [bet]", aliases: "!bj", description: "Blackjack card game<br><strong>Cooldown:</strong> 15 seconds<br><strong>Usage:</strong> /blackjack bet: number (optional)" },
+    { icon: "fas fa-times-circle", name: "tictactoe [@user] [bet]", aliases: "!ttt", description: "Classic Tic Tac Toe<br><strong>Cooldown:</strong> 15 seconds<br><strong>Usage:</strong> /tictactoe opponent: @user (optional) bet: number (optional)" },
+    { icon: "fas fa-gamepad", name: "connect4 [@user] [bet]", aliases: "!c4", description: "Connect Four<br><strong>Cooldown:</strong> 15 seconds<br><strong>Usage:</strong> /connect4 opponent: @user (optional) bet: number (optional)" },
+    { icon: "fas fa-question-circle", name: "guess_game [bet]", aliases: "!guess, !gtn", description: "Guess the Number<br><strong>Cooldown:</strong> 15 seconds<br><strong>Usage:</strong> /guess_game bet: number (optional)<br>7 attempts to guess correctly" },
+    { icon: "fas fa-skull", name: "hangman [bet]", aliases: "!hm", description: "Word guessing game<br><strong>Cooldown:</strong> 15 seconds<br><strong>Usage:</strong> /hangman bet: number (optional)<br>Random word guessing game" },
+    { icon: "fas fa-dice", name: "ping", aliases: "-", description: "Check bot latency and response time<br><strong>Usage:</strong> /ping" }
+];

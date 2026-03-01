@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0077b6">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Program - Peeper</title>
+    <meta name="description" content="Join Peeper's referral program and earn amazing rewards for bringing new users to our Discord economy bot.">
+    <link rel="canonical" href="https://peepr.netlify.app/referral.html" />
+    <link rel="icon" href="https://i.imgur.com/gFgWwPn.png" type="image/png">
+    <link rel="shortcut icon" href="https://i.imgur.com/gFgWwPn.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/gFgWwPn.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --base-dark: #0a0e27;
+            --secondary-dark: #1a1f3a;
+            --primary-blue: #2563eb;
+            --accent-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --text-light: #f8fafc;
+            --text-gray: #cbd5e1;
+            --gold: #fbbf24;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--base-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-image: url('https://i.imgur.com/gFgWwPn.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn:hover:not(.btn-disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover:not(.btn-disabled) {
+            background: var(--accent-blue);
+        }
+
+        .btn-secondary:hover:not(.btn-disabled) {
+            background: rgba(0, 119, 182, 0.1);
+        }
+
+        header {
+            background: var(--secondary-dark);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-image: url('https://i.imgur.com/gFgWwPn.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--text-light), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .referral-tier {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .referral-tier::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--gold));
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tier-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .tier-requirement {
+            background: var(--primary-blue);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tier-rewards {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .cash-reward {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cash-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .premium-info {
+            color: var(--light-blue);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .item-card {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .item-img {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 8px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .item-emoji {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: none;
+        }
+
+        .item-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 3px;
+        }
+
+        .item-quantity {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            min-width: 200px;
+            flex: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links li {
+            margin-bottom: 0;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tier-rewards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 10px;
+            }
+            
+            .items-grid .item-card {
+                grid-column: span 1 !important;
+            }
+            
+            .items-grid .item-card:last-child {
+                grid-column: span 2 !important;
+            }
+            
+            .elite-sapphire {
+                grid-column: span 1 !important;
+            }
+            
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .referral-tier {
+                padding: 20px;
+            }
+            
+            .tier-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-buttons .btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-buttons .btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Peeper</span>
+                </a>
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Referral Program</h1>
+            <p class="page-subtitle">Invite real users to Peeper and earn incredible rewards! The more users you bring, the better the rewards get.</p>
+
+            <!-- 20+ Users Tier -->
+            <div class="referral-tier">
+                <div class="tier-header">
+                    <h2 class="tier-title">Starter Bundle</h2>
+                    <div class="tier-requirement">20+ Real Users</div>
+                </div>
+                <div class="tier-rewards">
+                    <div class="cash-reward">
+                        <div class="cash-amount">15,000</div>
+                        <div>Cash</div>
+                        <div class="premium-info">+ 7 Days Premium</div>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Fo9hyuJ.png" alt="XP Boost" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⚡</span>
+                            <div class="item-name">XP Boost</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/qiZCw48.png" alt="Stamina Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🧪</span>
+                            <div class="item-name">Stamina Potion</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Nuaze5f.png" alt="Lucky Charm" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🍀</span>
+                            <div class="item-name">Lucky Charm</div>
+                            <div class="item-quantity">1x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/TQIXf0g.png" alt="Emerald" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💚</span>
+                            <div class="item-name">Emerald</div>
+                            <div class="item-quantity">3x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/J55Gp8u.png" alt="Ruby" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">❤️</span>
+                            <div class="item-name">Ruby</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 50+ Users Tier -->
+            <div class="referral-tier">
+                <div class="tier-header">
+                    <h2 class="tier-title">Growth Bundle</h2>
+                    <div class="tier-requirement">50+ Real Users</div>
+                </div>
+                <div class="tier-rewards">
+                    <div class="cash-reward">
+                        <div class="cash-amount">35,000</div>
+                        <div>Cash</div>
+                        <div class="premium-info">+ 20 Days Premium</div>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Fo9hyuJ.png" alt="XP Boost" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⚡</span>
+                            <div class="item-name">XP Boost</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/qiZCw48.png" alt="Stamina Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🧪</span>
+                            <div class="item-name">Stamina Potion</div>
+                            <div class="item-quantity">4x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/FtTK88g.png" alt="Robbery Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥷</span>
+                            <div class="item-name">Robbery Potion</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/xrFbNoB.png" alt="Safe Cracker" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔓</span>
+                            <div class="item-name">Safe Cracker</div>
+                            <div class="item-quantity">1x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hfeZjV7.png" alt="Vault Key" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔑</span>
+                            <div class="item-name">Vault Key</div>
+                            <div class="item-quantity">1x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hzInAoP.png" alt="Diamond" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💎</span>
+                            <div class="item-name">Diamond</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/TQIXf0g.png" alt="Emerald" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💚</span>
+                            <div class="item-name">Emerald</div>
+                            <div class="item-quantity">8x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/J55Gp8u.png" alt="Ruby" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">❤️</span>
+                            <div class="item-name">Ruby</div>
+                            <div class="item-quantity">6x</div>
+                        </div>
+                        <div class="item-card" style="grid-column: span 2;">
+                            <img src="https://i.imgur.com/z6mxmqe.png" alt="Gold Bar" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥇</span>
+                            <div class="item-name">Gold Bar</div>
+                            <div class="item-quantity">4x</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 100+ Users Tier -->
+            <div class="referral-tier">
+                <div class="tier-header">
+                    <h2 class="tier-title">Elite Bundle</h2>
+                    <div class="tier-requirement">100+ Real Users</div>
+                </div>
+                <div class="tier-rewards">
+                    <div class="cash-reward">
+                        <div class="cash-amount">75,000</div>
+                        <div>Cash</div>
+                        <div class="premium-info">+ 50 Days Premium</div>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Fo9hyuJ.png" alt="XP Boost" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⚡</span>
+                            <div class="item-name">XP Boost</div>
+                            <div class="item-quantity">10x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/qiZCw48.png" alt="Stamina Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🧪</span>
+                            <div class="item-name">Stamina Potion</div>
+                            <div class="item-quantity">8x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/FtTK88g.png" alt="Robbery Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥷</span>
+                            <div class="item-name">Robbery Potion</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/xrFbNoB.png" alt="Safe Cracker" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔓</span>
+                            <div class="item-name">Safe Cracker</div>
+                            <div class="item-quantity">3x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hfeZjV7.png" alt="Vault Key" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔑</span>
+                            <div class="item-name">Vault Key</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/dPtPtvi.png" alt="Time Turner" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⏰</span>
+                            <div class="item-name">Time Turner</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Nuaze5f.png" alt="Lucky Charm" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🍀</span>
+                            <div class="item-name">Lucky Charm</div>
+                            <div class="item-quantity">3x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/X0LJiF0.png" alt="Protection Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🛡️</span>
+                            <div class="item-name">Protection Potion</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hzInAoP.png" alt="Diamond" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💎</span>
+                            <div class="item-name">Diamond</div>
+                            <div class="item-quantity">12x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/TQIXf0g.png" alt="Emerald" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💚</span>
+                            <div class="item-name">Emerald</div>
+                            <div class="item-quantity">15x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/J55Gp8u.png" alt="Ruby" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">❤️</span>
+                            <div class="item-name">Ruby</div>
+                            <div class="item-quantity">12x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/z6mxmqe.png" alt="Gold Bar" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥇</span>
+                            <div class="item-name">Gold Bar</div>
+                            <div class="item-quantity">10x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hVdeqQ0.png" alt="Crystal Ball" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔮</span>
+                            <div class="item-name">Crystal Ball</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card elite-sapphire" style="grid-column: span 2;">
+                            <img src="https://i.imgur.com/0tGS9xS.png" alt="Sapphire" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💙</span>
+                            <div class="item-name">Sapphire</div>
+                            <div class="item-quantity">8x</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 120+ Users Tier -->
+            <div class="referral-tier">
+                <div class="tier-header">
+                    <h2 class="tier-title">Master Bundle</h2>
+                    <div class="tier-requirement">120+ Real Users</div>
+                </div>
+                <div class="tier-rewards">
+                    <div class="cash-reward">
+                        <div class="cash-amount">120,000</div>
+                        <div>Cash</div>
+                        <div class="premium-info">+ 75 Days Premium</div>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Fo9hyuJ.png" alt="XP Boost" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⚡</span>
+                            <div class="item-name">XP Boost</div>
+                            <div class="item-quantity">15x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/qiZCw48.png" alt="Stamina Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🧪</span>
+                            <div class="item-name">Stamina Potion</div>
+                            <div class="item-quantity">12x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/FtTK88g.png" alt="Robbery Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥷</span>
+                            <div class="item-name">Robbery Potion</div>
+                            <div class="item-quantity">8x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/xrFbNoB.png" alt="Safe Cracker" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔓</span>
+                            <div class="item-name">Safe Cracker</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hfeZjV7.png" alt="Vault Key" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔑</span>
+                            <div class="item-name">Vault Key</div>
+                            <div class="item-quantity">3x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/dPtPtvi.png" alt="Time Turner" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⏰</span>
+                            <div class="item-name">Time Turner</div>
+                            <div class="item-quantity">4x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Nuaze5f.png" alt="Lucky Charm" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🍀</span>
+                            <div class="item-name">Lucky Charm</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/X0LJiF0.png" alt="Protection Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🛡️</span>
+                            <div class="item-name">Protection Potion</div>
+                            <div class="item-quantity">4x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/5XqLAJB.png" alt="Pickaxe" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⛏️</span>
+                            <div class="item-name">Pickaxe</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/KSDMbc5.png" alt="Fishing Rod" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🎣</span>
+                            <div class="item-name">Fishing Rod</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/veot1h7.png" alt="Detector" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔍</span>
+                            <div class="item-name">Detector</div>
+                            <div class="item-quantity">2x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hzInAoP.png" alt="Diamond" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💎</span>
+                            <div class="item-name">Diamond</div>
+                            <div class="item-quantity">20x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/TQIXf0g.png" alt="Emerald" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💚</span>
+                            <div class="item-name">Emerald</div>
+                            <div class="item-quantity">25x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/J55Gp8u.png" alt="Ruby" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">❤️</span>
+                            <div class="item-name">Ruby</div>
+                            <div class="item-quantity">20x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/z6mxmqe.png" alt="Gold Bar" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥇</span>
+                            <div class="item-name">Gold Bar</div>
+                            <div class="item-quantity">18x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hVdeqQ0.png" alt="Crystal Ball" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔮</span>
+                            <div class="item-name">Crystal Ball</div>
+                            <div class="item-quantity">10x</div>
+                        </div>
+                        <div class="item-card" style="grid-column: span 2;">
+                            <img src="https://i.imgur.com/0tGS9xS.png" alt="Sapphire" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💙</span>
+                            <div class="item-name">Sapphire</div>
+                            <div class="item-quantity">15x</div>
+                        </div>
+                        <div class="item-card" style="grid-column: span 2;">
+                            <img src="https://i.imgur.com/vAVldu4.png" alt="Pearl" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🦪</span>
+                            <div class="item-name">Pearl</div>
+                            <div class="item-quantity">12x</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 150+ Users Tier -->
+            <div class="referral-tier">
+                <div class="tier-header">
+                    <h2 class="tier-title">Legend Bundle</h2>
+                    <div class="tier-requirement">150+ Real Users</div>
+                </div>
+                <div class="tier-rewards">
+                    <div class="cash-reward">
+                        <div class="cash-amount">180,000</div>
+                        <div>Cash</div>
+                        <div class="premium-info">+ 90 Days Premium</div>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Fo9hyuJ.png" alt="XP Boost" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⚡</span>
+                            <div class="item-name">XP Boost</div>
+                            <div class="item-quantity">20x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/qiZCw48.png" alt="Stamina Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🧪</span>
+                            <div class="item-name">Stamina Potion</div>
+                            <div class="item-quantity">18x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/FtTK88g.png" alt="Robbery Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥷</span>
+                            <div class="item-name">Robbery Potion</div>
+                            <div class="item-quantity">12x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/xrFbNoB.png" alt="Safe Cracker" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔓</span>
+                            <div class="item-name">Safe Cracker</div>
+                            <div class="item-quantity">8x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hfeZjV7.png" alt="Vault Key" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔑</span>
+                            <div class="item-name">Vault Key</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/dPtPtvi.png" alt="Time Turner" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⏰</span>
+                            <div class="item-name">Time Turner</div>
+                            <div class="item-quantity">6x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Nuaze5f.png" alt="Lucky Charm" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🍀</span>
+                            <div class="item-name">Lucky Charm</div>
+                            <div class="item-quantity">8x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/X0LJiF0.png" alt="Protection Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🛡️</span>
+                            <div class="item-name">Protection Potion</div>
+                            <div class="item-quantity">6x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/5XqLAJB.png" alt="Pickaxe" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⛏️</span>
+                            <div class="item-name">Pickaxe</div>
+                            <div class="item-quantity">3x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/KSDMbc5.png" alt="Fishing Rod" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🎣</span>
+                            <div class="item-name">Fishing Rod</div>
+                            <div class="item-quantity">3x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/veot1h7.png" alt="Detector" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔍</span>
+                            <div class="item-name">Detector</div>
+                            <div class="item-quantity">3x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/diZHpjf.png" alt="Bank Card" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💳</span>
+                            <div class="item-name">Bank Card</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hzInAoP.png" alt="Diamond" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💎</span>
+                            <div class="item-name">Diamond</div>
+                            <div class="item-quantity">30x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/TQIXf0g.png" alt="Emerald" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💚</span>
+                            <div class="item-name">Emerald</div>
+                            <div class="item-quantity">35x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/J55Gp8u.png" alt="Ruby" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">❤️</span>
+                            <div class="item-name">Ruby</div>
+                            <div class="item-quantity">30x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/z6mxmqe.png" alt="Gold Bar" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥇</span>
+                            <div class="item-name">Gold Bar</div>
+                            <div class="item-quantity">25x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hVdeqQ0.png" alt="Crystal Ball" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔮</span>
+                            <div class="item-name">Crystal Ball</div>
+                            <div class="item-quantity">15x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/0tGS9xS.png" alt="Sapphire" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💙</span>
+                            <div class="item-name">Sapphire</div>
+                            <div class="item-quantity">20x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/vAVldu4.png" alt="Pearl" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🦪</span>
+                            <div class="item-name">Pearl</div>
+                            <div class="item-quantity">18x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/tWWCE4y.png" alt="Ancient Coin" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🪙</span>
+                            <div class="item-name">Ancient Coin</div>
+                            <div class="item-quantity">10x</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 175+ Users Tier -->
+            <div class="referral-tier">
+                <div class="tier-header">
+                    <h2 class="tier-title">Champion Bundle</h2>
+                    <div class="tier-requirement">175+ Real Users</div>
+                </div>
+                <div class="tier-rewards">
+                    <div class="cash-reward">
+                        <div class="cash-amount">250,000</div>
+                        <div>Cash</div>
+                        <div class="premium-info">+ 110 Days Premium</div>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Fo9hyuJ.png" alt="XP Boost" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⚡</span>
+                            <div class="item-name">XP Boost</div>
+                            <div class="item-quantity">25x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/qiZCw48.png" alt="Stamina Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🧪</span>
+                            <div class="item-name">Stamina Potion</div>
+                            <div class="item-quantity">25x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/FtTK88g.png" alt="Robbery Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥷</span>
+                            <div class="item-name">Robbery Potion</div>
+                            <div class="item-quantity">15x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/xrFbNoB.png" alt="Safe Cracker" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔓</span>
+                            <div class="item-name">Safe Cracker</div>
+                            <div class="item-quantity">12x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hfeZjV7.png" alt="Vault Key" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔑</span>
+                            <div class="item-name">Vault Key</div>
+                            <div class="item-quantity">8x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/dPtPtvi.png" alt="Time Turner" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⏰</span>
+                            <div class="item-name">Time Turner</div>
+                            <div class="item-quantity">10x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/Nuaze5f.png" alt="Lucky Charm" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🍀</span>
+                            <div class="item-name">Lucky Charm</div>
+                            <div class="item-quantity">12x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/X0LJiF0.png" alt="Protection Potion" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🛡️</span>
+                            <div class="item-name">Protection Potion</div>
+                            <div class="item-quantity">10x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/5XqLAJB.png" alt="Pickaxe" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">⛏️</span>
+                            <div class="item-name">Pickaxe</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/KSDMbc5.png" alt="Fishing Rod" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🎣</span>
+                            <div class="item-name">Fishing Rod</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/veot1h7.png" alt="Detector" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔍</span>
+                            <div class="item-name">Detector</div>
+                            <div class="item-quantity">5x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/diZHpjf.png" alt="Bank Card" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💳</span>
+                            <div class="item-name">Bank Card</div>
+                            <div class="item-quantity">8x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hzInAoP.png" alt="Diamond" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💎</span>
+                            <div class="item-name">Diamond</div>
+                            <div class="item-quantity">40x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/TQIXf0g.png" alt="Emerald" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💚</span>
+                            <div class="item-name">Emerald</div>
+                            <div class="item-quantity">50x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/J55Gp8u.png" alt="Ruby" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">❤️</span>
+                            <div class="item-name">Ruby</div>
+                            <div class="item-quantity">45x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/z6mxmqe.png" alt="Gold Bar" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🥇</span>
+                            <div class="item-name">Gold Bar</div>
+                            <div class="item-quantity">35x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/hVdeqQ0.png" alt="Crystal Ball" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🔮</span>
+                            <div class="item-name">Crystal Ball</div>
+                            <div class="item-quantity">25x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/0tGS9xS.png" alt="Sapphire" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">💙</span>
+                            <div class="item-name">Sapphire</div>
+                            <div class="item-quantity">30x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/vAVldu4.png" alt="Pearl" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🦪</span>
+                            <div class="item-name">Pearl</div>
+                            <div class="item-quantity">25x</div>
+                        </div>
+                        <div class="item-card">
+                            <img src="https://i.imgur.com/tWWCE4y.png" alt="Ancient Coin" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🪙</span>
+                            <div class="item-name">Ancient Coin</div>
+                            <div class="item-quantity">15x</div>
+                        </div>
+                        <div class="item-card" style="grid-column: 1 / -1;">
+                            <img src="https://i.imgur.com/cYq9l8J.png" alt="PeepCoin" class="item-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="item-emoji">🪙</span>
+                            <div class="item-name">PeepCoin</div>
+                            <div class="item-quantity">5000x</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="guide.html"><i class="fas fa-book"></i> Guide</a></li>
+                        <li><a href="#commands"><i class="fas fa-terminal"></i> Commands</a></li>
+                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
+                        <li><a href="referral.html"><i class="fas fa-users"></i> Referral Program</a></li>
+                        <li><a href="#premium"><i class="fas fa-crown"></i> Premium</a></li>
+                        <li><a href="#vote"><i class="fas fa-thumbs-up"></i> Vote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Developer Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="copyToClipboard('team.peeper@gmail.com', event)"><i class="fas fa-envelope"></i> <span>team.peeper@gmail.com</span></a></li>
+                        <li><a href="#" onclick="copyToClipboard('aiham.exe', event)"><i class="fab fa-discord"></i> <span>aiham.exe</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Peeper. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard(textToCopy, event) {
+            if (event) {
+                event.preventDefault();
+            }
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                let clickedElement = event ? event.currentTarget : null;
+                let textElement = clickedElement ? clickedElement.querySelector('span') || clickedElement : null;
+                if (textElement) {
+                    const originalText = textElement.textContent;
+                    textElement.textContent = 'Copied!';
+                    setTimeout(() => { textElement.textContent = originalText; }, 1500);
+                } else { alert('Copied: ' + textToCopy); }
+            }).catch(err => { console.error('Failed to copy: ', err); alert('Failed to copy. Please copy manually: ' + textToCopy); });
+        }
+    </script>
+</body>
+</html>
