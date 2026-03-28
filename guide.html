@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peeper Guide - Ultimate Tips & Strategies</title>
+    <link rel="icon" href="peeper-images/peeper logo.png" type="image/png">
+    <link rel="shortcut icon" href="peeper-images/peeper logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="peeper-images/peeper logo.png">
+    <meta name="msapplication-TileImage" content="peeper-images/peeper logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --header-offset: 100px;
+            --base-dark: #0a0e27;
+            --secondary-dark: #1a1f3a;
+            --primary-blue: #2563eb;
+            --accent-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --cyan-blue: #0ea5e9;
+            --light-cyan: #38bdf8;
+            --pale-cyan: #7dd3fc;
+            --very-pale-cyan: #bae6fd;
+            --glass: rgba(26, 31, 58, 0.8);
+            --text-light: #f8fafc;
+            --text-gray: #cbd5e1;
+            --pixel-size: 2px;
+            --gold: #fbbf24;
+            --chest-brown: #8B4513;
+            --chest-gold: #fbbf24;
+            --ruby-red: #E0115F;
+            --diamond-blue: #0ea5e9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--base-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Glassmorphism effect */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #090088;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('peeper-images/peeper logo.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo-icon::before {
+            content: 'Peeper Logo';
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-blue);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 119, 182, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            padding-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--text-light), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subheading {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Styling */
+        .section {
+            background: transparent;
+            padding: 35px 25px;
+            margin-bottom: 30px;
+            scroll-margin-top: var(--header-offset);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20%;
+            width: 60%;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        .section h2 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            align-content: start;
+        }
+
+        .tip-card {
+            background: rgba(0, 119, 182, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 119, 182, 0.2);
+            position: relative;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 119, 182, 0.5);
+        }
+
+        .tip-card h3 {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tip-card p {
+            color: var(--text-gray);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .highlight-green {
+            color: var(--light-blue);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .highlight-blue {
+            color: var(--diamond-blue);
+            font-weight: 600;
+        }
+
+        .highlight-red {
+            color: var(--ruby-red);
+            font-weight: 600;
+        }
+
+        .command {
+            background: var(--base-dark);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            color: var(--light-blue);
+            font-weight: 600;
+            display: inline-block;
+            margin: 3px 0;
+        }
+
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--base-dark);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 119, 182, 0.2);
+        }
+
+        .data-table th {
+            background: var(--accent-blue);
+            color: var(--text-light);
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .data-table th:hover {
+            background: rgba(0, 119, 182, 0.8);
+        }
+
+        .data-table th.sorted-asc::after {
+            content: " â†‘";
+            font-size: 0.8em;
+        }
+
+        .data-table th.sorted-desc::after {
+            content: " â†“";
+            font-size: 0.8em;
+        }
+
+        .data-table td {
+            color: var(--text-gray);
+        }
+
+        .data-table tr:hover {
+            background: rgba(0, 119, 182, 0.1);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            background: rgba(0, 119, 182, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(0, 119, 182, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background: var(--base-dark);
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            transition: width 0.5s ease;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted var(--text-gray);
+            cursor: help;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--accent-blue);
+            color: var(--text-light);
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .badge-premium {
+            background: linear-gradient(90deg, var(--gold), #FFA500);
+            color: #000;
+        }
+
+        .badge-new {
+            background: var(--ruby-red);
+            color: white;
+        }
+
+        /* Tier indicators */
+        .tier {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .tier-s {
+            background: var(--gold);
+            box-shadow: 0 0 5px var(--gold);
+        }
+
+        .tier-a {
+            background: var(--ruby-red);
+            box-shadow: 0 0 5px var(--ruby-red);
+        }
+
+        .tier-b {
+            background: var(--diamond-blue);
+            box-shadow: 0 0 5px var(--diamond-blue);
+        }
+
+        .tier-c {
+            background: var(--primary-blue);
+            box-shadow: 0 0 5px var(--primary-blue);
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 119, 182, 0.3);
+        }
+
+        .comparison-table th {
+            background: rgba(0, 119, 182, 0.2);
+            color: var(--text-light);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(0, 119, 182, 0.05);
+        }
+
+        .comparison-table .feature {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .checkmark {
+            color: var(--light-blue);
+            font-weight: bold;
+        }
+
+        .xmark {
+            color: var(--ruby-red);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            min-width: 200px;
+            flex: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links li {
+            margin-bottom: 0;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subheading {
+                font-size: 1.2rem;
+            }
+            
+            .tip-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .footer-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-dark);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--text-light);
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 10px;
+                z-index: 1001;
+            }
+            
+            .section {
+                padding: 25px 20px;
+            }
+            
+            .tip-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons .btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                padding-top: 100px;
+                min-height: 40vh;
+            }
+            
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+                line-height: 1.1;
+            }
+            
+            .subheading {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .tip-card {
+                padding: 15px;
+            }
+            
+            .nav-buttons .btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 1.3rem;
+                padding: 8px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--base-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Firefox scrollbar */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-blue) var(--base-dark);
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top.visible {
+            opacity: 0.2;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Peeper</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html#commands">Commands</a>
+                    <a href="guide.html">Guide</a>
+                    <a href="index.html">Premium</a>
+                    <a href="index.html">Vote</a>
+                    <a href="index.html">Bug Bounty</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div class="nav-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" class="btn btn-primary" target="_blank">Invite Bot</a>
+                    <a href="https://discord.gg/XDhcM4dgnY" class="btn btn-secondary" target="_blank">Support</a>
+                </div>
+                
+            </nav>
+        </div>
+    </header>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Peeper Ultimate Guide</h1>
+                <p class="subheading">Master the economy, dominate the leaderboards, and become the wealthiest player</p>
+                <div class="hero-cta">
+                    <a href="#getting-started" class="btn btn-primary">Start Learning</a>
+                    <a href="#commands" class="btn btn-secondary">View Commands</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+    <div class="container">
+        <!-- Getting Started Section -->
+        <div class="section" id="getting-started">
+            <h2><i class="fas fa-rocket"></i> Getting Started</h2>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-running"></i> First Steps</h3>
+                    <p>You begin with <span class="highlight">100 cash</span>. Use these commands immediately:</p>
+                    <p><span class="command">/daily</span> - Claim <span class="highlight">2,500 coins</span> every 24h (16.8h premium)</p>
+                    <p><span class="command">/work</span> - Earn <span class="highlight">1,000 coins</span> every 6h (4.2h premium)</p>
+                    <p><span class="command">/vote</span> - Get <span class="highlight">coins + items</span> every 12h per platform</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-piggy-bank"></i> Banking Strategy</h3>
+                    <p>Deposit money ASAP to protect from robberies:</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 100%">25k Default Capacity</div>
+                    </div>
+                    <p>Use <span class="command">Bank Card</span> for +100k capacity or <span class="command">Vault Key</span> for +500k capacity.</p>
+                    <p class="highlight-green">Your bank is 100% safe from robberies!</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-crown"></i> Premium Advantage</h3>
+                    <p>Premium users get these exclusive benefits:</p>
+                    <ul style="margin-left: 20px; color: var(--text-gray);">
+                        <li><span class="highlight">30% reduced cooldowns</span> on ALL commands</li>
+                        <li><span class="highlight">20% more XP</span> from every action</li>
+                        <li><span class="highlight">Double farming plots</span> (10 vs 5)</li>
+                        <li><span class="highlight">Premium daily</span> (3,750 coins + bonus item)</li>
+                        <li><span class="highlight">PeepMine benefits</span> (15% more coins, higher caps)</li>
+                        <li><span class="highlight">Sell items for 100%</span> value (vs normal 50%)</li>
+                    </ul>
+                </div>
+                <div class="tip-card" style="grid-column: 1 / -1;">
+                    <h3><i class="fas fa-shield-alt"></i> Safety First</h3>
+                    <p><strong>Never carry large amounts of cash!</strong> Robberies can steal up to <span class="highlight-red">40% of your cash</span> &mdash; always deposit immediately after earning.</p>
+                    <p><span class="highlight-green">Bank = 100% safe</span> from all robberies. Default capacity is only <span class="highlight">25,000</span> &mdash; buy a <strong>Bank Card</strong> (+100k) or <strong>Vault Key</strong> (+500k) as soon as possible.</p>
+                    <p><strong>Robbery cooldown:</strong> Attackers must wait 18h (12.6h premium) before robbing again &mdash; use that window to farm and bank safely.</p>
+                    <p><strong>Watch out for geared robbers:</strong> A Safe Cracker gives <span class="highlight-red">65% success rate</span>, and combined with a Robbery Potion it reaches <span class="highlight-red">90%</span> &mdash; do not give them a reason to target you.</p>
+                    <p><strong>Protect yourself:</strong> Use a <span class="highlight">Protection Potion</span> for 4 hours of full immunity &mdash; stack multiples before big earning sessions like harvesting Rare Flowers or claiming vote rewards.</p>
+                    <p><span class="highlight-blue">Rule of thumb:</span> Keep less than 10% of your total wealth as cash at any time.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Farming Section -->
+        <div class="section" id="farming">
+            <h2><i class="fas fa-seedling"></i> Farming Empire</h2>
+            
+            <h3 style="margin: 20px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-table"></i> Crop Comparison Table</h3>
+            <div class="table-container">
+                <table class="data-table" id="cropTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="string">Crop <span class="tooltip"><span class="tooltiptext">Click headers to sort</span></span></th>
+                            <th data-sort="number">Cost</th>
+                            <th data-sort="number">Sell Price</th>
+                            <th data-sort="number">Profit</th>
+                            <th data-sort="number">ROI</th>
+                            <th data-sort="number">Growth Time</th>
+                            <th data-sort="number">Profit/Hour</th>
+                            <th data-sort="tier">Tier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="highlight">Wheat</span></td>
+                            <td>600</td>
+                            <td>1,000</td>
+                            <td>400</td>
+                            <td>67</td>
+                            <td>2</td>
+                            <td>500</td>
+                            <td><span class="tier tier-c"></span>C</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Corn</span></td>
+                            <td>1,800</td>
+                            <td>2,700</td>
+                            <td>900</td>
+                            <td>50</td>
+                            <td>3</td>
+                            <td>900</td>
+                            <td><span class="tier tier-c"></span>C</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Carrot</span></td>
+                            <td>3,000</td>
+                            <td>4,400</td>
+                            <td>1,400</td>
+                            <td>47</td>
+                            <td>4</td>
+                            <td>1,100</td>
+                            <td><span class="tier tier-b"></span>B</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Pumpkin</span></td>
+                            <td>6,000</td>
+                            <td>9,600</td>
+                            <td>3,600</td>
+                            <td>60</td>
+                            <td>12</td>
+                            <td>800</td>
+                            <td><span class="tier tier-c"></span>C</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Rare Flower</span></td>
+                            <td>24,000</td>
+                            <td>50,400</td>
+                            <td>26,400</td>
+                            <td>110</td>
+                            <td>36</td>
+                            <td>1,400</td>
+                            <td><span class="tier tier-b"></span>B</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-lightbulb"></i> Farming Strategies</h3>
+            <div class="tip-grid" style="gap: 50px;">
+
+
+                <div class="tip-card" style="min-width: 450px;">
+                    <h3><i class="fas fa-terminal"></i> Farming Commands</h3>
+                    <p><span class="command">/plant [crop]</span> - Plant specific crop</p>
+                    <p><span class="command">/crops</span> - View all growing crops</p>
+                    <p><span class="command">/harvest</span> - Harvest ALL ready crops</p>
+                    <p><span class="command">/harvest [plot]</span> - Harvest specific plot</p>
+                    <p><span class="command">/farmlb</span> - View farming leaderboard</p>
+                </div>
+
+                <div class="tip-card" style="min-width: 450px;">
+                    <h3><i class="fas fa-seedling"></i> Plot Management</h3>
+                    <p><strong>Regular:</strong> 5 plots maximum</p>
+                    <p style="margin-top: 8px;"><strong>Premium:</strong> 10 plots maximum</p>
+                    <p style="margin-top: 12px;"><strong>Strategy:</strong> Always keep all plots active for maximum profit — empty plots = wasted potential</p>
+                    <p style="margin-top: 8px;"><span class="highlight-green">Tip:</span> Plant different crops with varying growth times to ensure you always have something ready to harvest</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Commands Section -->
+        <div class="section" id="commands">
+            <h2><i class="fas fa-terminal"></i> Command Reference</h2>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                
+                <button id="commandToggle" class="btn btn-primary" style="padding: 10px 30px;">
+                    <i class="fas fa-exchange-alt"></i> Switch to Prefix (!)
+                </button>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-gamepad"></i> Core Commands</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/help</span></td>
+                            <td>!h, !cmd, !cmds</td>
+                            <td>Display all available commands</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/ping</span></td>
+                            <td>-</td>
+                            <td>Check bot latency and response time</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/vote</span></td>
+                            <td>!v</td>
+                            <td>Vote for the bot and earn coins + items every 12h</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/bug</span></td>
+                            <td>!report</td>
+                            <td>Report bugs and earn rewards</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/badges</span></td>
+                            <td>!badge</td>
+                            <td>View your earned badges</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-coins"></i> Economy Commands</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/profile</span></td>
+                            <td>!prof</td>
+                            <td>View your profile and stats</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/balance</span></td>
+                            <td>!bal, !b</td>
+                            <td>Check your cash and bank balance</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/daily</span></td>
+                            <td>!d</td>
+                            <td>Claim 2,500 coins every 24h (16.8h premium)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/work</span></td>
+                            <td>!w</td>
+                            <td>Earn 1,000 coins every 6h (4.2h premium)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/pay</span></td>
+                            <td>!p</td>
+                            <td>Send money to another user (minimum 100 peepcash, 5% fee - can be covered by sender with cover_fee option)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/rob</span></td>
+                            <td>!r</td>
+                            <td>Attempt to rob another user (18h cooldown)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/shop</span></td>
+                            <td>!s</td>
+                            <td>Browse the item shop</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/buy</span></td>
+                            <td>!by</td>
+                            <td>Purchase items from the shop</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/sell</span></td>
+                            <td>!sl</td>
+                            <td>Sell items from your inventory</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/inventory</span></td>
+                            <td>!inv, !i</td>
+                            <td>View your inventory</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/give</span></td>
+                            <td>!g</td>
+                            <td>Give items to another user</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/use</span></td>
+                            <td>!u</td>
+                            <td>Use an item from your inventory</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/deposit</span></td>
+                            <td>!dep</td>
+                            <td>Deposit money into your bank</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/withdraw</span></td>
+                            <td>!with</td>
+                            <td>Withdraw money from your bank</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-trophy"></i> Leaderboards</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/leaderboard</span></td>
+                            <td>!lb, !l</td>
+                            <td>View the wealth leaderboard</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/inventorylb</span></td>
+                            <td>!ilb, !il</td>
+                            <td>View the inventory value leaderboard</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/farmlb</span></td>
+                            <td>!flb, !fl</td>
+                            <td>View the farming leaderboard</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/levellb</span></td>
+                            <td>!llb, !lvllb</td>
+                            <td>View the level leaderboard</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/peepminelb</span></td>
+                            <td>!pmlb, !minelb</td>
+                            <td>View the PeepMine leaderboard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-seedling"></i> Farming & Activities</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/plant</span></td>
+                            <td>!pl</td>
+                            <td>Plant crops in your farm</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/harvest</span></td>
+                            <td>!hv</td>
+                            <td>Harvest ready crops</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/crops</span></td>
+                            <td>!mycrops</td>
+                            <td>View your growing crops</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/fishing</span></td>
+                            <td>!fish</td>
+                            <td>Go fishing (requires fishing rod)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/mining</span></td>
+                            <td>!mine</td>
+                            <td>Mine for resources (requires pickaxe)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/detect</span></td>
+                            <td>!det</td>
+                            <td>Use metal detector (requires detector)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-crown"></i> Premium & Boosts</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/premium</span></td>
+                            <td>!prem</td>
+                            <td>View premium benefits and status</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/premium_daily</span></td>
+                            <td>!pd</td>
+                            <td>Claim premium daily (3,750 coins + bonus item)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/redeem</span></td>
+                            <td>!redeemcode</td>
+                            <td>Redeem premium codes</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/boosts</span></td>
+                            <td>!boost</td>
+                            <td>View your active boosts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-hammer"></i> PeepMine</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                            <th>Cooldown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/peepmine</span></td>
+                            <td>!pm</td>
+                            <td>Open your PeepMine interface</td>
+                            <td>2 seconds</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/peepminelb</span></td>
+                            <td>!pmlb, !minelb</td>
+                            <td>View the PeepMine leaderboard</td>
+                            <td>2 seconds</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-dice"></i> Games</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/rockpaperscissors</span></td>
+                            <td>!rps</td>
+                            <td>Play rock paper scissors</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/tictactoe</span></td>
+                            <td>!ttt</td>
+                            <td>Play tic-tac-toe</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/connect4</span></td>
+                            <td>!c4</td>
+                            <td>Play connect 4</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/guess_game</span></td>
+                            <td>!guess, !gtn</td>
+                            <td>Play the number guessing game</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/hangman</span></td>
+                            <td>!hm</td>
+                            <td>Play hangman</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/blackjack</span></td>
+                            <td>!bj</td>
+                            <td>Play blackjack</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-bullhorn"></i> Utility</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/announcement</span></td>
+                            <td>!ann</td>
+                            <td>View latest announcements</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-users"></i> Referral System</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Aliases</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command cmd-display">/referral</span></td>
+                            <td>!ref</td>
+                            <td>View your referral code and stats</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/referral_rewards</span></td>
+                            <td>!refrewards</td>
+                            <td>View referral rewards</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/join</span></td>
+                            <td>!j</td>
+                            <td>Join using a referral code</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command cmd-display">/claim_referral</span></td>
+                            <td>!claimref</td>
+                            <td>Claim your referral rewards</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 20px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-clock"></i> Commands with Cooldowns</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Cooldown</th>
+                            <th>Premium Cooldown</th>
+                            <th>Reward</th>
+                            <th>XP</th>
+                            <th>Special Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="command">/daily</span></td>
+                            <td>24 hours</td>
+                            <td><span class="highlight">16.8 hours</span></td>
+                            <td>2,500 cash (+25% with Lucky Charm)</td>
+                            <td>4 XP (+50% with XP boost, +20% premium)</td>
+                            <td>Premium users get gold embeds</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/work</span></td>
+                            <td>6 hours</td>
+                            <td><span class="highlight">4.2 hours</span></td>
+                            <td>1,000 cash (+25% with Lucky Charm)</td>
+                            <td>3 XP (+50% with XP boost, +20% premium)</td>
+                            <td>Premium users get gold embeds</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/rob</span></td>
+                            <td>18 hours</td>
+                            <td><span class="highlight">12.6 hours</span></td>
+                            <td>15-40% of victim's cash</td>
+                            <td>4 XP (success), 2 XP (fail), 1 XP (broke)</td>
+                            <td>55% base success, 65% with Safe Cracker, 70% with Robbery Potion, 90% with both</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/fishing</span></td>
+                            <td>4 hours</td>
+                            <td><span class="highlight">2.8 hours</span></td>
+                            <td>gold_bar (35%), ruby (25%), pearl (20%), ancient_coin (15%), crystal_ball (5%)</td>
+                            <td>4 XP (+50% with XP boost, +20% premium)</td>
+                            <td>Requires fishing rod in inventory</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/mining</span></td>
+                            <td>5 hours</td>
+                            <td><span class="highlight">3.5 hours</span></td>
+                            <td>gold_bar (35%), ruby (25%), sapphire (15%), emerald (10%), diamond (10%), crystal_ball (5%)</td>
+                            <td>4 XP per item (+50% with XP boost, +20% premium)</td>
+                            <td>Requires pickaxe in inventory. 1-3 items (70%/20%/10% chance)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/detect</span></td>
+                            <td>5 hours</td>
+                            <td><span class="highlight">3.5 hours</span></td>
+                            <td>ruby (30%), pearl (30%), ancient_coin (20%), diamond (15%), crystal_ball (5%)</td>
+                            <td>4 XP per item (+50% with XP boost, +20% premium)</td>
+                            <td>Requires detector in inventory. 1-3 items per use</td>
+                        </tr>
+                        <tr>
+                            <td><span class="command">/premium_daily</span></td>
+                            <td>24 hours</td>
+                            <td><span class="highlight">16.8 hours</span></td>
+                            <td>3,750 cash (+25% with Lucky Charm) + random premium item (diamond/gold_bar/crystal_ball/time_turner)</td>
+                            <td>25 XP (+50% with XP boost, +20% premium)</td>
+                            <td><span class="highlight-red">Premium membership required</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-magic"></i> Boost Effects</h3>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-star"></i> Lucky Charm</h3>
+                    <p>Effect: <span class="highlight">+25% cash rewards</span> on daily, work, and premium_daily</p>
+                    <p>Duration: Varies by item</p>
+                    <p>Stacks: Yes</p>
+                    <p>Best use: Before claiming daily, work, or premium_daily rewards</p>
+                    <p><span class="highlight-green">Note:</span> Shows "(Lucky Charm boost active!)" indicator when applied</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-chart-line"></i> XP Boost</h3>
+                    <p>Effect: <span class="highlight">+50% XP</span> on all commands</p>
+                    <p>Premium bonus: Additional +20% XP</p>
+                    <p>Total with premium: <span class="highlight">+70% XP</span></p>
+                    <p>Best use: During active gaming sessions</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-mask"></i> Robbery Potion</h3>
+                    <p>Effect: <span class="highlight">+15% robbery success rate</span></p>
+                    <p>Cost: <span class="highlight">22,500 coins</span></p>
+                    <p>Combines with Safe Cracker for <span class="highlight">90% success</span></p>
+                    <p>Best use: When targeting high-value players</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-tools"></i> Safe Cracker</h3>
+                    <p>Effect: <span class="highlight">+10% robbery success rate</span></p>
+                    <p>Cost: <span class="highlight">17,500 coins</span></p>
+                    <p>Base 55% becomes 65%</p>
+                    <p>Combines with Robbery Potion for maximum effect</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-shield"></i> Protection Potion</h3>
+                    <p>Effect: <span class="highlight">Complete immunity</span> from robberies</p>
+                    <p>Duration: 4 hours</p>
+                    <p>Stackable: Yes</p>
+                    <p>Best use: When carrying large amounts of cash</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-hourglass-half"></i> Cooldown Reset Items</h3>
+                    <p><span class="highlight">Stamina Potion:</span> Resets work, daily, and premium_daily cooldowns</p>
+                    <p><span class="highlight">Time Turner:</span> Resets ALL command cooldowns</p>
+                    <p>Strategic use: Save for maximum efficiency periods</p>
+                    <p>Value: Time Turner is extremely valuable</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Items Section -->
+        <div class="section" id="items">
+            <h2><i class="fas fa-gem"></i> Item Collection & Usage</h2>
+            
+            <h3 style="margin: 20px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-tools"></i> Essential Tools</h3>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-fishing-rod"></i> Fishing Rod</h3>
+                    <p>Cost: <span class="highlight">20,000 coins</span></p>
+                    <p>Use: <span class="command">/fishing</span></p>
+                    <p>Rewards: gold_bar (35%), ruby (25%), pearl (20%), ancient_coin (15%), crystal_ball (5%)</p>
+                    <p>Cooldown: 4 hours (2.8h premium)</p>
+                    <p>XP: 4 XP (+50% with XP boost, +20% premium)</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-hammer"></i> Pickaxe</h3>
+                    <p>Cost: <span class="highlight">17,500 coins</span></p>
+                    <p>Use: <span class="command">/mining</span></p>
+                    <p>Rewards: gold_bar (35%), ruby (25%), sapphire (15%), emerald (10%), diamond (10%), crystal_ball (5%)</p>
+                    <p>Cooldown: 5 hours (3.5h premium)</p>
+                    <p>XP: 4 XP per item (+50% with XP boost, +20% premium)</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-search"></i> Metal Detector</h3>
+                    <p>Cost: <span class="highlight">25,000 coins</span></p>
+                    <p>Use: <span class="command">/detect</span></p>
+                    <p>Rewards: ruby (30%), pearl (30%), ancient_coin (20%), diamond (15%), crystal_ball (5%)</p>
+                    <p>Cooldown: 5 hours (3.5h premium)</p>
+                    <p>XP: 4 XP per item (+50% with XP boost, +20% premium)</p>
+                </div>
+                <div class="tip-card" style="min-width: 540px; row-gap: 10px;">
+                    <h3><i class="fas fa-shopping-cart"></i> Shop Access</h3>
+                    <p><span class="command">/shop</span> - Browse all available items</p>
+                    <p><span class="command">/buy</span> - Purchase items from the shop</p>
+                    <p>Shop contains tools, consumables, and upgrades</p>
+                    <p><span class="highlight-blue">Tip:</span> Check shop regularly for new items</p>
+                </div>
+                <div class="tip-card" style="min-width: 540px; row-gap: 10px; margin-left: 190px;">
+                    <h3><i class="fas fa-credit-card"></i> Bank Upgrades</h3>
+                    <p><span class="highlight">Bank Card:</span> +100k capacity (100,000 coins)</p>
+                    <p><span class="highlight">Vault Key:</span> +500k capacity (500,000 coins)</p>
+                    <p><span class="highlight">Default Bank:</span> 25k capacity</p>
+                    <p><span class="highlight-green">Priority:</span> Upgrade bank before buying tools</p>
+                </div>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-flask"></i> Power Items</h3>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-hourglass-half"></i> Time Turner</h3>
+                    <p>Effect: Resets ALL cooldowns</p>
+                    <p>Source: Rare drop, vote rewards</p>
+                    <p>Value: <span class="highlight">50,000 coins</span></p>
+                    <p>Usage: <span class="command">/use time turner</span></p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-bolt"></i> Stamina Potion</h3>
+                    <p>Effect: Resets work, daily, and premium_daily cooldowns</p>
+                    <p>Source: Vote rewards, farming</p>
+                    <p>Value: <span class="highlight">12,500 coins</span></p>
+                    <p>Usage: <span class="command">/use stamina potion</span></p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-mask"></i> Robbery Potion</h3>
+                    <p>Effect: +15% robbery success rate</p>
+                    <p>Source: Crime activities, shop</p>
+                    <p>Cost: <span class="highlight">22,500 coins</span></p>
+                    <p>Usage: <span class="command">/use robbery potion</span></p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-star"></i> XP Boost</h3>
+                    <p>Effect: +50% XP for 1 hour</p>
+                    <p>Source: Voting, events</p>
+                    <p>Stacks with premium: <span class="highlight">70% total</span></p>
+                    <p>Usage: <span class="command">/use xp boost</span></p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-magic"></i> Lucky Charm</h3>
+                    <p>Cost: <span class="highlight">1,500 coins</span></p>
+                    <p>Effect: +25% money boost on all earnings</p>
+                    <p>Duration: 2 hours (stackable)</p>
+                    <p>Usage: <span class="command">/use lucky charm</span></p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-shield"></i> Protection Potion</h3>
+                    <p>Cost: <span class="highlight">25,000 coins</span></p>
+                    <p>Effect: Complete immunity to robberies</p>
+                    <p>Duration: 4 hours (stackable)</p>
+                    <p>Usage: <span class="command">/use protection potion</span></p>
+                </div>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-chess"></i> Robbery Success Rates</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">55%</span>
+                    <span class="stat-label">Base Success</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">65%</span>
+                    <span class="stat-label">With Safe Cracker</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">70%</span>
+                    <span class="stat-label">With Robbery Potion</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">Both Items</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games Section -->
+        <div class="section" id="games" style="padding-bottom: 0;">
+            <h2><i class="fas fa-gamepad"></i> Gaming Tips</h2>
+            
+            <h3 style="margin: 20px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-coins"></i> Game Payouts</h3>
+            <div class="table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="feature">Game</th>
+                            <th>Payout</th>
+                            <th>Cooldown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature"><span class="highlight">Blackjack</span></td>
+                            <td>3:2 on BJ, 1:1 win</td>
+                            <td>15 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="feature"><span class="highlight">Guess Game</span></td>
+                            <td>1:1 to 5:1</td>
+                            <td>15 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="feature"><span class="highlight">Hangman</span></td>
+                            <td>1:1 to 3:1</td>
+                            <td>15 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="feature"><span class="highlight">Tic-Tac-Toe</span></td>
+                            <td>1:1</td>
+                            <td>15 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="feature"><span class="highlight">Connect 4</span></td>
+                            <td>1:1</td>
+                            <td>15 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="feature"><span class="highlight">Rock Paper Scissors</span></td>
+                            <td>1:1</td>
+                            <td>15 seconds</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PeepMine Section -->
+        <div class="section" id="peepmine">
+            <h2><i class="fas fa-hammer"></i> PeepMine System</h2>
+            
+            <h3 style="margin: 20px 0 15px; color: var(--light-green); font-size: 1.4rem;"><i class="fas fa-cogs"></i> How It Works</h3>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-info-circle"></i> Core Mechanics</h3>
+                    <p>PeepMine is a passive income system that generates peepcoins over time</p>
+                    <p><strong>Mine Level:</strong> Determines base mining rate (starts at level 1)</p>
+                    <p><strong>Miners:</strong> Workers who collect peepcoins (starts with 1)</p>
+                    <p><strong>Mining Rate:</strong> Peepcoins generated per second per miner</p>
+                    <p><span class="highlight-blue">Formula:</span> mining_rate Ã— miners = peepcoins per second</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-coins"></i> Collection & Storage</h3>
+                    <p>Use the "Collect Peepcoins" button to transfer stored coins to inventory</p>
+                    <p><strong>Regular storage:</strong> 1,000,000 peepcoins</p>
+                    <p><strong>Premium storage:</strong> 2,000,000 peepcoins</p>
+                    <p><span class="highlight-green">Tip:</span> Collect regularly to avoid hitting storage cap</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-level-up-alt"></i> Mine Upgrades</h3>
+                    <p>Increase mine level to boost your mining rate</p>
+                    <p><strong>Cost:</strong> current_level Ã— 1,600 peepcoins</p>
+                    <p><strong>Benefit:</strong> +0.002 mining rate per upgrade</p>
+                    <p><strong>Max level:</strong> 100</p>
+                    <p><span class="highlight">Premium:</span> 15% discount on upgrades</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-users"></i> Hiring Miners</h3>
+                    <p>Add miners to multiply your income</p>
+                    <p><strong>Cost:</strong> current_miners Ã— 1,600 peepcoins</p>
+                    <p><strong>Regular limit:</strong> 100 miners</p>
+                    <p><strong>Premium limit:</strong> 150 miners</p>
+                    <p><span class="highlight">Premium:</span> 15% discount on hiring</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-sync"></i> Prestige System</h3>
+                    <p>Reset progress for permanent boosts</p>
+                    <p><strong>Regular requirement:</strong> Mine level 100</p>
+                    <p><strong>Premium requirement:</strong> Mine level 90</p>
+                    <p><strong>Regular boost:</strong> +15% per level (max 5 levels = 75%)</p>
+                    <p><strong>Premium boost:</strong> +25% per level (max 7 levels = 175%)</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-terminal"></i> Commands</h3>
+                    <p><span class="command">/peepmine</span> - Open your PeepMine interface</p>
+                    <p><span class="command">/peepminelb</span> - View the top PeepMine leaderboard</p>
+                    <p><span class="highlight-blue">Note:</span> Leaderboard ranks by total peepcoins earned all-time</p>
+                </div>
+            </div>
+            
+
+        </div>
+
+
+    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul class="footer-links">
+                        <li><a href="guide.html"><i class="fas fa-book"></i> Guide</a></li>
+                        <li><a href="index.html#commands"><i class="fas fa-terminal"></i> Commands</a></li>
+                        <li><a href="https://discord.gg/XDhcM4dgnY" target="_blank"><i class="fab fa-discord"></i> Support Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" target="_blank"><i class="fas fa-robot"></i> Invite Bot</a></li>
+                        <li><a href="referral.html"><i class="fas fa-users"></i> Referral Program</a></li>
+                        <li><a href="index.html#premium"><i class="fas fa-crown"></i> Premium</a></li>
+                        <li><a href="index.html#vote"><i class="fas fa-thumbs-up"></i> Vote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Developer Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="copyToClipboard('team.peeper@gmail.com', event)"><i class="fas fa-envelope"></i> <span>team.peeper@gmail.com</span></a></li>
+                        <li><a href="#" onclick="copyToClipboard('aiham.exe', event)"><i class="fab fa-discord"></i> <span>aiham.exe</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Peeper. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations with GSAP
+        function initAnimations() {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                console.warn('GSAP not loaded, skipping animations');
+                return;
+            }
+            
+            try {
+                // Register ScrollTrigger plugin
+                gsap.registerPlugin(ScrollTrigger);
+                
+                // Hero text animation
+                gsap.from('.hero-content', {
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out'
+                });
+                
+                // Section animations
+                gsap.utils.toArray('.section').forEach((section, index) => {
+                    gsap.from(section, {
+                        duration: 0.8,
+                        y: 40,
+                        opacity: 0,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top 80%',
+                            once: true
+                        }
+                    });
+                });
+                
+                // Tip cards animation
+                gsap.utils.toArray('.tip-card').forEach((card, index) => {
+                    gsap.from(card, {
+                        duration: 0.6,
+                        y: 30,
+                        opacity: 0,
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            once: true
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error('Animation error:', error);
+            }
+        }
+
+        // Debounced scroll handler
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Scroll to top button with debounced handler
+        const scrollTop = document.getElementById('scrollTop');
+        
+        const handleScroll = debounce(() => {
+            if (scrollTop) {
+                if (window.pageYOffset > 300) {
+                    scrollTop.classList.add('visible');
+                } else {
+                    scrollTop.classList.remove('visible');
+                }
+            }
+        }, 16);
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Table sorting functionality
+        function initTableSorting() {
+            const table = document.getElementById('cropTable');
+            if (!table) return;
+            
+            const headers = table.querySelectorAll('th');
+            const tbody = table.querySelector('tbody');
+            
+            headers.forEach((header, index) => {
+                header.addEventListener('click', () => {
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+                    const sortType = header.getAttribute('data-sort');
+                    const isAsc = header.classList.contains('sorted-asc');
+                    
+                    // Remove sorting classes from all headers
+                    headers.forEach(h => {
+                        h.classList.remove('sorted-asc', 'sorted-desc');
+                    });
+                    
+                    // Sort rows
+                    rows.sort((a, b) => {
+                        const aValue = a.children[index].textContent.trim();
+                        const bValue = b.children[index].textContent.trim();
+                        
+                        if (sortType === 'number') {
+                            return isAsc 
+                                ? parseFloat(bValue) - parseFloat(aValue)
+                                : parseFloat(aValue) - parseFloat(bValue);
+                        } else if (sortType === 'tier') {
+                            const tierOrder = { 'S': 0, 'A': 1, 'B': 2, 'C': 3 };
+                            const aTier = a.children[index].querySelector('.tier').className.split(' ')[1].split('-')[1];
+                            const bTier = b.children[index].querySelector('.tier').className.split(' ')[1].split('-')[1];
+                            
+                            return isAsc
+                                ? tierOrder[bTier] - tierOrder[aTier]
+                                : tierOrder[aTier] - tierOrder[bTier];
+                        } else {
+                            return isAsc
+                                ? bValue.localeCompare(aValue)
+                                : aValue.localeCompare(bValue);
+                        }
+                    });
+                    
+                    // Toggle sort direction
+                    header.classList.toggle('sorted-asc', !isAsc);
+                    header.classList.toggle('sorted-desc', isAsc);
+                    
+                    // Reattach sorted rows
+                    rows.forEach(row => tbody.appendChild(row));
+                });
+            });
+        }
+
+        // Function to copy text to clipboard with feedback
+        function copyToClipboard(textToCopy, event) {
+            if (event) {
+                event.preventDefault();
+            }
+
+            // Check if clipboard API is available
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showCopyFeedback(event, textToCopy);
+                }).catch(err => {
+                    console.error('Clipboard API failed:', err);
+                    fallbackCopy(textToCopy, event);
+                });
+            } else {
+                fallbackCopy(textToCopy, event);
+            }
+        }
+
+        function showCopyFeedback(event, textToCopy) {
+            let clickedElement = event ? event.currentTarget : null;
+            let textElement = clickedElement ? clickedElement.querySelector('span') || clickedElement : null;
+
+            if (textElement) {
+                const originalText = textElement.textContent;
+                textElement.textContent = 'Copied!';
+                setTimeout(() => { textElement.textContent = originalText; }, 1500);
+            } else {
+                alert('Copied: ' + textToCopy);
+            }
+        }
+
+        function fallbackCopy(textToCopy, event) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopyFeedback(event, textToCopy);
+            } catch (err) {
+                console.error('Fallback copy failed:', err);
+                alert('Copy failed. Please copy manually: ' + textToCopy);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn && navLinks) {
+                const icon = mobileMenuBtn.querySelector('i');
+                
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (navLinks.classList.contains('active')) {
+                        const isClickInsideNav = navLinks.contains(e.target);
+                        const isClickOnButton = mobileMenuBtn.contains(e.target);
+                        
+                        if (!isClickInsideNav && !isClickOnButton) {
+                            navLinks.classList.remove('active');
+                            icon.classList.add('fa-bars');
+                            icon.classList.remove('fa-times');
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Handle header scroll effect
+        function handleHeaderScroll() {
+            const header = document.querySelector('header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initAnimations();
+            initMobileMenu();
+            initTableSorting();
+            initCommandToggle();
+            
+            // Add scroll event for header
+            window.addEventListener('scroll', handleHeaderScroll);
+        });
+        
+        // Command toggle functionality
+        function initCommandToggle() {
+            const toggleBtn = document.getElementById('commandToggle');
+            if (!toggleBtn) return;
+            
+            let isSlash = true; // Start with slash commands
+            const tables = document.querySelectorAll('.data-table');
+            
+            // Hide alias columns initially (slash mode)
+            tables.forEach(table => {
+                const aliasHeader = Array.from(table.querySelectorAll('th')).find(th => th.textContent.trim() === 'Aliases');
+                if (aliasHeader) {
+                    const aliasIndex = Array.from(aliasHeader.parentElement.children).indexOf(aliasHeader);
+                    aliasHeader.style.display = 'none';
+                    table.querySelectorAll('tbody tr').forEach(row => {
+                        if (row.children[aliasIndex]) {
+                            row.children[aliasIndex].style.display = 'none';
+                        }
+                    });
+                }
+            });
+            
+            toggleBtn.addEventListener('click', () => {
+                isSlash = !isSlash;
+                const cmdElements = document.querySelectorAll('.cmd-display');
+                
+                cmdElements.forEach(cmd => {
+                    const currentText = cmd.textContent;
+                    if (isSlash) {
+                        // Switch to slash
+                        cmd.textContent = currentText.replace('!', '/');
+                        toggleBtn.innerHTML = '<i class="fas fa-exchange-alt"></i> Switch to Prefix (!)';
+                    } else {
+                        // Switch to prefix
+                        cmd.textContent = currentText.replace('/', '!');
+                        toggleBtn.innerHTML = '<i class="fas fa-exchange-alt"></i> Switch to Slash (/)';
+                    }
+                });
+                
+                // Toggle alias column visibility
+                tables.forEach(table => {
+                    const aliasHeader = Array.from(table.querySelectorAll('th')).find(th => th.textContent.trim() === 'Aliases');
+                    if (aliasHeader) {
+                        const aliasIndex = Array.from(aliasHeader.parentElement.children).indexOf(aliasHeader);
+                        aliasHeader.style.display = isSlash ? 'none' : '';
+                        table.querySelectorAll('tbody tr').forEach(row => {
+                            if (row.children[aliasIndex]) {
+                                row.children[aliasIndex].style.display = isSlash ? 'none' : '';
+                            }
+                        });
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
