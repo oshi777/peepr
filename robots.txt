@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://peepr.netlify.app/sitemap.xml
