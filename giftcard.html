@@ -498,16 +498,8 @@
         } else if (durationParam === 'lifetime') {
             cardDuration.textContent = 'Lifetime Premium Access';
         } else {
-            // Fallback: check code content for old codes
-            const codeUpper = codeFromUrl.toUpperCase();
-            if (codeUpper.includes('7DAY') || codeUpper.includes('-7-') || codeUpper.includes('7D')) {
-                cardDuration.textContent = '7 Days Premium Access';
-            } else if (codeUpper.includes('LIFE')) {
-                cardDuration.textContent = 'Lifetime Premium Access';
-            } else {
-                // Default to 30 days if can't detect (most common case)
-                cardDuration.textContent = '30 Days Premium Access';
-            }
+            // No duration parameter - hide the duration text completely
+            cardDuration.style.display = 'none';
         }
         
         copyBtn.addEventListener('click', () => {
