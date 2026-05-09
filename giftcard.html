@@ -475,9 +475,11 @@
     </button>
 
     <script>
-        // Extract code from URL
-        const pathParts = window.location.pathname.split('/');
-        const codeFromUrl = pathParts[pathParts.length - 1] || 'NO-CODE-PROVIDED';
+        // Extract code and duration from URL
+        const pathParts = window.location.pathname.split('/').filter(p => p);
+        // pathParts will be like ['giftcard', 'CODE123', '7d'] or ['giftcard', 'CODE123']
+        const codeFromUrl = pathParts[1] || 'NO-CODE-PROVIDED';
+        const durationParam = pathParts[2] ? pathParts[2].toLowerCase() : null;
         
         const giftCode = document.getElementById('giftCode');
         const copyBtn = document.getElementById('copyBtn');
@@ -485,22 +487,29 @@
         const giftCard = document.getElementById('giftCard');
         const cardDuration = document.getElementById('cardDuration');
         
-        // Set the code from URL
+        // Set the code from URL (without the duration part)
         giftCode.textContent = codeFromUrl.toUpperCase();
         
-        // Detect duration from code format
-        // Format: XXXXXX-XXXXXX-7DAY-XXXXXX or XXXXXX-XXXXXX-30DAY-XXXXXX or XXXXXX-XXXXXX-LIFE-XXXXXX
-        const codeUpper = codeFromUrl.toUpperCase();
-        
-        if (codeUpper.includes('7DAY') || codeUpper.includes('-7-') || codeUpper.includes('7D')) {
+        // Detect duration from URL parameter first, then fallback to code content
+        if (durationParam === '7d') {
             cardDuration.textContent = '7 Days Premium Access';
-        } else if (codeUpper.includes('LIFE')) {
+        } else if (durationParam === '30d') {
+            cardDuration.textContent = '30 Days Premium Access';
+        } else if (durationParam === 'lifetime') {
             cardDuration.textContent = 'Lifetime Premium Access';
-        } else if (codeUpper.includes('30DAY') || codeUpper.includes('-30-') || codeUpper.includes('30D')) {
-            cardDuration.textContent = '30 Days Premium Access';
         } else {
-            // Default to 30 days if can't detect
-            cardDuration.textContent = '30 Days Premium Access';
+            // Fallback: check code content for old codes
+            const codeUpper = codeFromUrl.toUpperCase();
+            if (codeUpper.includes('7DAY') || codeUpper.includes('-7-') || codeUpper.includes('7D')) {
+                cardDuration.textContent = '7 Days Premium Access';
+            } else if (codeUpper.includes('LIFE')) {
+                cardDuration.textContent = 'Lifetime Premium Access';
+            } else if (codeUpper.includes('30DAY') || codeUpper.includes('-30-') || codeUpper.includes('30D')) {
+                cardDuration.textContent = '30 Days Premium Access';
+            } else {
+                // Default to 30 days if can't detect
+                cardDuration.textContent = '30 Days Premium Access';
+            }
         }
         
         copyBtn.addEventListener('click', () => {
