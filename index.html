@@ -1550,7 +1550,7 @@
         // Define command arrays
         let utilityCommands = [
             { icon: "img:peeper-images/commands/help.webp", name: "help", aliases: "!h, !cmd, !cmds", description: "Shows all available commands" },
-            { icon: "img:peeper-images/commands/vote.webp", name: "vote", aliases: "!v", description: "Vote for the bot to get rewards (see Vote section for details)<br><strong>Usage:</strong> /vote" },
+            { icon: "img:peeper-images/commands/vote.webp", name: "vote", aliases: "!v", description: "Vote for the bot to get rewards (12h cooldown per platform)<br><strong>Usage:</strong> /vote" },
             { icon: "img:peeper-images/commands/badges.webp", name: "badges", aliases: "!badge", description: "Show how to earn badges<br><strong>Usage:</strong> /badges" },
             { icon: "img:peeper-images/commands/bug.webp", name: "bug", aliases: "!report", description: "Report a Bug<br><strong>Usage:</strong> /bug" },
             { icon: "img:peeper-images/commands/announcement.webp", name: "announcement", aliases: "!ann", description: "Read the latest announcement<br><strong>Usage:</strong> /announcement" },
@@ -1571,7 +1571,6 @@
             { icon: "img:peeper-images/commands/leaderboard.webp", name: "leaderboard", aliases: "!lb, !l", description: "View wealth rankings<br><strong>Usage:</strong> /leaderboard" },
             { icon: "img:peeper-images/commands/inventorylb.webp", name: "inventorylb", aliases: "!ilb, !il", description: "View top collectors<br><strong>Usage:</strong> /inventorylb" },
             { icon: "img:peeper-images/commands/farmlb.webp", name: "farmlb", aliases: "!flb, !fl", description: "View farming profit leaderboard<br><strong>Usage:</strong> /farmlb" },
-            { icon: "img:peeper-images/commands/levellb.webp", name: "levellb", aliases: "!llb, !lvllb", description: "View top players by level<br><strong>Usage:</strong> /levellb" },
             { icon: "img:peeper-images/commands/shop.webp", name: "shop", aliases: "!s", description: "Browse available items<br><strong>Usage:</strong> /shop" },
             { icon: "img:peeper-images/commands/pay.webp", name: "pay @user amount", aliases: "!p", description: "Transfer money to another user<br><strong>Usage:</strong> /pay user: @User amount: 1000<br><strong>Example:</strong> /pay user: @JohnDoe amount: 5000" },
             { icon: "img:peeper-images/commands/buy.webp", name: "buy item [quantity]", aliases: "!by", description: "Purchase shop items<br><strong>Usage:</strong> /buy quantity: [number] (default: 1)<br>Then select an item from dropdown<br><strong>Example:</strong> /buy quantity: 2 → Select \"Diamond\"" },
@@ -1585,7 +1584,7 @@
             { icon: "img:peeper-images/commands/detect.webp", name: "detect", aliases: "!det", description: "Find hidden items (requires detector)<br><strong>Cooldown:</strong> 5 hours (30% reduced for Premium)<br><strong>Usage:</strong> /detect" },
 
             { icon: "img:peeper-images/commands/premium.webp", name: "premium", aliases: "!prem", description: "View premium benefits and status<br><strong>Usage:</strong> /premium" },
-            { icon: "img:peeper-images/commands/premiumdaily.webp", name: "premium_daily", aliases: "!pd", description: "Premium users: enhanced daily rewards<br><strong>Reward:</strong> 3,750 coins + bonus item<br><strong>Cooldown:</strong> 24 hours (30% reduced for Premium)<br><strong>Usage:</strong> /premium_daily" },
+            { icon: "img:peeper-images/commands/premiumdaily.webp", name: "premium_daily", aliases: "!pd", description: "Premium users: enhanced daily rewards (with Lucky Charm boost support)<br><strong>Reward:</strong> 3,750 coins + bonus item<br><strong>Cooldown:</strong> 24 hours (30% reduced for Premium)<br><strong>Usage:</strong> /premium_daily" },
             { icon: "img:peeper-images/commands/redeem.webp", name: "redeem &lt;code&gt;", aliases: "!redeemcode", description: "Activate premium with a code<br><strong>Usage:</strong> /redeem code: XXXX-XXXX-XXXX-XXXX-XXXX-XXXX<br><strong>Example:</strong> /redeem code: ABCD-1234-EFGH-5678-IJKL-9012" },
             { icon: "img:peeper-images/commands/peepmine.webp", name: "peepmine", aliases: "!pm", description: "Manage your PeepMine and earn peepcoins<br><strong>Usage:</strong> /peepmine" },
             { icon: "img:peeper-images/commands/peepminelb.webp", name: "peepminelb", aliases: "!pmlb, !minelb", description: "View the top PeepMine leaderboard<br><strong>Usage:</strong> /peepminelb" },

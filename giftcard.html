@@ -367,7 +367,7 @@
         <div class="card-left">
             <div class="card-title">Peeper Premium</div>
             <div class="card-subtitle">Unlock exclusive features and benefits with your premium membership</div>
-            <div class="card-value">30 Days Premium Access</div>
+            <div class="card-value" id="cardDuration">30 Days Premium Access</div>
             
             <div class="card-code-container">
                 <div class="card-code" id="giftCode">LOADING...</div>
@@ -483,9 +483,25 @@
         const copyBtn = document.getElementById('copyBtn');
         const downloadBtn = document.getElementById('downloadBtn');
         const giftCard = document.getElementById('giftCard');
+        const cardDuration = document.getElementById('cardDuration');
         
         // Set the code from URL
         giftCode.textContent = codeFromUrl.toUpperCase();
+        
+        // Detect duration from code format
+        // Format: XXXXXX-XXXXXX-7DAY-XXXXXX or XXXXXX-XXXXXX-30DAY-XXXXXX or XXXXXX-XXXXXX-LIFE-XXXXXX
+        const codeUpper = codeFromUrl.toUpperCase();
+        
+        if (codeUpper.includes('7DAY') || codeUpper.includes('-7-') || codeUpper.includes('7D')) {
+            cardDuration.textContent = '7 Days Premium Access';
+        } else if (codeUpper.includes('LIFE')) {
+            cardDuration.textContent = 'Lifetime Premium Access';
+        } else if (codeUpper.includes('30DAY') || codeUpper.includes('-30-') || codeUpper.includes('30D')) {
+            cardDuration.textContent = '30 Days Premium Access';
+        } else {
+            // Default to 30 days if can't detect
+            cardDuration.textContent = '30 Days Premium Access';
+        }
         
         copyBtn.addEventListener('click', () => {
             const code = giftCode.textContent.trim();
