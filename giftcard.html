@@ -504,10 +504,8 @@
                 cardDuration.textContent = '7 Days Premium Access';
             } else if (codeUpper.includes('LIFE')) {
                 cardDuration.textContent = 'Lifetime Premium Access';
-            } else if (codeUpper.includes('30DAY') || codeUpper.includes('-30-') || codeUpper.includes('30D')) {
-                cardDuration.textContent = '30 Days Premium Access';
             } else {
-                // Default to 30 days if can't detect
+                // Default to 30 days if can't detect (most common case)
                 cardDuration.textContent = '30 Days Premium Access';
             }
         }
