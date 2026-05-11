@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Program - Peeper Bot</title>
+    <meta name="description" content="Invite friends to Peeper and earn amazing rewards! Get premium days, cash, and exclusive items.">
+    <link rel="icon" href="peeper-images/peeper logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --base-dark: #0a0e27;
+            --secondary-dark: #1a1f3a;
+            --primary-blue: #2563eb;
+            --accent-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --glass: rgba(26, 31, 58, 0.8);
+            --text-light: #f8fafc;
+            --text-gray: #cbd5e1;
+            --gold: #fbbf24;
+            --green: #10b981;
+            --red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--base-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--text-light), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 50px;
+        }
+
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .step-card {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid var(--primary-blue);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .step-card h3 {
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+
+        .rewards-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .reward-tier {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .reward-tier:hover {
+            transform: translateX(10px);
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .tier-requirement {
+            background: var(--primary-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .reward-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .reward-item {
+            background: rgba(37, 99, 235, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .reward-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .reward-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .items-list {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+        .items-list h4 {
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 8px;
+        }
+
+        .item {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .requirements {
+            background: var(--secondary-dark);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid var(--red);
+        }
+
+        .requirements h2 {
+            color: var(--red);
+            margin-bottom: 15px;
+        }
+
+        .requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirements li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .requirements li:before {
+            content: '⚠️';
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            border-radius: 15px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .how-it-works {
+                grid-template-columns: 1fr;
+            }
+
+            .reward-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-users"></i> Referral Program</h1>
+        <p class="subtitle">Invite friends and earn amazing rewards together!</p>
+
+        <div class="glass">
+            <h2 style="margin-bottom: 20px;"><i class="fas fa-question-circle"></i> How It Works</h2>
+            <div class="how-it-works">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Get Your Code</h3>
+                    <p>Use <code>/referral</code> to get your unique referral code</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Share It</h3>
+                    <p>Share your code with friends who want to join Peeper</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>They Join</h3>
+                    <p>New users use <code>/join YOUR_CODE</code> to register</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Earn Rewards</h3>
+                    <p>Claim rewards with <code>/claim_referral</code> when you hit milestones</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass">
+            <h2 style="margin-bottom: 30px;"><i class="fas fa-gift"></i> Reward Tiers</h2>
+            <div class="rewards-grid">
+                <!-- 20 Referrals -->
+                <div class="reward-tier">
+                    <div class="tier-header">
+                        <span class="tier-name">Starter Bundle</span>
+                        <span class="tier-requirement">20 Referrals</span>
+                    </div>
+                    <div class="reward-details">
+                        <div class="reward-item">
+                            <div class="reward-label">Premium Days</div>
+                            <div class="reward-value">7 Days</div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-label">Cash Reward</div>
+                            <div class="reward-value">7,500 💰</div>
+                        </div>
+                    </div>
+                    <div class="items-list">
+                        <h4>Items Included:</h4>
+                        <div class="items-grid">
+                            <span class="item">1x XP Boost</span>
+                            <span class="item">1x Stamina Potion</span>
+                            <span class="item">1x Lucky Charm</span>
+                            <span class="item">2x Emerald</span>
+                            <span class="item">1x Ruby</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 50 Referrals -->
+                <div class="reward-tier">
+                    <div class="tier-header">
+                        <span class="tier-name">Growth Bundle</span>
+                        <span class="tier-requirement">50 Referrals</span>
+                    </div>
+                    <div class="reward-details">
+                        <div class="reward-item">
+                            <div class="reward-label">Premium Days</div>
+                            <div class="reward-value">20 Days</div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-label">Cash Reward</div>
+                            <div class="reward-value">17,500 💰</div>
+                        </div>
+                    </div>
+                    <div class="items-list">
+                        <h4>Items Included:</h4>
+                        <div class="items-grid">
+                            <span class="item">3x XP Boost</span>
+                            <span class="item">2x Stamina Potion</span>
+                            <span class="item">1x Robbery Potion</span>
+                            <span class="item">1x Safe Cracker</span>
+                            <span class="item">1x Vault Key</span>
+                            <span class="item">3x Diamond</span>
+                            <span class="item">4x Emerald</span>
+                            <span class="item">3x Ruby</span>
+                            <span class="item">2x Gold Bar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 100 Referrals -->
+                <div class="reward-tier">
+                    <div class="tier-header">
+                        <span class="tier-name">Elite Bundle</span>
+                        <span class="tier-requirement">100 Referrals</span>
+                    </div>
+                    <div class="reward-details">
+                        <div class="reward-item">
+                            <div class="reward-label">Premium Days</div>
+                            <div class="reward-value">50 Days</div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-label">Cash Reward</div>
+                            <div class="reward-value">37,500 💰</div>
+                        </div>
+                    </div>
+                    <div class="items-list">
+                        <h4>Items Included:</h4>
+                        <div class="items-grid">
+                            <span class="item">5x XP Boost</span>
+                            <span class="item">4x Stamina Potion</span>
+                            <span class="item">3x Robbery Potion</span>
+                            <span class="item">2x Safe Cracker</span>
+                            <span class="item">1x Vault Key</span>
+                            <span class="item">1x Time Turner</span>
+                            <span class="item">2x Lucky Charm</span>
+                            <span class="item">1x Protection Potion</span>
+                            <span class="item">6x Diamond</span>
+                            <span class="item">8x Emerald</span>
+                            <span class="item">6x Ruby</span>
+                            <span class="item">5x Gold Bar</span>
+                            <span class="item">3x Crystal Ball</span>
+                            <span class="item">4x Sapphire</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 120 Referrals -->
+                <div class="reward-tier">
+                    <div class="tier-header">
+                        <span class="tier-name">Master Bundle</span>
+                        <span class="tier-requirement">120 Referrals</span>
+                    </div>
+                    <div class="reward-details">
+                        <div class="reward-item">
+                            <div class="reward-label">Premium Days</div>
+                            <div class="reward-value">75 Days</div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-label">Cash Reward</div>
+                            <div class="reward-value">60,000 💰</div>
+                        </div>
+                    </div>
+                    <div class="items-list">
+                        <h4>Items Included:</h4>
+                        <div class="items-grid">
+                            <span class="item">8x XP Boost</span>
+                            <span class="item">6x Stamina Potion</span>
+                            <span class="item">4x Robbery Potion</span>
+                            <span class="item">3x Safe Cracker</span>
+                            <span class="item">2x Vault Key</span>
+                            <span class="item">2x Time Turner</span>
+                            <span class="item">3x Lucky Charm</span>
+                            <span class="item">2x Protection Potion</span>
+                            <span class="item">1x Pickaxe</span>
+                            <span class="item">1x Fishing Rod</span>
+                            <span class="item">1x Detector</span>
+                            <span class="item">10x Diamond</span>
+                            <span class="item">13x Emerald</span>
+                            <span class="item">10x Ruby</span>
+                            <span class="item">9x Gold Bar</span>
+                            <span class="item">5x Crystal Ball</span>
+                            <span class="item">8x Sapphire</span>
+                            <span class="item">6x Pearl</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 150 Referrals -->
+                <div class="reward-tier">
+                    <div class="tier-header">
+                        <span class="tier-name">Legend Bundle</span>
+                        <span class="tier-requirement">150 Referrals</span>
+                    </div>
+                    <div class="reward-details">
+                        <div class="reward-item">
+                            <div class="reward-label">Premium Days</div>
+                            <div class="reward-value">90 Days</div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-label">Cash Reward</div>
+                            <div class="reward-value">90,000 💰</div>
+                        </div>
+                    </div>
+                    <div class="items-list">
+                        <h4>Items Included:</h4>
+                        <div class="items-grid">
+                            <span class="item">10x XP Boost</span>
+                            <span class="item">9x Stamina Potion</span>
+                            <span class="item">6x Robbery Potion</span>
+                            <span class="item">4x Safe Cracker</span>
+                            <span class="item">3x Vault Key</span>
+                            <span class="item">3x Time Turner</span>
+                            <span class="item">4x Lucky Charm</span>
+                            <span class="item">3x Protection Potion</span>
+                            <span class="item">2x Pickaxe</span>
+                            <span class="item">2x Fishing Rod</span>
+                            <span class="item">2x Detector</span>
+                            <span class="item">3x Bankcard</span>
+                            <span class="item">15x Diamond</span>
+                            <span class="item">18x Emerald</span>
+                            <span class="item">15x Ruby</span>
+                            <span class="item">13x Gold Bar</span>
+                            <span class="item">8x Crystal Ball</span>
+                            <span class="item">10x Sapphire</span>
+                            <span class="item">9x Pearl</span>
+                            <span class="item">5x Ancient Coin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 175 Referrals -->
+                <div class="reward-tier">
+                    <div class="tier-header">
+                        <span class="tier-name">Champion Bundle</span>
+                        <span class="tier-requirement">175 Referrals</span>
+                    </div>
+                    <div class="reward-details">
+                        <div class="reward-item">
+                            <div class="reward-label">Premium Days</div>
+                            <div class="reward-value">110 Days</div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-label">Cash Reward</div>
+                            <div class="reward-value">125,000 💰</div>
+                        </div>
+                    </div>
+                    <div class="items-list">
+                        <h4>Items Included:</h4>
+                        <div class="items-grid">
+                            <span class="item">13x XP Boost</span>
+                            <span class="item">13x Stamina Potion</span>
+                            <span class="item">8x Robbery Potion</span>
+                            <span class="item">6x Safe Cracker</span>
+                            <span class="item">4x Vault Key</span>
+                            <span class="item">5x Time Turner</span>
+                            <span class="item">6x Lucky Charm</span>
+                            <span class="item">5x Protection Potion</span>
+                            <span class="item">3x Pickaxe</span>
+                            <span class="item">3x Fishing Rod</span>
+                            <span class="item">3x Detector</span>
+                            <span class="item">4x Bankcard</span>
+                            <span class="item">20x Diamond</span>
+                            <span class="item">25x Emerald</span>
+                            <span class="item">23x Ruby</span>
+                            <span class="item">18x Gold Bar</span>
+                            <span class="item">13x Crystal Ball</span>
+                            <span class="item">15x Sapphire</span>
+                            <span class="item">13x Pearl</span>
+                            <span class="item">8x Ancient Coin</span>
+                            <span class="item">2,500x PeepCoin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 200 Referrals -->
+                <div class="reward-tier">
+                    <div class="tier-header">
+                        <span class="tier-name">Ultimate Bundle</span>
+                        <span class="tier-requirement">200 Referrals</span>
+                    </div>
+                    <div class="reward-details">
+                        <div class="reward-item">
+                            <div class="reward-label">Premium Days</div>
+                            <div class="reward-value">150 Days</div>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-label">Cash Reward</div>
+                            <div class="reward-value">175,000 💰</div>
+                        </div>
+                    </div>
+                    <div class="items-list">
+                        <h4>Items Included:</h4>
+                        <div class="items-grid">
+                            <span class="item">18x XP Boost</span>
+                            <span class="item">18x Stamina Potion</span>
+                            <span class="item">10x Robbery Potion</span>
+                            <span class="item">9x Safe Cracker</span>
+                            <span class="item">6x Vault Key</span>
+                            <span class="item">8x Time Turner</span>
+                            <span class="item">9x Lucky Charm</span>
+                            <span class="item">8x Protection Potion</span>
+                            <span class="item">4x Pickaxe</span>
+                            <span class="item">4x Fishing Rod</span>
+                            <span class="item">4x Detector</span>
+                            <span class="item">6x Bankcard</span>
+                            <span class="item">30x Diamond</span>
+                            <span class="item">38x Emerald</span>
+                            <span class="item">35x Ruby</span>
+                            <span class="item">25x Gold Bar</span>
+                            <span class="item">20x Crystal Ball</span>
+                            <span class="item">23x Sapphire</span>
+                            <span class="item">20x Pearl</span>
+                            <span class="item">13x Ancient Coin</span>
+                            <span class="item">5,000x PeepCoin</span>
+                            <span class="item">25x Apple</span>
+                            <span class="item">10x Sword</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass requirements">
+            <h2><i class="fas fa-exclamation-triangle"></i> Important Requirements</h2>
+            <ul>
+                <li>You must have at least 50,000 earned balance to claim referral rewards</li>
+                <li>All your referred users must also have at least 50,000 earned balance</li>
+                <li>Referred users must have accounts older than 5 months (150 days) to prevent alt accounts</li>
+                <li>Money from trades and selling items doesn't count as "earned balance"</li>
+                <li>You cannot use your own referral code</li>
+                <li>Each user can only use one referral code</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Start Earning?</h2>
+            <p style="margin-bottom: 20px;">Join Peeper and get your referral code today!</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1383888170264957058" class="btn" target="_blank">
+                <i class="fas fa-robot"></i> Invite Peeper Bot
+            </a>
+        </div>
+    </div>
+</body>
+</html>

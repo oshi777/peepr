@@ -1248,24 +1248,28 @@
         <h2 class="section-title">Premium Perks</h2>
         <div class="premium-grid">
             <!-- Benefits Column - No Button -->
-            <div class="premium-benefits glass" style="height: 700px;">
+            <div class="premium-benefits glass" style="height: 700px; display: flex; flex-direction: column;">
                 <h3 style="margin-bottom: 15px;">Unlock Exclusive Benefits</h3>
-                <ul class="benefit-list">
+                <ul class="benefit-list" style="overflow-y: auto; flex: 1;">
                     <li>20% more XP from all commands</li>
                     <li>30% reduced cooldowns on all activities</li>
                     <li>Sell items for 100% value (vs 50%)</li>
                     <li>Premium daily command (3,750 + bonus item)</li>
                     <li>Special gold-colored economy embeds</li>
                     <li>Premium crown badge on your profile</li>
+                    <li>Higher weekly reward (25k vs 15k + Vault Key)</li>
+                    <li>Higher monthly reward (100k vs 60k + items)</li>
                     <li>Starter Pack when activating</li>
                     <li>10 farm plots instead of standard 5</li>
                     <li>20% faster crop growth and 10% more yield</li>
                     <li>15% bonus on PeepMine collection</li>
-                    <li>15% discount on PeepMine upgrades</li>
+                    <li>15% discount on PeepMine upgrades & miners</li>
                     <li>Higher miner cap (150 vs 100)</li>
-                    <li>Better prestige boost (+25% vs +20%)</li>
+                    <li>Higher prestige cap (7 vs 5)</li>
+                    <li>Better prestige boost (+25% vs +15% per level)</li>
                     <li>Prestige at level 90 (vs level 100)</li>
                     <li>Start with 2 miners after prestige (vs 1)</li>
+                    <li>Better starting rate (0.01 vs 0.007)</li>
                     <li>Higher storage capacity (2M vs 1M)</li>
                 </ul>
             </div>
@@ -1369,51 +1373,66 @@
                     <div class="bounty-card glass" style="flex: 1; min-width: 300px; max-width: 400px; display: flex; flex-direction: column;">
                         <h3>Top.gg Voting</h3>
                         <p>Vote on Top.gg to receive:</p>
-                        
                         <div class="bounty-rewards" style="padding: 15px 0; flex-grow: 1;">
                             <ul style="margin: 0; padding-left: 20px;">
-                                <li>15,000 Cash</li>
-                                <li>1x XP Boost</li>
-                                <li>1x Crystal Ball</li>
-                                <li>2x Apples</li>
-                                <li>1x Ruby</li>
-                                <li>1x Pearl</li>
-                                <li>2x Emeralds</li>
+                                <li>25,000 Cash</li>
+                                <li>4x XP Boost</li>
+                                <li>8x Apple</li>
+                                <li>5x Sword</li>
+                                <li>4x Ancient Coin</li>
+                                <li>2x Crystal Ball</li>
+                                <li>4x Emerald</li>
+                                <li>3x Sapphire</li>
+                                <li>2x Ruby</li>
+                                <li>2x Diamond</li>
                             </ul>
                         </div>
-                        
-                        <a href="https://top.gg/bot/1383888170264957058/vote" class="btn btn-primary" target="_blank" style="display: block; margin-top: 15px; text-align: center;">
+                        <a href="https://top.gg/bot/1383888170264957058" class="btn btn-primary" target="_blank" style="display: block; margin-top: 15px; text-align: center;">
                             <i class="fas fa-thumbs-up"></i> Vote on Top.gg
                         </a>
                     </div>
-                    
                     <!-- DBL Card -->
                     <div class="bounty-card glass" style="flex: 1; min-width: 300px; max-width: 400px; display: flex; flex-direction: column;">
                         <h3>Discord Bot List</h3>
                         <p>Vote on DBL to receive:</p>
-                        
                         <div class="bounty-rewards" style="padding: 15px 0; flex-grow: 1;">
                             <ul style="margin: 0; padding-left: 20px;">
-                                <li>12,000 Cash</li>
-                                <li>1x XP Boost</li>
-                                <li>1x Emerald</li>
-                                <li>1x Ancient Coin</li>
-                                <li>2x Apples</li>
-                                <li>1x Sapphire</li>
+                                <li>20,000 Cash</li>
+                                <li>3x XP Boost</li>
+                                <li>6x Apple</li>
+                                <li>4x Sword</li>
+                                <li>3x Ancient Coin</li>
+                                <li>3x Emerald</li>
+                                <li>2x Sapphire</li>
+                                <li>2x Diamond</li>
                             </ul>
                         </div>
-                        
                         <a href="https://discordbotlist.com/bots/peeper" class="btn btn-primary" target="_blank" style="display: block; margin-top: 15px; text-align: center;">
                             <i class="fas fa-thumbs-up"></i> Vote on DBL
                         </a>
+                    </div>
+                    <!-- Vote Streak Card -->
+                    <div class="bounty-card glass" style="flex: 1; min-width: 300px; max-width: 400px; display: flex; flex-direction: column;">
+                        <h3> Vote Streak Bonuses</h3>
+                        <p>Vote consistently to earn milestone bonuses!</p>
+                        <div class="bounty-rewards" style="padding: 15px 0; flex-grow: 1;">
+                            <ul style="margin: 0; padding-left: 20px;">
+                                <li><strong>7 days</strong> &mdash; 10,000 Cash + 2x Ruby</li>
+                                <li><strong>14 days</strong> &mdash; 25,000 Cash + 3x Emerald</li>
+                                <li><strong>30 days</strong> &mdash; 60,000 Cash + 1x Vault Key</li>
+                                <li><strong>60 days</strong> &mdash; 100,000 Cash + 1x Time Turner</li>
+                                <li><strong>100 days</strong> &mdash; 200,000 Cash + 2x Time Turner</li>
+                            </ul>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Vote every 12h to keep your streak. 24h grace window after cooldown expires.</p>
                     </div>
                 </div>
                 
                 <!-- Info Box -->
                 <div class="bounty-card glass" style="max-width: 800px; margin: 0 auto;">
                     <div style="display: flex; align-items: center; padding: 15px;">
-                        <div style="background: var(--primary-color); color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
-                            
+                        <div style="background: var(--primary-blue); color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                            <i class="fas fa-info-circle"></i>
                         </div>
                         <div>
                             Rewards are given automatically after a successful vote on either platform (12-hour cooldown per platform).
@@ -1550,11 +1569,13 @@
         // Define command arrays
         let utilityCommands = [
             { icon: "img:peeper-images/commands/help.webp", name: "help", aliases: "!h, !cmd, !cmds", description: "Shows all available commands" },
-            { icon: "img:peeper-images/commands/vote.webp", name: "vote", aliases: "!v", description: "Vote for the bot to get rewards (12h cooldown per platform)<br><strong>Usage:</strong> /vote" },
+            { icon: "img:peeper-images/commands/vote.webp", name: "vote", aliases: "!v", description: "Vote for the bot and earn streak bonuses! (12h cooldown per platform)<br><strong>Usage:</strong> /vote" },
             { icon: "img:peeper-images/commands/badges.webp", name: "badges", aliases: "!badge", description: "Show how to earn badges<br><strong>Usage:</strong> /badges" },
             { icon: "img:peeper-images/commands/bug.webp", name: "bug", aliases: "!report", description: "Report a Bug<br><strong>Usage:</strong> /bug" },
             { icon: "img:peeper-images/commands/announcement.webp", name: "announcement", aliases: "!ann", description: "Read the latest announcement<br><strong>Usage:</strong> /announcement" },
-            { icon: "img:peeper-images/commands/ping.webp", name: "ping", aliases: "-", description: "Check bot latency and response time<br><strong>Usage:</strong> /ping" }
+            { icon: "img:peeper-images/commands/ping.webp", name: "ping", aliases: "-", description: "Check bot latency and response time<br><strong>Usage:</strong> /ping" },
+            { icon: "img:peeper-images/commands/settings.webp", name: "settings", aliases: "!set", description: "Manage your notification settings (plant alerts, vote reward DMs, vote reminders, cooldown DMs, rob alerts, mine full alerts)<br><strong>Usage:</strong> /settings" },
+            { icon: "img:peeper-images/commands/cooldowns.webp", name: "cooldowns", aliases: "!cd, !cds", description: "Check your command cooldowns and when they expire<br><strong>Usage:</strong> /cooldowns" }
         ];
 
         let economyCommands = [
@@ -1564,34 +1585,35 @@
             { icon: "img:peeper-images/commands/harvest.webp", name: "harvest [plot_id]", aliases: "!hv", description: "Harvest ready crops" },
             { icon: "img:peeper-images/commands/crops.webp", name: "crops", aliases: "!mycrops", description: "View your growing crops" },
             { icon: "img:peeper-images/commands/boosts.webp", name: "boosts [@user]", aliases: "!boost", description: "View active boosts and remaining time" },
-            { icon: "img:peeper-images/commands/daily.webp", name: "daily", aliases: "!d", description: "Claim your daily money reward<br><strong>Reward:</strong> 2,500 coins (with potential boosts)<br><strong>Cooldown:</strong> 24 hours (30% reduced for Premium)" },
-            { icon: "img:peeper-images/commands/work.webp", name: "work", aliases: "!w", description: "Earn money through work<br><strong>Reward:</strong> 1,000 coins (with potential boosts)<br><strong>Cooldown:</strong> 6 hours (30% reduced for Premium)" },
-            { icon: "img:peeper-images/commands/deposit.webp", name: "deposit [amount|all]", aliases: "!dep", description: "Secure money in bank<br><strong>Usage:</strong> /deposit amount: 1000 or /deposit amount: all<br><strong>Example:</strong> /deposit amount: 5000" },
-            { icon: "img:peeper-images/commands/withdraw.webp", name: "withdraw [amount|all]", aliases: "!with", description: "Access bank funds<br><strong>Usage:</strong> /withdraw amount: 1000 or /withdraw amount: all<br><strong>Example:</strong> /withdraw amount: 3000" },
-            { icon: "img:peeper-images/commands/leaderboard.webp", name: "leaderboard", aliases: "!lb, !l", description: "View wealth rankings<br><strong>Usage:</strong> /leaderboard" },
-            { icon: "img:peeper-images/commands/inventorylb.webp", name: "inventorylb", aliases: "!ilb, !il", description: "View top collectors<br><strong>Usage:</strong> /inventorylb" },
-            { icon: "img:peeper-images/commands/farmlb.webp", name: "farmlb", aliases: "!flb, !fl", description: "View farming profit leaderboard<br><strong>Usage:</strong> /farmlb" },
-            { icon: "img:peeper-images/commands/shop.webp", name: "shop", aliases: "!s", description: "Browse available items<br><strong>Usage:</strong> /shop" },
-            { icon: "img:peeper-images/commands/pay.webp", name: "pay @user amount", aliases: "!p", description: "Transfer money to another user<br><strong>Usage:</strong> /pay user: @User amount: 1000<br><strong>Example:</strong> /pay user: @JohnDoe amount: 5000" },
-            { icon: "img:peeper-images/commands/buy.webp", name: "buy item [quantity]", aliases: "!by", description: "Purchase shop items<br><strong>Usage:</strong> /buy quantity: [number] (default: 1)<br>Then select an item from dropdown<br><strong>Example:</strong> /buy quantity: 2 → Select \"Diamond\"" },
-            { icon: "img:peeper-images/commands/sell.webp", name: "sell item [quantity]", aliases: "!sl", description: "Sell items for cash<br><strong>Usage:</strong> /sell quantity: [number] (default: 1)<br>Then select item to sell<br>Sells for 50% value (100% if Premium)<br><strong>Example:</strong> /sell quantity: 3 → Select \"Gold Bar\"" },
-            { icon: "img:peeper-images/commands/inventory.webp", name: "inventory [@user]", aliases: "!inv, !i", description: "View collected items<br><strong>Usage:</strong> /inventory user: @User (optional)<br><strong>Example:</strong> /inventory user: @JohnDoe" },
-            { icon: "img:peeper-images/commands/use.webp", name: "use item [quantity]", aliases: "!u", description: "Activate items<br><strong>Usage:</strong> /use quantity: [number] (default: 1)<br>Then select usable item from inventory<br><strong>Example:</strong> /use quantity: 1 → Select \"XP Boost\"" },
-            { icon: "img:peeper-images/commands/give.webp", name: "give @user item [quantity]", aliases: "!g", description: "Give an item to another user<br><strong>Usage:</strong> /give user: @Member quantity: [number]<br>Then select item from your inventory<br><strong>Example:</strong> /give user: @JohnDoe quantity: 1 → Select \"Ruby\"" },
-            { icon: "img:peeper-images/commands/rob.webp", name: "rob @user", aliases: "!r", description: "Attempt to steal from another user<br><strong>Usage:</strong> /rob user: @User<br><strong>Cooldown:</strong> 18 hours (30% reduced for Premium)<br><strong>Example:</strong> /rob user: @JohnDoe" },
-            { icon: "img:peeper-images/commands/fishing.webp", name: "fishing", aliases: "!fish", description: "Catch collectibles (requires rod)<br><strong>Cooldown:</strong> 4 hours (30% reduced for Premium)<br><strong>Usage:</strong> /fishing" },
-            { icon: "img:peeper-images/commands/mining.webp", name: "mining", aliases: "!mine", description: "Mine minerals (requires pickaxe)<br><strong>Cooldown:</strong> 5 hours (30% reduced for Premium)<br><strong>Usage:</strong> /mining" },
-            { icon: "img:peeper-images/commands/detect.webp", name: "detect", aliases: "!det", description: "Find hidden items (requires detector)<br><strong>Cooldown:</strong> 5 hours (30% reduced for Premium)<br><strong>Usage:</strong> /detect" },
-
-            { icon: "img:peeper-images/commands/premium.webp", name: "premium", aliases: "!prem", description: "View premium benefits and status<br><strong>Usage:</strong> /premium" },
-            { icon: "img:peeper-images/commands/premiumdaily.webp", name: "premium_daily", aliases: "!pd", description: "Premium users: enhanced daily rewards (with Lucky Charm boost support)<br><strong>Reward:</strong> 3,750 coins + bonus item<br><strong>Cooldown:</strong> 24 hours (30% reduced for Premium)<br><strong>Usage:</strong> /premium_daily" },
-            { icon: "img:peeper-images/commands/redeem.webp", name: "redeem &lt;code&gt;", aliases: "!redeemcode", description: "Activate premium with a code<br><strong>Usage:</strong> /redeem code: XXXX-XXXX-XXXX-XXXX-XXXX-XXXX<br><strong>Example:</strong> /redeem code: ABCD-1234-EFGH-5678-IJKL-9012" },
-            { icon: "img:peeper-images/commands/peepmine.webp", name: "peepmine", aliases: "!pm", description: "Manage your PeepMine and earn peepcoins<br><strong>Usage:</strong> /peepmine" },
-            { icon: "img:peeper-images/commands/peepminelb.webp", name: "peepminelb", aliases: "!pmlb, !minelb", description: "View the top PeepMine leaderboard<br><strong>Usage:</strong> /peepminelb" },
-            { icon: "img:peeper-images/commands/referral.webp", name: "referral", aliases: "!ref", description: "View your referral code and stats<br><strong>Usage:</strong> /referral" },
-            { icon: "img:peeper-images/commands/referralrewards.webp", name: "referral_rewards", aliases: "!refrewards", description: "View referral rewards<br><strong>Usage:</strong> /referral_rewards" },
-            { icon: "img:peeper-images/commands/join.webp", name: "join &lt;code&gt;", aliases: "!j", description: "Join using a referral code<br><strong>Usage:</strong> /join code: XXXX-XXXX" },
-            { icon: "img:peeper-images/commands/claimreferral.webp", name: "claim_referral", aliases: "!claimref", description: "Claim your referral rewards<br><strong>Usage:</strong> /claim_referral" }
+            { icon: "img:peeper-images/commands/daily.webp", name: "daily", aliases: "!d", description: "Claim your daily money reward<br><strong>Reward:</strong> 2,500 coins<br><strong>Cooldown:</strong> 24 hours (30% reduced for Premium)" },
+            { icon: "img:peeper-images/commands/work.webp", name: "work", aliases: "!w", description: "Earn money through work<br><strong>Reward:</strong> 1,000 coins<br><strong>Cooldown:</strong> 6 hours (30% reduced for Premium)" },
+            { icon: "img:peeper-images/commands/weekly.webp", name: "weekly", aliases: "!wk", description: "Claim your weekly reward (unlocks at 10,000 earned peepcash)<br><strong>Reward:</strong> 15,000 cash + items (25,000 for premium)<br><strong>Cooldown:</strong> 7 days" },
+            { icon: "img:peeper-images/commands/monthly.webp", name: "monthly", aliases: "!mo", description: "Claim your monthly reward (unlocks at 30,000 earned peepcash)<br><strong>Reward:</strong> 60,000 cash + items (100,000 for premium)<br><strong>Cooldown:</strong> 30 days" },
+            { icon: "img:peeper-images/commands/deposit.webp", name: "deposit [amount|all]", aliases: "!dep", description: "Secure money in bank" },
+            { icon: "img:peeper-images/commands/withdraw.webp", name: "withdraw [amount|all]", aliases: "!with", description: "Access bank funds" },
+            { icon: "img:peeper-images/commands/leaderboard.webp", name: "leaderboard", aliases: "!lb, !l", description: "View wealth rankings" },
+            { icon: "img:peeper-images/commands/inventorylb.webp", name: "inventorylb", aliases: "!ilb, !il", description: "View top collectors" },
+            { icon: "img:peeper-images/commands/farmlb.webp", name: "farmlb", aliases: "!flb, !fl", description: "View farming profit leaderboard" },
+            { icon: "img:peeper-images/commands/shop.webp", name: "shop", aliases: "!s", description: "Browse available items" },
+            { icon: "img:peeper-images/commands/pay.webp", name: "pay @user amount [cover_fee]", aliases: "!p", description: "Transfer money (min 100, 5% fee)<br><strong>Usage:</strong> /pay user: @User amount: 1000 cover_fee: True/False" },
+            { icon: "img:peeper-images/commands/buy.webp", name: "buy item [quantity]", aliases: "!by", description: "Purchase shop items" },
+            { icon: "img:peeper-images/commands/sell.webp", name: "sell item [quantity]", aliases: "!sl", description: "Sell items for cash (50% value, 100% for Premium)" },
+            { icon: "img:peeper-images/commands/inventory.webp", name: "inventory [@user]", aliases: "!inv, !i", description: "View collected items" },
+            { icon: "img:peeper-images/commands/use.webp", name: "use item [quantity]", aliases: "!u", description: "Activate items from your inventory" },
+            { icon: "img:peeper-images/commands/give.webp", name: "give @user item [quantity]", aliases: "!g", description: "Give an item to another user" },
+            { icon: "img:peeper-images/commands/rob.webp", name: "rob @user", aliases: "!r", description: "Attempt to steal from another user<br><strong>Cooldown:</strong> 18 hours (30% reduced for Premium)" },
+            { icon: "img:peeper-images/commands/fishing.webp", name: "fishing", aliases: "!fish", description: "Catch collectibles (requires rod)<br><strong>Cooldown:</strong> 4 hours (30% reduced for Premium)" },
+            { icon: "img:peeper-images/commands/mining.webp", name: "mining", aliases: "!mine", description: "Mine minerals (requires pickaxe)<br><strong>Cooldown:</strong> 5 hours (30% reduced for Premium)" },
+            { icon: "img:peeper-images/commands/detect.webp", name: "detect", aliases: "!det", description: "Find hidden items (requires detector)<br><strong>Cooldown:</strong> 5 hours (30% reduced for Premium)" },
+            { icon: "img:peeper-images/commands/premium.webp", name: "premium", aliases: "!prem", description: "View premium benefits and status" },
+            { icon: "img:peeper-images/commands/premiumdaily.webp", name: "premium_daily", aliases: "!pd", description: "Premium users: enhanced daily rewards<br><strong>Reward:</strong> 3,750 coins + bonus item<br><strong>Cooldown:</strong> 24 hours (30% reduced for Premium)" },
+            { icon: "img:peeper-images/commands/redeem.webp", name: "redeem &lt;code&gt;", aliases: "!redeemcode", description: "Activate premium with a code" },
+            { icon: "img:peeper-images/commands/peepmine.webp", name: "peepmine", aliases: "!pm", description: "Manage your PeepMine and earn peepcoins" },
+            { icon: "img:peeper-images/commands/peepminelb.webp", name: "peepminelb", aliases: "!pmlb, !minelb", description: "View the top PeepMine leaderboard" },
+            { icon: "img:peeper-images/commands/referral.webp", name: "referral", aliases: "!ref", description: "View your referral code and stats" },
+            { icon: "img:peeper-images/commands/referralrewards.webp", name: "referral_rewards", aliases: "!refrewards", description: "View referral reward tiers" },
+            { icon: "img:peeper-images/commands/join.webp", name: "join &lt;code&gt;", aliases: "!j", description: "Join using a referral code" },
+            { icon: "img:peeper-images/commands/claimreferral.webp", name: "claim_referral", aliases: "!claimref", description: "Claim your referral rewards" }
         ];
 
         let gameCommands = [
