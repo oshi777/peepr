@@ -55,6 +55,5 @@ const utilityCommands = [
     { icon: "img:peeper-images/commands/bug.webp", name: "bug", aliases: "!report", description: "Report a Bug and earn rewards" },
     { icon: "img:peeper-images/commands/announcement.webp", name: "announcement", aliases: "!ann", description: "Read the latest announcement" },
     { icon: "img:peeper-images/commands/ping.webp", name: "ping", aliases: "-", description: "Check bot latency and response time" },
-    { icon: "img:peeper-images/commands/settings.webp", name: "settings", aliases: "!set", description: "Manage your notification settings<br>Plant alerts, vote reminders, cooldown DMs, rob alerts, mine full alerts" },
     { icon: "img:peeper-images/commands/cooldowns.webp", name: "cooldowns", aliases: "!cd, !cds", description: "Check your command cooldowns and when they expire" }
 ];
