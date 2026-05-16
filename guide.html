@@ -10,8 +10,6 @@
     <meta name="msapplication-TileImage" content="peeper-images/peeper logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <style>
         :root {
             --header-offset: 100px;
@@ -351,7 +349,6 @@
             border-collapse: collapse;
             background: var(--base-dark);
             border-radius: 12px;
-            overflow: hidden;
         }
 
         .data-table th,
@@ -367,6 +364,7 @@
             font-weight: 700;
             position: sticky;
             top: 0;
+            z-index: 2;
             transition: background-color 0.2s;
         }
 
@@ -840,9 +838,9 @@
                 <div class="nav-links">
                     <a href="index.html#commands">Commands</a>
                     <a href="guide.html">Guide</a>
-                    <a href="index.html">Premium</a>
-                    <a href="index.html">Vote</a>
-                    <a href="index.html">Bug Bounty</a>
+                    <a href="index.html#premium">Premium</a>
+                    <a href="index.html#vote">Vote</a>
+                    <a href="index.html#bug-bounty">Bug Bounty</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="privacy.html">Privacy Policy</a>
                 </div>
@@ -881,7 +879,7 @@
                     <p>You begin with <span class="highlight">100 cash</span>. Use these commands immediately:</p>
                     <p><span class="command">/daily</span> - Claim <span class="highlight">2,500 cash</span> every 24h (16.8h premium)</p>
                     <p><span class="command">/work</span> - Earn <span class="highlight">1,000 cash</span> every 6h (4.2h premium)</p>
-                    <p><span class="command">/vote</span> - Get <span class="highlight">15k-27k cash + items</span> every 12h per platform</p>
+                    <p><span class="command">/vote</span> - Top.gg: <span class="highlight">25,000 cash + items</span> | DBL: <span class="highlight">20,000 cash + items</span> (12h cooldown per platform)</p>
                     <p><span class="highlight-green">Tip:</span> Vote on both platforms daily for maximum rewards!</p>
                 </div>
                 <div class="tip-card">
@@ -914,59 +912,59 @@
                         <p><strong style="color: var(--primary-blue);"><i class="fas fa-fire"></i> Vote Streak System:</strong></p>
                         <p style="margin-top: 10px;">Build your streak by voting consistently to earn milestone bonuses every day up to 50 days with progressively increasing rewards:</p>
                         
+                        <p style="color: var(--gold); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-calendar-day" style="margin-right:6px;"></i> Daily Milestone Rewards:</p>
                         <div style="margin-top: 15px; max-height: 400px; overflow-y: auto; padding: 15px; background: rgba(10, 14, 39, 0.5); border-radius: 8px; border: 1px solid rgba(37, 99, 235, 0.2);">
-                            <p style="color: var(--gold); font-weight: 600; margin-bottom: 10px;">📅 Daily Milestone Rewards:</p>
                             <ul style="margin-left: 20px; color: var(--text-gray); line-height: 1.8; list-style: none;">
-                                <li>🍎 <strong>Day 1:</strong> 10,000 Cash + 1x Apple</li>
-                                <li>🍎 <strong>Day 2:</strong> 12,000 Cash + 2x Apple</li>
-                                <li>🍎 <strong>Day 3:</strong> 14,000 Cash + 3x Apple</li>
-                                <li>🍎 <strong>Day 4:</strong> 16,000 Cash + 4x Apple</li>
-                                <li>🍎 <strong>Day 5:</strong> 18,000 Cash + 5x Apple</li>
-                                <li>🍎 <strong>Day 6:</strong> 20,000 Cash + 6x Apple</li>
-                                <li>🍎 <strong>Day 7:</strong> 22,000 Cash + 7x Apple</li>
-                                <li>🍎 <strong>Day 8:</strong> 24,000 Cash + 8x Apple</li>
-                                <li>🍎 <strong>Day 9:</strong> 26,000 Cash + 9x Apple</li>
-                                <li>🍎 <strong>Day 10:</strong> 28,000 Cash + 10x Apple</li>
-                                <li>💎 <strong>Day 11:</strong> 28,000 Cash + 1x Emerald</li>
-                                <li>💎 <strong>Day 12:</strong> 31,000 Cash + 2x Emerald</li>
-                                <li>💎 <strong>Day 13:</strong> 34,000 Cash + 3x Emerald</li>
-                                <li>💎 <strong>Day 14:</strong> 37,000 Cash + 4x Emerald</li>
-                                <li>💎 <strong>Day 15:</strong> 40,000 Cash + 5x Emerald</li>
-                                <li>💎 <strong>Day 16:</strong> 43,000 Cash + 6x Emerald</li>
-                                <li>💎 <strong>Day 17:</strong> 46,000 Cash + 7x Emerald</li>
-                                <li>💎 <strong>Day 18:</strong> 49,000 Cash + 8x Emerald</li>
-                                <li>💎 <strong>Day 19:</strong> 52,000 Cash + 9x Emerald</li>
-                                <li>💎 <strong>Day 20:</strong> 55,000 Cash + 10x Emerald</li>
-                                <li>💠 <strong>Day 21:</strong> 54,000 Cash + 1x Sapphire</li>
-                                <li>💠 <strong>Day 22:</strong> 58,000 Cash + 2x Sapphire</li>
-                                <li>💠 <strong>Day 23:</strong> 62,000 Cash + 3x Sapphire</li>
-                                <li>💠 <strong>Day 24:</strong> 66,000 Cash + 4x Sapphire</li>
-                                <li>💠 <strong>Day 25:</strong> 70,000 Cash + 5x Sapphire</li>
-                                <li>💠 <strong>Day 26:</strong> 74,000 Cash + 6x Sapphire</li>
-                                <li>💠 <strong>Day 27:</strong> 78,000 Cash + 7x Sapphire</li>
-                                <li>💠 <strong>Day 28:</strong> 82,000 Cash + 8x Sapphire</li>
-                                <li>💠 <strong>Day 29:</strong> 86,000 Cash + 9x Sapphire</li>
-                                <li>💠 <strong>Day 30:</strong> 90,000 Cash + 10x Sapphire</li>
-                                <li>💖 <strong>Day 31:</strong> 90,000 Cash + 1x Ruby</li>
-                                <li>💖 <strong>Day 32:</strong> 95,000 Cash + 2x Ruby</li>
-                                <li>💖 <strong>Day 33:</strong> 100,000 Cash + 3x Ruby</li>
-                                <li>💖 <strong>Day 34:</strong> 105,000 Cash + 4x Ruby</li>
-                                <li>💖 <strong>Day 35:</strong> 110,000 Cash + 5x Ruby</li>
-                                <li>💖 <strong>Day 36:</strong> 115,000 Cash + 6x Ruby</li>
-                                <li>💖 <strong>Day 37:</strong> 120,000 Cash + 7x Ruby</li>
-                                <li>💖 <strong>Day 38:</strong> 125,000 Cash + 8x Ruby</li>
-                                <li>💖 <strong>Day 39:</strong> 130,000 Cash + 9x Ruby</li>
-                                <li>💖 <strong>Day 40:</strong> 135,000 Cash + 10x Ruby</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 41:</strong> 137,000 Cash + 1x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 42:</strong> 144,000 Cash + 2x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 43:</strong> 151,000 Cash + 3x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 44:</strong> 158,000 Cash + 4x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 45:</strong> 165,000 Cash + 5x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 46:</strong> 172,000 Cash + 6x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 47:</strong> 179,000 Cash + 7x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 48:</strong> 186,000 Cash + 8x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 49:</strong> 193,000 Cash + 9x Diamond</li>
-                                <li style="color: var(--gold);">💎 <strong>Day 50:</strong> 200,000 Cash + 10x Diamond</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 1:</strong> 10,000 Cash + 1x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 2:</strong> 12,000 Cash + 2x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 3:</strong> 14,000 Cash + 3x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 4:</strong> 16,000 Cash + 4x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 5:</strong> 18,000 Cash + 5x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 6:</strong> 20,000 Cash + 6x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 7:</strong> 22,000 Cash + 7x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 8:</strong> 24,000 Cash + 8x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 9:</strong> 26,000 Cash + 9x Apple</li>
+                                <li><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 10:</strong> 28,000 Cash + 10x Apple</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 11:</strong> 28,000 Cash + 1x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 12:</strong> 31,000 Cash + 2x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 13:</strong> 34,000 Cash + 3x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 14:</strong> 37,000 Cash + 4x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 15:</strong> 40,000 Cash + 5x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 16:</strong> 43,000 Cash + 6x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 17:</strong> 46,000 Cash + 7x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 18:</strong> 49,000 Cash + 8x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 19:</strong> 52,000 Cash + 9x Emerald</li>
+                                <li><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 20:</strong> 55,000 Cash + 10x Emerald</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 21:</strong> 54,000 Cash + 1x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 22:</strong> 58,000 Cash + 2x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 23:</strong> 62,000 Cash + 3x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 24:</strong> 66,000 Cash + 4x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 25:</strong> 70,000 Cash + 5x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 26:</strong> 74,000 Cash + 6x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 27:</strong> 78,000 Cash + 7x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 28:</strong> 82,000 Cash + 8x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 29:</strong> 86,000 Cash + 9x Sapphire</li>
+                                <li><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 30:</strong> 90,000 Cash + 10x Sapphire</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 31:</strong> 90,000 Cash + 1x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 32:</strong> 95,000 Cash + 2x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 33:</strong> 100,000 Cash + 3x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 34:</strong> 105,000 Cash + 4x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 35:</strong> 110,000 Cash + 5x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 36:</strong> 115,000 Cash + 6x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 37:</strong> 120,000 Cash + 7x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 38:</strong> 125,000 Cash + 8x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 39:</strong> 130,000 Cash + 9x Ruby</li>
+                                <li><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 40:</strong> 135,000 Cash + 10x Ruby</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 41:</strong> 137,000 Cash + 1x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 42:</strong> 144,000 Cash + 2x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 43:</strong> 151,000 Cash + 3x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 44:</strong> 158,000 Cash + 4x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 45:</strong> 165,000 Cash + 5x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 46:</strong> 172,000 Cash + 6x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 47:</strong> 179,000 Cash + 7x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 48:</strong> 186,000 Cash + 8x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 49:</strong> 193,000 Cash + 9x Diamond</li>
+                                <li style="color: var(--gold);"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;"> <strong>Day 50:</strong> 200,000 Cash + 10x Diamond</li>
                             </ul>
                         </div>
                         
@@ -981,6 +979,54 @@
                         <p style="margin-top: 10px;"><span class="highlight-red">Important:</span> You must complete all 4 votes (2 on each platform) within a day to maintain your streak!</p>
                     </div>
                 </div>
+                <div class="tip-card" style="grid-column: 1 / -1; background: rgba(251, 191, 36, 0.08); border-color: rgba(251, 191, 36, 0.35);">
+                    <h3><img src="peeper-images/other/gift.webp" alt="gift" style="width:22px;height:22px;vertical-align:middle;margin-right:6px;">Random Item Drops</h3>
+                    <p>Peeper occasionally drops a <strong>free item</strong> directly in your server's chat. keep an eye out!</p>
+                    <p style="margin-top: 8px;">When a drop appears, click <strong>Claim Drop!</strong> before anyone else does to add it to your inventory. First come, first served. Drops expire after <strong>20 minutes</strong>.</p>
+                    <p style="margin-top: 8px;"><span class="highlight-green">Tip:</span> Drops can be anything from common collectibles to rare tools and upgrades. The timing is undisclosed, just stay active!</p>
+
+                    <!-- Drop chances table -->
+                    <div style="margin-top: 16px;">
+                        <p style="color: var(--gold); font-weight: 600; margin-bottom: 10px;">🎲 Item Drop Chances</p>
+                        <div class="table-container" style="max-height: 260px; overflow-y: auto; position: relative;">
+                            <table class="data-table" style="font-size: 0.82rem;">
+                                <thead>
+                                    <tr>
+                                        <th style="padding: 8px 12px;">Tier</th>
+                                        <th style="padding: 8px 12px;">Item</th>
+                                        <th style="padding: 8px 12px;">Chance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#60a5fa;box-shadow:0 0 5px #60a5fa;"></span>Common</td><td style="padding:6px 12px;"><img src="peeper-images/shop/apple.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Apple</td><td style="padding:6px 12px;">18.13%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#60a5fa;box-shadow:0 0 5px #60a5fa;"></span>Common</td><td style="padding:6px 12px;"><img src="peeper-images/shop/sword.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Sword</td><td style="padding:6px 12px;">12.08%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#60a5fa;box-shadow:0 0 5px #60a5fa;"></span>Common</td><td style="padding:6px 12px;"><img src="peeper-images/shop/ancientcoin.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Ancient Coin</td><td style="padding:6px 12px;">9.06%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#60a5fa;box-shadow:0 0 5px #60a5fa;"></span>Common</td><td style="padding:6px 12px;"><img src="peeper-images/shop/peepcoin.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Peepcoin</td><td style="padding:6px 12px;">7.55%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#34d399;box-shadow:0 0 5px #34d399;"></span>Uncommon</td><td style="padding:6px 12px;"><img src="peeper-images/shop/animated/5129-lightning-bolt.gif" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">XP Boost</td><td style="padding:6px 12px;">4.23%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#34d399;box-shadow:0 0 5px #34d399;"></span>Uncommon</td><td style="padding:6px 12px;"><img src="peeper-images/shop/diamond.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Diamond</td><td style="padding:6px 12px;">6.04%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#34d399;box-shadow:0 0 5px #34d399;"></span>Uncommon</td><td style="padding:6px 12px;"><img src="peeper-images/shop/gold bar.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Gold Bar</td><td style="padding:6px 12px;">5.44%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#34d399;box-shadow:0 0 5px #34d399;"></span>Uncommon</td><td style="padding:6px 12px;"><img src="peeper-images/shop/pearl.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Pearl</td><td style="padding:6px 12px;">4.53%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#34d399;box-shadow:0 0 5px #34d399;"></span>Uncommon</td><td style="padding:6px 12px;"><img src="peeper-images/shop/stamina potion.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Stamina Potion</td><td style="padding:6px 12px;">3.63%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#34d399;box-shadow:0 0 5px #34d399;"></span>Uncommon</td><td style="padding:6px 12px;"><img src="peeper-images/shop/sapphire.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Sapphire</td><td style="padding:6px 12px;">3.93%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-c" style="background:#34d399;box-shadow:0 0 5px #34d399;"></span>Uncommon</td><td style="padding:6px 12px;"><img src="peeper-images/shop/emerald.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Emerald</td><td style="padding:6px 12px;">3.63%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/luckycharm.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Lucky Charm</td><td style="padding:6px 12px;">3.02%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/crystal ball.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Crystal Ball</td><td style="padding:6px 12px;">3.02%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/robbery potion.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Robbery Potion</td><td style="padding:6px 12px;">2.72%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/ruby.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Ruby</td><td style="padding:6px 12px;">2.42%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/bankcard.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Safe Cracker</td><td style="padding:6px 12px;">2.42%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/protection potion.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Protection Potion</td><td style="padding:6px 12px;">2.11%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/pickaxe.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Pickaxe</td><td style="padding:6px 12px;">1.51%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/fIshing rod.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Fishing Rod</td><td style="padding:6px 12px;">1.51%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-b"></span>Rare</td><td style="padding:6px 12px;"><img src="peeper-images/shop/detector.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Detector</td><td style="padding:6px 12px;">1.21%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-s"></span>Epic</td><td style="padding:6px 12px;"><img src="peeper-images/shop/bankcard.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Bank Card</td><td style="padding:6px 12px;">0.91%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-s"></span>Epic</td><td style="padding:6px 12px;"><img src="peeper-images/shop/animated/Time Turner.gif" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Time Turner</td><td style="padding:6px 12px;">0.60%</td></tr>
+                                    <tr><td style="padding:6px 12px;"><span class="tier tier-s"></span>Epic</td><td style="padding:6px 12px;"><img src="peeper-images/shop/vault key.webp" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;">Vault Key</td><td style="padding:6px 12px;">0.30%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="tip-card" style="grid-column: 1 / -1;">
                     <h3><i class="fas fa-shield-alt"></i> Safety First</h3>
                     <p><strong>Never carry large amounts of cash!</strong> Robberies can steal up to <span class="highlight-red">40% of your cash</span>, always deposit immediately after earning.</p>
@@ -1286,57 +1332,6 @@
     </footer>
 
     <script>
-        // Initialize animations with GSAP
-        function initAnimations() {
-            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-                console.warn('GSAP not loaded, skipping animations');
-                return;
-            }
-            
-            try {
-                // Register ScrollTrigger plugin
-                gsap.registerPlugin(ScrollTrigger);
-                
-                // Hero text animation
-                gsap.from('.hero-content', {
-                    duration: 1,
-                    y: 50,
-                    opacity: 0,
-                    ease: 'power3.out'
-                });
-                
-                // Section animations
-                gsap.utils.toArray('.section').forEach((section, index) => {
-                    gsap.from(section, {
-                        duration: 0.8,
-                        y: 40,
-                        opacity: 0,
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 80%',
-                            once: true
-                        }
-                    });
-                });
-                
-                // Tip cards animation
-                gsap.utils.toArray('.tip-card').forEach((card, index) => {
-                    gsap.from(card, {
-                        duration: 0.6,
-                        y: 30,
-                        opacity: 0,
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 85%',
-                            once: true
-                        }
-                    });
-                });
-            } catch (error) {
-                console.error('Animation error:', error);
-            }
-        }
-
         // Debounced scroll handler
         function debounce(func, wait) {
             let timeout;
@@ -1492,7 +1487,6 @@
 
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', () => {
-            initAnimations();
             initMobileMenu();
             initTableSorting();
             initCommandToggle();
