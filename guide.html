@@ -71,7 +71,10 @@
             width: 100%;
             z-index: 1000;
             padding: 15px 0;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         header.scrolled {
@@ -1286,6 +1289,70 @@
         </div>
 
 
+        <!-- Earned Cash Section -->
+        <div class="section" id="earned-cash">
+            <h2><i class="fas fa-chart-line"></i> Earned Cash</h2>
+            <p style="color: var(--text-gray); margin-bottom: 25px;">
+                <strong>Earned Cash</strong> is a separate tracker that only counts cash you <em>actively earned</em> through gameplay. Not cash received from other players, or selling items.
+            
+            </p>
+
+            <div class="tip-grid">
+
+                <div class="tip-card" style="grid-column: 1 / -1; border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.07);">
+                    <h3><i class="fas fa-check-circle" style="color:#4ade80;"></i> Commands That Count</h3>
+                    <p style="margin-bottom: 16px;">These commands add to your Earned Cash total:</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px;">
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><span class="command">/daily</span></p>
+                            <p>2,500 cash every 24h</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><span class="command">/work</span></p>
+                            <p>1,000 cash every 6h</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><span class="command">/premium daily</span></p>
+                            <p>3,750 cash every 24h</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><span class="command">/weekly</span></p>
+                            <p>Large cash reward every 7 days</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><span class="command">/monthly</span></p>
+                            <p>Large cash reward every 30 days</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><span class="command">/harvest</span></p>
+                            <p>Crop yield from farming</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><span class="command">/use lucky charm</span></p>
+                            <p>Cash bonus on use</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><i class="fas fa-fire" style="color:#f97316;"></i> Vote streak milestones</p>
+                            <p>Cash reward on each streak day</p>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px;">
+                            <p style="font-weight:600; color: var(--text-light); margin-bottom: 6px;"><i class="fas fa-arrow-up" style="color:#4ade80;"></i> Level-up rewards</p>
+                            <p>Cash granted when levelling up</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card" style="grid-column: 1 / -1; background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.3);">
+                    <h3><i class="fas fa-lightbulb"></i> How to Check Your Earned Cash</h3>
+                    <p>Use <span class="command">/balance</span> or <span class="command">/profile</span></p>
+                    <p style="margin-top: 10px;"><span class="highlight-green">Tip:</span> The fastest way to build Earned Cash is to run <span class="command">/daily</span>, <span class="command">/work</span>, and <span class="command">/vote</span> consistently every day. Farming with <span class="command">/harvest</span> also contributes significantly over time.</p>
+                    <p style="margin-top: 10px;"><span class="highlight-red">Note:</span> Earned Cash never decreases. Spending, losing to robbery, or paying other users has no effect on it.</p>
+                </div>
+
+            </div>
+        </div>
+
+
     </div>
     </main>
 
@@ -1491,6 +1558,9 @@
             initTableSorting();
             initCommandToggle();
             
+            // Set correct header state immediately on load
+            handleHeaderScroll();
+
             // Add scroll event for header
             window.addEventListener('scroll', handleHeaderScroll);
         });
